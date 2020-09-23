@@ -33,11 +33,29 @@ public class User {
     @Column(name = "USR_IS_PHOTOGRAPHER")
     private boolean isPhotographer;
 
+    @Column(name = "USR_BIOGRAPHY")
+    private String biography;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    List<Appointment> appointments;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    List<Rating> ratings;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    List<Post> posts;
+
     public User() {
     }
 
+    public User(List<Appointment> appointments, List<Rating> ratings, List<Post> posts) {
+        this.appointments = appointments;
+        this.ratings = ratings;
+        this.posts = posts;
+    }
+
     public User(String firstName, String lastName, String eMail, String city,
-                String country, boolean isModel, boolean isPhotographer) {
+                String country, boolean isModel, boolean isPhotographer, String biography) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.eMail = eMail;
@@ -45,6 +63,23 @@ public class User {
         this.country = country;
         this.isModel = isModel;
         this.isPhotographer = isPhotographer;
+        this.biography = biography;
+    }
+
+    public List<Appointment> getAppointments() {
+        return appointments;
+    }
+
+    public void setAppointments(List<Appointment> appointments) {
+        this.appointments = appointments;
+    }
+
+    public List<Rating> getRatings() {
+        return ratings;
+    }
+
+    public void setRatings(List<Rating> ratings) {
+        this.ratings = ratings;
     }
 
     public Long getId() {
@@ -107,6 +142,14 @@ public class User {
         isPhotographer = photographer;
     }
 
+    public String getBiography() {
+        return biography;
+    }
+
+    public void setBiography(String biography) {
+        this.biography = biography;
+    }
+
     @Override
     public String toString() {
         return "User{" +
@@ -117,7 +160,11 @@ public class User {
                 ", city='" + city + '\'' +
                 ", country='" + country + '\'' +
                 ", isModel=" + isModel +
-                ", isPhotograph=" + isPhotographer +
+                ", isPhotographer=" + isPhotographer +
+                ", biography='" + biography + '\'' +
+                ", appointments=" + appointments +
+                ", ratings=" + ratings +
+                ", posts=" + posts +
                 '}';
     }
 }
