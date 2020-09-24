@@ -22,6 +22,10 @@ public class Photoshoot {
     @OneToMany(mappedBy = "photoshoot", cascade = CascadeType.ALL)
     List<Appointment> appointments;
 
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "PHOTOSHT_LOC_ID")
+    private Location location;
+
     public Photoshoot() {
     }
 
@@ -29,9 +33,10 @@ public class Photoshoot {
         this.appointments = appointments;
     }
 
-    public Photoshoot(String title, Date date) {
+    public Photoshoot(String title, Date date, Location location) {
         this.title = title;
         this.date = date;
+        this.location = location;
     }
 
     public List<Appointment> getAppointments() {
@@ -40,6 +45,10 @@ public class Photoshoot {
 
     public void setAppointments(List<Appointment> appointments) {
         this.appointments = appointments;
+    }
+
+    public Photoshoot(Location location) {
+        this.location = location;
     }
 
     public Long getId() {
@@ -69,6 +78,7 @@ public class Photoshoot {
                 ", title='" + title + '\'' +
                 ", date=" + date +
                 ", appointments=" + appointments +
+                ", location=" + location +
                 '}';
     }
 }
