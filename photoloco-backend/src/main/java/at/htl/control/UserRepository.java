@@ -16,4 +16,19 @@ public class UserRepository implements PanacheRepository<User> {
         return find("name", name).firstResult();
     }
 
+    public User update(User user, Long id) {
+        User u = findById(id);
+        if(u != null){
+            u.setFirstName(user.getFirstName());
+            u.setLastName(user.getLastName());
+            u.seteMail(user.geteMail());
+            u.setCountry(user.getCountry());
+            u.setCity(user.getCity());
+            u.setBiography(user.getBiography());
+            u.setModel(user.isModel());
+            u.setPhotographer(user.isPhotographer());
+            return u;
+        } else return null;
+    }
+
 }
