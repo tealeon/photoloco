@@ -5,6 +5,7 @@ import at.htl.entity.User;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
+import javax.json.JsonObject;
 import javax.transaction.Transactional;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -53,4 +54,30 @@ public class UserEndpoint {
         }
     }
 
+    @PUT
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Path("/update/{id}")
+    public Response updateUser(@PathParam("id") Long id, JsonObject jsonObject) {
+        User user = getUserFromJson(jsonObject);
+        User u = userRepository.update(user, id);
+        if (u != null) {
+            return Response.ok(u).build();
+        } else {
+            return Response.noContent().build();
+        }
+    }
+
+    private User getUserFromJson(JsonObject jsonObject) {
+        User user = new User();
+        user.setFirstName(jsonObject.getString("firstName"));
+        user.setLastName(jsonObject.getString("lastName"));
+        user.setBiography(jsonObject.getString("biography"));
+        user.setCity(jsonObject.getString("city"));
+        user.setCountry(jsonObject.getString("country"));
+        user.seteMail(jsonObject.getString("eMail"));
+        user.setModel(jsonObject.getBoolean("isModel"));
+        user.setPhotographer(jsonObject.getBoolean("isPhotographer"));
+        return user;
+    }
 }
