@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 // @ts-ignore
-import { CreateUserComponent } from './user/create-user/create-user.component';
+import { CreateUserComponent } from './modules/user/components/create-user/create-user.component';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
