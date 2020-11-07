@@ -1,26 +1,23 @@
-package at.htl.entity;
+package at.htl.photoloco.entity;
+
+import io.quarkus.hibernate.orm.panache.PanacheEntity;
 
 import javax.persistence.*;
 
 @Entity
 @Table(name = "RATING")
-public class Rating {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "RTG_ID")
-    private Long id;
+public class Rating extends PanacheEntity {
 
     @Column(name = "RTG_VALUE")
-    private long value;
+    public long value;
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "RTG_POST_ID")
-    private Post post;
+    public Post post;
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "RTG_USR_ID")
-    private User user;
+    public User user;
 
     public Rating() {
     }

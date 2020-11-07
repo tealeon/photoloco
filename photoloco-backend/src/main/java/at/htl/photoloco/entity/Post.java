@@ -1,4 +1,6 @@
-package at.htl.entity;
+package at.htl.photoloco.entity;
+
+import io.quarkus.hibernate.orm.panache.PanacheEntity;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -6,31 +8,26 @@ import java.util.List;
 
 @Entity
 @Table(name = "POST")
-public class Post {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "POST_ID")
-    private Long id;
+public class Post extends PanacheEntity {
 
     @Column(name = "POST_TITLE")
-    private String title;
+    public String title;
 
     @Column(name = "POST_DESCRIPTION")
-    private String description;
+    public String description;
 
     @Column(name = "POST_IMG_URL")
-    private String imgUrl;
+    public String imgUrl;
 
     @Column(name = "POST_UPLOAD_DATE")
-    private Date uploadDate;
+    public Date uploadDate;
 
     @OneToMany(mappedBy = "post", cascade = CascadeType.ALL)
     List<Rating> ratings;
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "POST_USR_ID")
-    private User user;
+    public User user;
 
     public Post() {
     }

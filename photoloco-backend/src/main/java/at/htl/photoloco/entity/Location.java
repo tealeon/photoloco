@@ -1,25 +1,22 @@
-package at.htl.entity;
+package at.htl.photoloco.entity;
+
+import io.quarkus.hibernate.orm.panache.PanacheEntity;
 
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
 @Table(name = "LOCATION")
-public class Location {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "LOC_ID")
-    private Long id;
+public class Location extends PanacheEntity {
 
     @Column(name = "LOC_NAME")
-    private String name;
+    public String name;
 
     @Column(name = "LOC_X_COORD")
-    private int xCoord;
+    public int xCoord;
 
     @Column(name = "LOC_Y_COORD")
-    private int yCoord;
+    public int yCoord;
 
     @OneToMany(mappedBy = "location", cascade = CascadeType.ALL)
     List<Photoshoot> photoshoots;

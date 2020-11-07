@@ -1,43 +1,40 @@
-package at.htl.entity;
+package at.htl.photoloco.entity;
+
+import io.quarkus.hibernate.orm.panache.PanacheEntity;
 
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
 @Table(name = "USR")
-public class User {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "USR_ID")
-    private Long id;
+public class User extends PanacheEntity{
 
     @Column(name = "USR_FNAME", length = 50)
-    private String firstName;
+    public String firstName;
 
     @Column(name = "USR_LNAME", length = 50)
-    private String lastName;
+    public String lastName;
 
     @Column(name = "USR_EMAIL")
-    private String eMail;
+    public String eMail;
 
     @Column(name = "USR_CITY")
-    private String city;
+    public String city;
 
     @Column(name = "USR_COUNTRY")
-    private String country;
+    public String country;
 
     @Column(name = "USR_IS_MODEL")
-    private boolean isModel;
+    public boolean isModel;
 
     @Column(name = "USR_IS_PHOTOGRAPHER")
-    private boolean isPhotographer;
+    public boolean isPhotographer;
 
     @Column(name = "USR_BIOGRAPHY")
-    private String biography;
+    public String biography;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-    List<Appointment> appointments;
+    List<UserPhotoshoot> userPhotoshoots;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     List<Rating> ratings;
@@ -48,8 +45,8 @@ public class User {
     public User() {
     }
 
-    public User(List<Appointment> appointments, List<Rating> ratings, List<Post> posts) {
-        this.appointments = appointments;
+    public User(List<UserPhotoshoot> userPhotoshoots, List<Rating> ratings, List<Post> posts) {
+        this.userPhotoshoots = userPhotoshoots;
         this.ratings = ratings;
         this.posts = posts;
     }
@@ -66,12 +63,12 @@ public class User {
         this.biography = biography;
     }
 
-    public List<Appointment> getAppointments() {
-        return appointments;
+    public List<UserPhotoshoot> getAppointments() {
+        return userPhotoshoots;
     }
 
-    public void setAppointments(List<Appointment> appointments) {
-        this.appointments = appointments;
+    public void setAppointments(List<UserPhotoshoot> userPhotoshoots) {
+        this.userPhotoshoots = userPhotoshoots;
     }
 
     public List<Rating> getRatings() {
@@ -150,21 +147,4 @@ public class User {
         this.biography = biography;
     }
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", eMail='" + eMail + '\'' +
-                ", city='" + city + '\'' +
-                ", country='" + country + '\'' +
-                ", isModel=" + isModel +
-                ", isPhotographer=" + isPhotographer +
-                ", biography='" + biography + '\'' +
-                ", appointments=" + appointments +
-                ", ratings=" + ratings +
-                ", posts=" + posts +
-                '}';
-    }
 }

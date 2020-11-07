@@ -1,27 +1,24 @@
-package at.htl.entity;
+package at.htl.photoloco.entity;
+
+import io.quarkus.hibernate.orm.panache.PanacheEntity;
 
 import javax.persistence.*;
 
 @Entity
-public class Appointment {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "APPT_ID")
-    private Long id;
+public class UserPhotoshoot extends PanacheEntity {
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "APPT_USR_ID")
-    private User user;
+    @JoinColumn(name = "USR_ID")
+    public User user;
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "APPT_PHOTOSHT_ID")
-    private Photoshoot photoshoot;
+    @JoinColumn(name = "PHOTOSHT_ID")
+    public Photoshoot photoshoot;
 
-    public Appointment() {
+    public UserPhotoshoot() {
     }
 
-    public Appointment(User user, Photoshoot photoshoot) {
+    public UserPhotoshoot(User user, Photoshoot photoshoot) {
         this.user = user;
         this.photoshoot = photoshoot;
     }

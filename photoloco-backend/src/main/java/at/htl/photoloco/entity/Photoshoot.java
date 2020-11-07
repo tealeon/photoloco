@@ -1,4 +1,6 @@
-package at.htl.entity;
+package at.htl.photoloco.entity;
+
+import io.quarkus.hibernate.orm.panache.PanacheEntity;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -6,31 +8,26 @@ import java.util.List;
 
 @Entity
 @Table(name = "PHOTOSHOOT")
-public class Photoshoot {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "PHOTOSHT_ID")
-    private Long id;
+public class Photoshoot extends PanacheEntity {
 
     @Column(name = "PHOTOSHT_TITLE")
-    private String title;
+    public String title;
 
     @Column(name = "PHOTOSHT_DATE")
-    private Date date;
+    public Date date;
 
     @OneToMany(mappedBy = "photoshoot", cascade = CascadeType.ALL)
-    List<Appointment> appointments;
+    List<UserPhotoshoot> userPhotoshoots;
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "PHOTOSHT_LOC_ID")
-    private Location location;
+    public Location location;
 
     public Photoshoot() {
     }
 
-    public Photoshoot(List<Appointment> appointments) {
-        this.appointments = appointments;
+    public Photoshoot(List<UserPhotoshoot> userPhotoshoots) {
+        this.userPhotoshoots = userPhotoshoots;
     }
 
     public Photoshoot(String title, Date date, Location location) {
@@ -39,12 +36,12 @@ public class Photoshoot {
         this.location = location;
     }
 
-    public List<Appointment> getAppointments() {
-        return appointments;
+    public List<UserPhotoshoot> getAppointments() {
+        return userPhotoshoots;
     }
 
-    public void setAppointments(List<Appointment> appointments) {
-        this.appointments = appointments;
+    public void setAppointments(List<UserPhotoshoot> userPhotoshoots) {
+        this.userPhotoshoots = userPhotoshoots;
     }
 
     public Photoshoot(Location location) {
@@ -77,7 +74,7 @@ public class Photoshoot {
                 "id=" + id +
                 ", title='" + title + '\'' +
                 ", date=" + date +
-                ", appointments=" + appointments +
+                ", appointments=" + userPhotoshoots +
                 ", location=" + location +
                 '}';
     }
