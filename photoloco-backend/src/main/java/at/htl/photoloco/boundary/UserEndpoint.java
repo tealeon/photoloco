@@ -10,6 +10,7 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.List;
+import java.util.logging.Logger;
 
 @Path("user")
 @Produces(MediaType.APPLICATION_JSON)
@@ -17,16 +18,21 @@ import java.util.List;
 @Transactional
 public class UserEndpoint {
 
+    private final Logger LOG = Logger.getLogger(UserEndpoint.class.getSimpleName());
+
     @POST
     @Path("/insert")
     public Response create(User user){
         user.persist();
+        user.getPosts().forEach(post -> post.setUser(user));
+        LOG.info("user created");
         return Response.ok(user).build();
     }
 
     @GET
     @Path("/all")
     public List<User> getAllUsers() {
+        LOG.info("list all users");
         return User.listAll();
     }
 
@@ -34,6 +40,7 @@ public class UserEndpoint {
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     public User getUserById(@PathParam("id") Long id) {
+        LOG.info("find user by id " + id);
         return User.findById(id);
     }
 
