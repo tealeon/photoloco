@@ -36,11 +36,11 @@ public class Photoshoot extends PanacheEntity {
         this.location = location;
     }
 
-    public List<UserPhotoshoot> getAppointments() {
+    public List<UserPhotoshoot> getUserPhotoshoots() {
         return userPhotoshoots;
     }
 
-    public void setAppointments(List<UserPhotoshoot> userPhotoshoots) {
+    public void setUserPhotoshoots(List<UserPhotoshoot> userPhotoshoots) {
         this.userPhotoshoots = userPhotoshoots;
     }
 

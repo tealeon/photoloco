@@ -34,13 +34,13 @@ public class User extends PanacheEntity{
     public String biography;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-    List<UserPhotoshoot> userPhotoshoots;
+    List<UserPhotoshoot> userPhotoshoots = null;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-    List<Rating> ratings;
+    List<Rating> ratings = null;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-    List<Post> posts;
+    List<Post> posts = null;
 
     public User() {
     }
@@ -63,11 +63,11 @@ public class User extends PanacheEntity{
         this.biography = biography;
     }
 
-    public List<UserPhotoshoot> getAppointments() {
+    public List<UserPhotoshoot> getUserPhotoshoots() {
         return userPhotoshoots;
     }
 
-    public void setAppointments(List<UserPhotoshoot> userPhotoshoots) {
+    public void setUserPhotoshoots(List<UserPhotoshoot> userPhotoshoots) {
         this.userPhotoshoots = userPhotoshoots;
     }
 
