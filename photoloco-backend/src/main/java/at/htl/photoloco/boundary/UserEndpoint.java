@@ -1,7 +1,9 @@
 package at.htl.photoloco.boundary;
 
 import at.htl.photoloco.entity.User;
+import org.hibernate.Hibernate;
 
+import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.json.JsonObject;
@@ -38,10 +40,10 @@ public class UserEndpoint {
 
     @GET
     @Path("/{id}")
-    @Produces(MediaType.APPLICATION_JSON)
     public User getUserById(@PathParam("id") Long id) {
+        User user = User.findById(id);
         LOG.info("find user by id " + id);
-        return User.findById(id);
+        return user;
     }
 
     @DELETE
