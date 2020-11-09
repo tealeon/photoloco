@@ -1,7 +1,9 @@
 package at.htl.photoloco.entity;
 
 import io.quarkus.hibernate.orm.panache.PanacheEntity;
+import org.hibernate.Hibernate;
 
+import javax.json.bind.annotation.JsonbTransient;
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
@@ -22,18 +24,12 @@ public class Post extends PanacheEntity {
     @Column(name = "POST_UPLOAD_DATE")
     public Date uploadDate;
 
-    @OneToMany(mappedBy = "post", cascade = CascadeType.ALL)
-    List<Rating> ratings;
-
+    @JsonbTransient
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "POST_USR_ID")
     public User user;
 
     public Post() {
-    }
-
-    public Post(List<Rating> ratings) {
-        this.ratings = ratings;
     }
 
     public Post(Long id, String title, String description, String imgUrl, Date uploadDate, User user) {
@@ -81,14 +77,6 @@ public class Post extends PanacheEntity {
         this.uploadDate = uploadDate;
     }
 
-    public List<Rating> getRatings() {
-        return ratings;
-    }
-
-    public void setRatings(List<Rating> ratings) {
-        this.ratings = ratings;
-    }
-
     public User getUser() {
         return user;
     }
@@ -105,8 +93,10 @@ public class Post extends PanacheEntity {
                 ", description='" + description + '\'' +
                 ", imgUrl='" + imgUrl + '\'' +
                 ", uploadDate=" + uploadDate +
-                ", ratings=" + ratings +
                 ", user=" + user +
                 '}';
     }
+
+
+
 }

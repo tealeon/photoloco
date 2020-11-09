@@ -7,11 +7,11 @@ import javax.persistence.*;
 @Entity
 public class UserPhotoshoot extends PanacheEntity {
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "USR_ID")
     public User user;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "PHOTOSHT_ID")
     public Photoshoot photoshoot;
 

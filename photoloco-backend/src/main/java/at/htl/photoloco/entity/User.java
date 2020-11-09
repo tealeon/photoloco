@@ -1,13 +1,18 @@
 package at.htl.photoloco.entity;
 
 import io.quarkus.hibernate.orm.panache.PanacheEntity;
+import org.hibernate.Hibernate;
 
 import javax.persistence.*;
+import java.util.LinkedList;
 import java.util.List;
 
 @Entity
 @Table(name = "USR")
-public class User extends PanacheEntity{
+public class User extends PanacheEntity {
+
+    @Column(name = "USR_NAME", length = 50, unique = true)
+    public String username;
 
     @Column(name = "USR_FNAME", length = 50)
     public String firstName;
@@ -34,25 +39,28 @@ public class User extends PanacheEntity{
     public String biography;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-    List<UserPhotoshoot> userPhotoshoots = null;
+    List<UserPhotoshoot> userPhotoshoots = new LinkedList<>();
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-    List<Rating> ratings = null;
+    List<Post> posts = new LinkedList<>();
+
+    @OneToMany(mappedBy = "author", cascade = CascadeType.ALL)
+    List<Comment> writtenComments = new LinkedList<>();
+
+    @OneToMany(mappedBy = "recipient", cascade = CascadeType.ALL)
+    List<Comment> receivedComments = new LinkedList<>();
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-    List<Post> posts = null;
+    List<UserPostLike> userPostLikes = new LinkedList<>();
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    List<UserPostDislike> userPostDislikes = new LinkedList<>();
 
     public User() {
     }
 
-    public User(List<UserPhotoshoot> userPhotoshoots, List<Rating> ratings, List<Post> posts) {
-        this.userPhotoshoots = userPhotoshoots;
-        this.ratings = ratings;
-        this.posts = posts;
-    }
-
-    public User(String firstName, String lastName, String eMail, String city,
-                String country, boolean isModel, boolean isPhotographer, String biography) {
+    public User(String username, String firstName, String lastName, String eMail, String city, String country, boolean isModel, boolean isPhotographer, String biography) {
+        this.username = username;
         this.firstName = firstName;
         this.lastName = lastName;
         this.eMail = eMail;
@@ -71,16 +79,20 @@ public class User extends PanacheEntity{
         this.userPhotoshoots = userPhotoshoots;
     }
 
-    public List<Rating> getRatings() {
-        return ratings;
+    public List<Post> getPosts() {
+        return posts;
     }
 
-    public void setRatings(List<Rating> ratings) {
-        this.ratings = ratings;
+    public void setPosts(List<Post> posts) {
+        this.posts = posts;
     }
 
-    public Long getId() {
-        return id;
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getFirstName() {
