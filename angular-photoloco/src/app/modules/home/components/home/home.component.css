@@ -1,0 +1,55 @@
+*{
+  padding: 0;
+}
+
+body{
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  background-image: url("images/homepage_bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow: hidden;
+}
+
+h1{
+  font-weight: bold;
+  font-size: 8vh;
+  line-height: 8vh;
+}
+
+p{
+  font-size: 3vh;
+  line-height: 3vh;
+}
+
+#welcome_text{
+  padding-top: 25vh;
+  padding-left: 10vh;
+  width: 40vw;
+  height: 100vw;
+}
+
+.ghost-button {
+  display: inline-block;
+  width: 10vw;
+  min-width: 20vh;
+  font-weight: bold;
+  font-size: 3vh;
+  padding: 8px;
+  color: black;
+  border: 0.5vh solid black;
+  border-radius: 3vh;
+  text-align: center;
+  outline: none;
+  text-decoration: none;
+  transition: background-color 0.2s ease-out,
+  color 0.2s ease-out;
+  background-color: #f9e5e7;
+}
+.ghost-button:hover{
+  background-color: black;
+  color: #f9e5e7;
+  transition: background-color 0.3s ease-in,
+  color 0.3s ease-in;
+}
