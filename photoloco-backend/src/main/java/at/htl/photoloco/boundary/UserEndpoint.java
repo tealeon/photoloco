@@ -43,6 +43,13 @@ public class UserEndpoint {
     }
 
     @GET
+    @Path("/all/photographer")
+    public List<User> getAllPhotographers() {
+        LOG.info("list all photographers");
+        return userRepository.listAllPhotographers();
+    }
+
+    @GET
     @Path("/{id}")
     public User getUserById(@PathParam("id") Long id) {
         User user = userRepository.findById(id);

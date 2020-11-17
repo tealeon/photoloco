@@ -29,6 +29,12 @@ public class UserRepository implements PanacheRepository<User> {
         }).collect(Collectors.toList());
     }
 
+    public List<User> listAllPhotographers() {
+        return list("isPhotographer", Boolean.TRUE).stream().peek(user -> {
+            init(user);
+        }).collect(Collectors.toList());
+    }
+
     private void init(User user){
         Hibernate.initialize(user);
         Hibernate.initialize(user.getPosts());

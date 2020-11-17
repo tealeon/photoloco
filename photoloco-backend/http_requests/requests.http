@@ -3,7 +3,8 @@ Accept: application/json
 Content-Type: application/json
 
 {
-  "username": "just_leon",
+  "username": "simply_leon",
+  "imageUrl": "https://instagram.flnz1-1.fna.fbcdn.net/v/t51.2885-19/s320x320/124188864_879588679243345_2016517700226628149_n.jpg?_nc_ht=instagram.flnz1-1.fna.fbcdn.net&_nc_ohc=hIUG-EcsRQoAX95EyX2&_nc_tp=25&oh=e4e078520755664f4789991727d412d2&oe=5FDF0327",
   "firstName": "Leon",
   "lastName": "Tea",
   "eMail": "leontea@mail.com",
@@ -16,7 +17,61 @@ Content-Type: application/json
     {
       "title": "TestImage",
       "description": "Image",
-      "imgUrl": "testUrl",
+      "imgUrl": "https://images.pexels.com/photos/1693362/pexels-photo-1693362.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+      "uploadDate": null
+    }
+  ]
+}
+
+###
+
+POST http://localhost:8080/user/insert
+Accept: application/json
+Content-Type: application/json
+
+{
+  "username": "liger_tiger",
+  "imageUrl": "https://instagram.flnz1-1.fna.fbcdn.net/v/t51.2885-19/s320x320/121616104_1772376002918196_6595898946490198361_n.jpg?_nc_ht=instagram.flnz1-1.fna.fbcdn.net&_nc_ohc=UrpUa9WcpccAX_kn3dt&_nc_tp=25&oh=e2ce2957a57b72819fc1da12cb933c4c&oe=5FDE6C3D",
+  "firstName": "Francis",
+  "lastName": "Liger",
+  "eMail": "liger@mail.com",
+  "city": "Linz",
+  "country": "Austria",
+  "isModel": false,
+  "isPhotographer": true,
+  "biography": "📷 | 🌍 | 🇦🇹 | 📍 Linz ✉️ DM for photoshooting",
+  "posts": [
+    {
+      "title": "TestImage",
+      "description": "Image",
+      "imgUrl": "https://images.pexels.com/photos/1693362/pexels-photo-1693362.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+      "uploadDate": null
+    }
+  ]
+}
+
+###
+
+POST http://localhost:8080/user/insert
+Accept: application/json
+Content-Type: application/json
+
+{
+  "username": "l.0o0o0",
+  "imageUrl": "https://cdn.icon-icons.com/icons2/1674/PNG/512/person_110935.png",
+  "firstName": "Loo",
+  "lastName": "Bauer",
+  "eMail": "loo@mail.com",
+  "city": "Linz",
+  "country": "Austria",
+  "isModel": false,
+  "isPhotographer": true,
+  "biography": "🦄",
+  "posts": [
+    {
+      "title": "TestImage",
+      "description": "Image",
+      "imgUrl": "https://images.pexels.com/photos/1693362/pexels-photo-1693362.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
       "uploadDate": null
     }
   ]
@@ -25,6 +80,11 @@ Content-Type: application/json
 ###
 
 GET http://localhost:8080/user/all
+Accept: application/json
+
+###
+
+GET http://localhost:8080/user/all/photographer
 Accept: application/json
 
 ###
@@ -41,7 +101,7 @@ Content-Type: application/json
 {
   "title": "New Uploaded Image",
   "description": "Brand New Image",
-  "imgUrl": "newUrl",
+  "imgUrl": "https://images.pexels.com/photos/5425708/pexels-photo-5425708.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
   "uploadDate": null
 }
 

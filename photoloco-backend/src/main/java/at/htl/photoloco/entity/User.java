@@ -27,6 +27,9 @@ public class User {
     @Column(name = "USR_EMAIL")
     public String eMail;
 
+    @Column(name = "USR_IMG")
+    public String imageUrl;
+
     @Column(name = "USR_CITY")
     public String city;
 
@@ -63,11 +66,13 @@ public class User {
     public User() {
     }
 
-    public User(String username, String firstName, String lastName, String eMail, String city, String country, boolean isModel, boolean isPhotographer, String biography) {
+    public User(Long id, String username, String firstName, String lastName, String eMail, String imageUrl, String city, String country, boolean isModel, boolean isPhotographer, String biography) {
+        this.id = id;
         this.username = username;
         this.firstName = firstName;
         this.lastName = lastName;
         this.eMail = eMail;
+        this.imageUrl = imageUrl;
         this.city = city;
         this.country = country;
         this.isModel = isModel;
@@ -125,6 +130,14 @@ public class User {
 
     public void setUserPostDislikes(List<UserPostDislike> userPostDislikes) {
         this.userPostDislikes = userPostDislikes;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 
     public String getUsername() {
