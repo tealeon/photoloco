@@ -10,7 +10,11 @@ import java.util.List;
 
 @Entity
 @Table(name = "POST")
-public class Post extends PanacheEntity {
+public class Post {
+
+    @Column(name = "POST_ID")
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    Long id;
 
     @Column(name = "POST_TITLE")
     public String title;

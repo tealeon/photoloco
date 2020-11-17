@@ -7,7 +7,11 @@ import java.util.List;
 
 @Entity
 @Table(name = "LOCATION")
-public class Location extends PanacheEntity {
+public class Location {
+
+    @Column(name = "LOC_ID")
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    Long id;
 
     @Column(name = "LOC_NAME")
     public String name;
@@ -32,6 +36,14 @@ public class Location extends PanacheEntity {
         this.name = name;
         this.xCoord = xCoord;
         this.yCoord = yCoord;
+    }
+
+    public List<Photoshoot> getPhotoshoots() {
+        return photoshoots;
+    }
+
+    public void setPhotoshoots(List<Photoshoot> photoshoots) {
+        this.photoshoots = photoshoots;
     }
 
     public Long getId() {

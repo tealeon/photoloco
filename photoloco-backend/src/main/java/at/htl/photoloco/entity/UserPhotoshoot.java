@@ -5,7 +5,11 @@ import io.quarkus.hibernate.orm.panache.PanacheEntity;
 import javax.persistence.*;
 
 @Entity
-public class UserPhotoshoot extends PanacheEntity {
+public class UserPhotoshoot {
+
+    @Column(name = "USR_PHOTOSHT_ID")
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    Long id;
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "USR_ID")

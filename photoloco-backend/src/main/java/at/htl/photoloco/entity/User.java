@@ -9,7 +9,11 @@ import java.util.List;
 
 @Entity
 @Table(name = "USR")
-public class User extends PanacheEntity {
+public class User {
+
+    @Column(name = "USR_ID")
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    Long id;
 
     @Column(name = "USR_NAME", length = 50, unique = true)
     public String username;
@@ -71,6 +75,10 @@ public class User extends PanacheEntity {
         this.biography = biography;
     }
 
+    public Long getId() {
+        return id;
+    }
+
     public List<UserPhotoshoot> getUserPhotoshoots() {
         return userPhotoshoots;
     }
@@ -85,6 +93,38 @@ public class User extends PanacheEntity {
 
     public void setPosts(List<Post> posts) {
         this.posts = posts;
+    }
+
+    public List<Comment> getWrittenComments() {
+        return writtenComments;
+    }
+
+    public void setWrittenComments(List<Comment> writtenComments) {
+        this.writtenComments = writtenComments;
+    }
+
+    public List<Comment> getReceivedComments() {
+        return receivedComments;
+    }
+
+    public void setReceivedComments(List<Comment> receivedComments) {
+        this.receivedComments = receivedComments;
+    }
+
+    public List<UserPostLike> getUserPostLikes() {
+        return userPostLikes;
+    }
+
+    public void setUserPostLikes(List<UserPostLike> userPostLikes) {
+        this.userPostLikes = userPostLikes;
+    }
+
+    public List<UserPostDislike> getUserPostDislikes() {
+        return userPostDislikes;
+    }
+
+    public void setUserPostDislikes(List<UserPostDislike> userPostDislikes) {
+        this.userPostDislikes = userPostDislikes;
     }
 
     public String getUsername() {

@@ -8,7 +8,11 @@ import java.util.List;
 
 @Entity
 @Table(name = "PHOTOSHOOT")
-public class Photoshoot extends PanacheEntity {
+public class Photoshoot {
+
+    @Column(name = "PHOTOSHT_ID")
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    Long id;
 
     @Column(name = "PHOTOSHT_TITLE")
     public String title;

@@ -5,7 +5,11 @@ import io.quarkus.hibernate.orm.panache.PanacheEntity;
 import javax.persistence.*;
 
 @Entity
-public class UserPostDislike extends PanacheEntity {
+public class UserPostDislike {
+
+    @Column(name = "USR_POST_COMMENT_ID")
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    Long id;
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "USR_ID")

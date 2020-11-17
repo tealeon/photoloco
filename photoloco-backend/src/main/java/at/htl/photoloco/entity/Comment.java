@@ -6,7 +6,11 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "COMMENT")
-public class Comment extends PanacheEntity {
+public class Comment {
+
+    @Column(name = "COMMENT_ID")
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    Long id;
 
     public enum RATING {
         ONE(1), TWO(2), THREE(3), FOUR(4), FIVE(5);
@@ -43,7 +47,7 @@ public class Comment extends PanacheEntity {
     public Comment(String content, User author, User recipient, RATING rating) {
         this.content = content;
         this.author = author;
-//        this.recipient = recipient;
+        this.recipient = recipient;
         this.rating = rating;
     }
 
@@ -63,13 +67,13 @@ public class Comment extends PanacheEntity {
         this.author = author;
     }
 
-//    public User getRecipient() {
-//        return recipient;
-//    }
-//
-//    public void setRecipient(User recipient) {
-//        this.recipient = recipient;
-//    }
+    public User getRecipient() {
+        return recipient;
+    }
+
+    public void setRecipient(User recipient) {
+        this.recipient = recipient;
+    }
 
     public RATING getRating() {
         return rating;
@@ -84,7 +88,7 @@ public class Comment extends PanacheEntity {
         return "Comment{" +
                 "content='" + content + '\'' +
                 ", author=" + author +
-//                ", recipient=" + recipient +
+                ", recipient=" + recipient +
                 ", rating=" + rating +
                 '}';
     }
