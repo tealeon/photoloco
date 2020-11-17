@@ -1,0 +1,17 @@
+<div class="content">
+  <div style="width: 10vw">
+    <img src={{user.imageUrl}} width="100%" style="border-radius: 50%; margin-bottom: 4%">
+    <h1 style="text-align: center">{{user.username}}</h1>
+    <br>
+  </div>
+  <p>{{user.firstName}} {{user.lastName}}</p>
+  <p>based in {{user.country}}, {{user.city}}</p>
+
+  <ul>
+    <li *ngFor="let post of user.posts">
+      <img src={{post.imageUrl}}>
+    </li>
+  </ul>
+
+</div>
+
