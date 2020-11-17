@@ -1,5 +1,6 @@
 *{
   padding: 0;
+  color: #343a40;
 }
 
 body{
@@ -20,25 +21,24 @@ h1{
 
 p{
   font-size: 3vh;
-  line-height: 3vh;
+  line-height: 3.5vh;
 }
 
 #welcome_text{
   padding-top: 25vh;
-  padding-left: 10vh;
-  width: 40vw;
+  padding-left: 13vh;
+  width: 35vw;
   height: 100vw;
 }
 
 .ghost-button {
   display: inline-block;
-  width: 10vw;
+  width: 7vw;
   min-width: 20vh;
   font-weight: bold;
-  font-size: 3vh;
+  font-size: 2.5vh;
   padding: 8px;
-  color: black;
-  border: 0.5vh solid black;
+  border: 0.5vh solid #343a40;
   border-radius: 3vh;
   text-align: center;
   outline: none;
@@ -48,7 +48,7 @@ p{
   background-color: #f9e5e7;
 }
 .ghost-button:hover{
-  background-color: black;
+  background-color: #343a40;
   color: #f9e5e7;
   transition: background-color 0.3s ease-in,
   color 0.3s ease-in;
