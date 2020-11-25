@@ -124,5 +124,8 @@
       }
     }
   },
-  "defaultProject": "angular-photoloco"
+  "defaultProject": "angular-photoloco",
+  "cli": {
+    "analytics": false
+  }
 }
