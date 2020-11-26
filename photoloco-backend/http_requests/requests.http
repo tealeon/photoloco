@@ -42,9 +42,9 @@ Content-Type: application/json
   "biography": "📷 | 🌍 | 🇦🇹 | 📍 Linz ✉️ DM for photoshooting",
   "posts": [
     {
-      "title": "TestImage",
+      "title": "Hope 🏮",
       "description": "Image",
-      "imgUrl": "https://images.pexels.com/photos/1693362/pexels-photo-1693362.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+      "imgUrl": "https://i.gyazo.com/5478f9cc5c6868a0528f0c07ade8e868.jpg",
       "uploadDate": null
     }
   ]
@@ -102,6 +102,19 @@ Content-Type: application/json
   "title": "New Uploaded Image",
   "description": "Brand New Image",
   "imgUrl": "https://images.pexels.com/photos/5425708/pexels-photo-5425708.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+  "uploadDate": null
+}
+
+###
+
+POST http://localhost:8080/post/upload/2
+Accept: application/json
+Content-Type: application/json
+
+{
+  "title": "My Cute Cat",
+  "description": "Focus 👁️",
+  "imgUrl": "https://i.gyazo.com/e8cf21776b0ca0a6e4880f4cd1934c09.jpg",
   "uploadDate": null
 }
 
