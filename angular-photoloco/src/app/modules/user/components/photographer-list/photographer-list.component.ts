@@ -31,7 +31,7 @@ export class PhotographerListComponent implements OnInit {
   }
 
   showPhotographerDetails(user) {
-    user.post = JSON.stringify(user.posts);
+    user.posts = JSON.stringify(user.posts);
     this.router.navigate(['photographer-detail', user]);
   }
 
