@@ -96,7 +96,7 @@ public class Post {
                 ", title='" + title + '\'' +
                 ", description='" + description + '\'' +
                 ", imgUrl='" + imgUrl + '\'' +
-                ", uploadDate=" + uploadDate +
+                ", uploadDate=" + uploadDate.toString() +
                 ", user=" + user +
                 '}';
     }

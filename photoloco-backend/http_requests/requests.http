@@ -19,6 +19,24 @@ Content-Type: application/json
       "description": "Image",
       "imgUrl": "https://images.pexels.com/photos/1693362/pexels-photo-1693362.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
       "uploadDate": null
+    },
+    {
+      "title": "TestImage2",
+      "description": "Description2",
+      "imgUrl": "https://images.pexels.com/photos/3171134/pexels-photo-3171134.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+      "uploadDate": null
+    },
+    {
+      "title": "TestImage3",
+      "description": "Description3",
+      "imgUrl": "https://images.pexels.com/photos/5550466/pexels-photo-5550466.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+      "uploadDate": null
+    },
+    {
+      "title": "TestImage4",
+      "description": "Description4",
+      "imgUrl": "https://images.pexels.com/photos/5767762/pexels-photo-5767762.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+      "uploadDate": null
     }
   ]
 }
@@ -45,6 +63,12 @@ Content-Type: application/json
       "title": "Hope 🏮",
       "description": "Image",
       "imgUrl": "https://i.gyazo.com/5478f9cc5c6868a0528f0c07ade8e868.jpg",
+      "uploadDate": null
+    },
+    {
+      "title": "My Cute Cat",
+      "description": "Focus 👁️",
+      "imgUrl": "https://i.gyazo.com/e8cf21776b0ca0a6e4880f4cd1934c09.jpg",
       "uploadDate": null
     }
   ]
@@ -100,7 +124,7 @@ Content-Type: application/json
 
 {
   "title": "New Uploaded Image",
-  "description": "Brand New Image",
+  "description": "image from pexels",
   "imgUrl": "https://images.pexels.com/photos/5425708/pexels-photo-5425708.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
   "uploadDate": null
 }
@@ -112,9 +136,9 @@ Accept: application/json
 Content-Type: application/json
 
 {
-  "title": "My Cute Cat",
-  "description": "Focus 👁️",
-  "imgUrl": "https://i.gyazo.com/e8cf21776b0ca0a6e4880f4cd1934c09.jpg",
+  "title": "New Pic",
+  "description": "pic from pexels",
+  "imgUrl": "https://images.pexels.com/photos/5582088/pexels-photo-5582088.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
   "uploadDate": null
 }
 
