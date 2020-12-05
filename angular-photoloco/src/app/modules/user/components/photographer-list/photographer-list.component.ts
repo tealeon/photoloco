@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {UserModel} from '../../../../shared/models/user.model';
 import {Router} from '@angular/router';
-import {PhotographerListService} from '../../../../core/services/photographer-list.service';
+import {UserService} from '../../../../core/services/user.service';
 
 @Component({
   selector: 'app-photographer-list',
@@ -14,12 +14,12 @@ export class PhotographerListComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private photographerListService: PhotographerListService
+    private userService: UserService
   ) {
   }
 
   ngOnInit(): void {
-    this.photographerListService.getPhotographerList().subscribe(
+    this.userService.getPhotographerList().subscribe(
       data => {
         this.photographers = data;
       }

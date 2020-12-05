@@ -50,6 +50,14 @@ public class UserEndpoint {
     }
 
     @GET
+    @Path("/all/model")
+    public List<User> getAllModels() {
+        LOG.info("list all models");
+        return userRepository.listAllModels();
+    }
+
+
+    @GET
     @Path("/{id}")
     public User getUserById(@PathParam("id") Long id) {
         User user = userRepository.findById(id);

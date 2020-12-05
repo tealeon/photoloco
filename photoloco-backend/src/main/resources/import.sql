@@ -5,12 +5,11 @@ values ('100', 'just_leon', 'Leon', 'Tea', 'leon.tea@mail.com', 'https://bit.ly/
 insert into usr(usr_id, usr_name, usr_fname, usr_lname, usr_email, usr_img, usr_city, usr_country, usr_is_model,
                 usr_is_photographer, usr_biography)
 values ('101', 'liger_tiger', 'Francis', 'Liger', 'francis.liger@mail.com', 'https://bit.ly/3quxjNi', 'Linz', 'Austria',
-        'false',
-        'true', '📷 | 🌍 | 🇦🇹 | 📍 Linz ✉️ DM for photoshooting');
+        'false', 'true', '📷 | 🌍 | 🇦🇹 | 📍 Linz ✉️ DM for photoshooting');
+insert into usr(usr_id, usr_name, usr_fname, usr_lname, usr_email, usr_img, usr_city, usr_country, usr_is_model,
+                usr_is_photographer, usr_biography)
 values ('102', 'son_fan99', 'Eli', 'Danger', 'eli.danger@mail.com', 'https://bit.ly/3lDVQvH', 'Bad Hall', 'Austria',
-        'true',
-        'false', '🇦🇹 Austria ⚽ SPV Kematen-Piberbach/Rohr 👻 elias_0824');
-
+        'true', 'false', '🇦🇹 Austria ⚽ SPV Kematen-Piberbach/Rohr 👻 elias_0824');
 
 insert into post(post_id, post_description, post_img_url, post_title, post_upload_date, post_usr_id)
 values (100, 'This is my very first Post! I am so happy rn', 'https://bit.ly/2L2mi5m', 'a random pic', '2020-09-01',
@@ -26,3 +25,5 @@ insert into post(post_id, post_description, post_img_url, post_title, post_uploa
 values (104, '-__-', 'https://bit.ly/3gbp581', 'Hope', '2020-09-06', 101);
 insert into post(post_id, post_description, post_img_url, post_title, post_upload_date, post_usr_id)
 values (105, 'Focus 👁️', 'https://bit.ly/2JQUkJr', 'My cute cat', '2020-09-23', 101);
+insert into post(post_id, post_description, post_img_url, post_title, post_upload_date, post_usr_id)
+values (106, 'heii', 'https://bit.ly/3oqzCz4', 'my first post!', '2020-09-1', 102);

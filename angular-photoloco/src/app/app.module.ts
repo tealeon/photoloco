@@ -15,14 +15,17 @@ import { PhotographerListComponent } from './modules/user/components/photographe
 import {MatCardModule} from '@angular/material/card';
 import { PhotographerDetailComponent } from './modules/user/components/photographer-detail/photographer-detail.component';
 import { TimesComponent } from './modules/home/components/times/times.component';
+import { ModelListComponent } from './modules/user/components/model-list/model-list.component';
+import { ModelDetailComponent } from './modules/user/components/model-detail/model-detail.component';
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'home', component: HomeComponent},
   {path: 'photographer-list', component: PhotographerListComponent},
   {path: 'photographer-detail', component: PhotographerDetailComponent},
+  {path: 'model-list', component: ModelListComponent},
+  {path: 'model-detail', component: ModelDetailComponent},
   {path: '**', component: PageNotFoundComponent}
-
 ];
 
 @NgModule({
@@ -35,6 +38,8 @@ const appRoutes: Routes = [
     PhotographerListComponent,
     PhotographerDetailComponent,
     TimesComponent,
+    ModelListComponent,
+    ModelDetailComponent,
   ],
   imports: [
     BrowserModule,

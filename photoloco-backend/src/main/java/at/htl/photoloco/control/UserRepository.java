@@ -24,18 +24,18 @@ public class UserRepository implements PanacheRepository<User> {
 
     @Override
     public List<User> listAll() {
-        return findAll().stream().peek(user -> {
-            init(user);
-        }).collect(Collectors.toList());
+        return findAll().stream().peek(this::init).collect(Collectors.toList());
     }
 
     public List<User> listAllPhotographers() {
-        return list("isPhotographer", Boolean.TRUE).stream().peek(user -> {
-            init(user);
-        }).collect(Collectors.toList());
+        return list("isPhotographer", Boolean.TRUE).stream().peek(this::init).collect(Collectors.toList());
     }
 
-    private void init(User user){
+    public List<User> listAllModels() {
+        return list("isModel", Boolean.TRUE).stream().peek(this::init).collect(Collectors.toList());
+    }
+
+    private void init(User user) {
         Hibernate.initialize(user);
         Hibernate.initialize(user.getPosts());
         Hibernate.initialize(user.getUserPhotoshoots());
