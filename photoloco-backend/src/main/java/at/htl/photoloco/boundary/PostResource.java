@@ -10,6 +10,7 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import javax.ws.rs.core.Response.Status;
 import javax.ws.rs.core.SecurityContext;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -38,6 +39,21 @@ public class PostResource {
     public Response createPost(@Valid PostDto postDto) {
         Post post = new Post(postDto, this.securityContext.getUserPrincipal().getName());
         post.persist();
+
+        return Response.noContent().build();
+    }
+
+    @PUT
+    @Path("/{post-id}")
+    @Authenticated
+    @Transactional
+    public Response createPost(@PathParam("post-id") Long id, @Valid PostDto updatedPost) {
+        Post post = Post.findById(id);
+        if (post == null) {
+            return Response.status(Status.NOT_FOUND).build();
+        }
+
+        post.update(updatedPost);
 
         return Response.noContent().build();
     }

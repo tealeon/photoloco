@@ -33,4 +33,9 @@ public class Post extends PanacheEntity {
         this.dateOfCreation = postDto.getDateOfCreation();
         this.author = User.find("username", username).firstResult();
     }
+
+    public void update(PostDto updatedPost) {
+        this.title = updatedPost.getTitle();
+        this.markdownContent = updatedPost.getMarkdownContent();
+    }
 }
