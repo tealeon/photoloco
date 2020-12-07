@@ -1,9 +1,7 @@
 package at.htl.photoloco.boundary;
 
 import at.htl.photoloco.dto.PostCommentDto;
-import at.htl.photoloco.entity.Comment;
 import at.htl.photoloco.entity.PostComment;
-import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 import io.quarkus.security.Authenticated;
 
 import javax.transaction.Transactional;
@@ -21,7 +19,7 @@ public class CommentResource {
     @Path("/{comment-id}")
     @Authenticated
     @Transactional
-    public Response updateComment(@PathParam("comment-id") Long commentId, @Valid PostCommentDto updatedPostComment){
+    public Response updateComment(@PathParam("comment-id") Long commentId, @Valid PostCommentDto updatedPostComment) {
         PostComment postComment = PostComment.findById(commentId);
         if (postComment == null) {
             return Response.status(Response.Status.NOT_FOUND).build();
@@ -32,4 +30,18 @@ public class CommentResource {
         return Response.noContent().build();
     }
 
+    @DELETE
+    @Path("/{comment-id}")
+    @Authenticated
+    @Transactional
+    public Response updateComment(@PathParam("comment-id") Long commentId) {
+        PostComment postComment = PostComment.findById(commentId);
+        if (postComment == null) {
+            return Response.status(Response.Status.NOT_FOUND).build();
+        }
+
+        postComment.delete();
+
+        return Response.noContent().build();
+    }
 }
