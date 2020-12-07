@@ -48,4 +48,18 @@ public class LocationResource {
 
         return Response.noContent().build();
     }
+
+    @DELETE
+    @Transactional
+    @Path("/{location-id}")
+    public Response updateLocation(@PathParam("location-id") Long id) {
+        Location location = Location.findById(id);
+        if (location == null) {
+            return Response.status(Response.Status.NOT_FOUND).build();
+        }
+
+        location.delete();
+
+        return Response.noContent().build();
+    }
 }
