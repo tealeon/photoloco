@@ -36,8 +36,7 @@ public class UserResource {
     public Response updateUser(@Valid UserDto updatedUser) {
         String name = this.securityContext.getUserPrincipal().getName();
         User user = User.find("username", name).firstResult();
-        user.updateUser(updatedUser);
-        user.persist();
+        user.update(updatedUser);
 
         return Response.noContent().build();
     }

@@ -57,7 +57,7 @@ public class User extends PanacheEntity {
         this.username = username;
     }
 
-    public void updateUser(UserDto updatedUser) {
+    public void update(UserDto updatedUser) {
         this.firstName = updatedUser.getFirstName();
         this.lastName = updatedUser.getLastName();
         this.email = updatedUser.getEmail();
