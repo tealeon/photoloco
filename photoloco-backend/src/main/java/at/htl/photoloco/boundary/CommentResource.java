@@ -7,13 +7,35 @@ import io.quarkus.security.Authenticated;
 import javax.transaction.Transactional;
 import javax.validation.Valid;
 import javax.ws.rs.*;
+import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import javax.ws.rs.core.SecurityContext;
 
 @Path("comment")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 public class CommentResource {
+
+    @Context
+    SecurityContext securityContext;
+
+    @POST
+    @Path("/{comment-id}")
+    @Authenticated
+    @Transactional
+    public Response commentComment(@PathParam("comment-id") Long commentId, @Valid PostCommentDto postCommentDto) {
+        PostComment postComment = PostComment.findById(commentId);
+        if (postComment == null) {
+            return Response.status(Response.Status.NOT_FOUND).build();
+        }
+
+        PostComment reply = new PostComment(postCommentDto, this.securityContext.getUserPrincipal().getName());
+        reply.persist();
+        reply.postRepliedTo = postComment;
+
+        return Response.noContent().build();
+    }
 
     @PUT
     @Path("/{comment-id}")

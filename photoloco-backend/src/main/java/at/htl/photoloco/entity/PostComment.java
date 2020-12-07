@@ -3,6 +3,7 @@ package at.htl.photoloco.entity;
 import at.htl.photoloco.dto.PostCommentDto;
 import io.quarkus.hibernate.orm.panache.PanacheEntity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
@@ -23,7 +24,7 @@ public class PostComment extends PanacheEntity {
     @ManyToOne
     public Post post;
 
-    @OneToMany(mappedBy = "postRepliedTo")
+    @OneToMany(mappedBy = "postRepliedTo", cascade = CascadeType.ALL)
     public List<PostComment> replies = new LinkedList<>();
 
     @OneToMany
@@ -32,10 +33,21 @@ public class PostComment extends PanacheEntity {
     public PostComment() {
     }
 
+    /**
+     * For creating a comment on a post
+     */
     public PostComment(PostCommentDto postCommentDto, Post post, String username) {
         this.content = postCommentDto.getContent();
         this.author = User.find("username", username).firstResult();
         this.post = post;
+    }
+
+    /**
+     * For creating a comment on a comment
+     */
+    public PostComment(PostCommentDto postCommentDto, String username) {
+        this.content = postCommentDto.getContent();
+        this.author = User.find("username", username).firstResult();
     }
 
     public void update(PostCommentDto updatedPostComment) {
