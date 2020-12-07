@@ -3,6 +3,7 @@ package at.htl.photoloco.entity;
 import at.htl.photoloco.dto.PostDto;
 import io.quarkus.hibernate.orm.panache.PanacheEntity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
@@ -21,7 +22,7 @@ public class Post extends PanacheEntity {
     @ManyToOne
     public User author;
 
-    @OneToMany(mappedBy = "post")
+    @OneToMany(mappedBy = "post", cascade = CascadeType.REMOVE)
     public List<PostComment> comments;
 
     public Post() {

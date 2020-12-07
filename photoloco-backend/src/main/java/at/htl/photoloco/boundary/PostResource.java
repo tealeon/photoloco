@@ -57,4 +57,19 @@ public class PostResource {
 
         return Response.noContent().build();
     }
+
+    @DELETE
+    @Path("/{post-id}")
+    @Authenticated
+    @Transactional
+    public Response deletePost(@PathParam("post-id") Long id) {
+        Post post = Post.findById(id);
+        if (post == null) {
+            return Response.status(Status.NOT_FOUND).build();
+        }
+
+        post.delete();
+
+        return Response.noContent().build();
+    }
 }
