@@ -37,4 +37,8 @@ public class PostComment extends PanacheEntity {
         this.author = User.find("username", username).firstResult();
         this.post = post;
     }
+
+    public void update(PostCommentDto updatedPostComment) {
+        this.content = updatedPostComment.getContent();
+    }
 }
