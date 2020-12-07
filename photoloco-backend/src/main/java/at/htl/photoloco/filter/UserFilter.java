@@ -1,6 +1,5 @@
 package at.htl.photoloco.filter;
 
-import at.htl.photoloco.boundary.UserEndpoint;
 import at.htl.photoloco.entity.User;
 
 import javax.enterprise.context.ApplicationScoped;
