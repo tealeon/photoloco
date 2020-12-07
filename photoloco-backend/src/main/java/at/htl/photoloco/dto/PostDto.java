@@ -2,7 +2,9 @@ package at.htl.photoloco.dto;
 
 import at.htl.photoloco.entity.Post;
 
-import java.time.LocalDate;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -10,17 +12,23 @@ public class PostDto {
 
     private Long id;
 
+    @NotNull
+    @Size(min = 1, max = 255)
     private String title;
 
+    // TODO: Make it longer
+    @NotNull
+    @Size(min = 1, max = 255)
     private String markdownContent;
 
-    private LocalDate dateOfCreation;
+    private LocalDateTime dateOfCreation;
 
     private AuthorDto author;
 
     private List<PostCommentDto> comments;
 
     public PostDto() {
+        this.dateOfCreation = LocalDateTime.now();
     }
 
     public PostDto(Post post) {
@@ -52,27 +60,15 @@ public class PostDto {
         this.markdownContent = markdownContent;
     }
 
-    public LocalDate getDateOfCreation() {
+    public LocalDateTime getDateOfCreation() {
         return dateOfCreation;
-    }
-
-    public void setDateOfCreation(LocalDate dateOfCreation) {
-        this.dateOfCreation = dateOfCreation;
     }
 
     public AuthorDto getAuthor() {
         return author;
     }
 
-    public void setAuthor(AuthorDto author) {
-        this.author = author;
-    }
-
     public List<PostCommentDto> getComments() {
         return comments;
-    }
-
-    public void setComments(List<PostCommentDto> comments) {
-        this.comments = comments;
     }
 }
