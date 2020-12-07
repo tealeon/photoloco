@@ -8,7 +8,7 @@ import javax.persistence.ManyToOne;
 @Entity
 public class PostCommentRating extends PanacheEntity {
 
-    public boolean isPositive;
+    public Boolean isPositive;
 
     @ManyToOne
     public PostComment postComment;

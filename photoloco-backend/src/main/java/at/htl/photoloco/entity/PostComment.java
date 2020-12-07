@@ -23,7 +23,7 @@ public class PostComment extends PanacheEntity {
     public Post post;
 
     @OneToMany(mappedBy = "postRepliedTo")
-    List<PostComment> replies = new LinkedList<>();
+    public List<PostComment> replies = new LinkedList<>();
 
     @OneToMany
     public List<PostCommentRating> ratings = new LinkedList<>();
