@@ -32,6 +32,20 @@ public class LocationResource {
         Location location = new Location(locationDto);
         location.persist();
 
-        return  Response.noContent().build();
+        return Response.noContent().build();
+    }
+
+    @PUT
+    @Transactional
+    @Path("/{location-id}")
+    public Response updateLocation(@PathParam("location-id") Long id, @Valid LocationDto updatedLocation) {
+        Location location = Location.findById(id);
+        if (location == null) {
+            return Response.status(Response.Status.NOT_FOUND).build();
+        }
+
+        location.update(updatedLocation);
+
+        return Response.noContent().build();
     }
 }

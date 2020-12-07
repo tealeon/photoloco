@@ -27,4 +27,10 @@ public class Location extends PanacheEntity {
         this.longitude = locationDto.getLongitude();
         this.latitude = locationDto.getLatitude();
     }
+
+    public void update(LocationDto updatedLocation) {
+        this.name = updatedLocation.getName();
+        this.longitude = updatedLocation.getLongitude();
+        this.latitude = updatedLocation.getLatitude();
+    }
 }
