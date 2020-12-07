@@ -1,8 +1,7 @@
 package at.htl.photoloco.boundary;
 
 import at.htl.photoloco.control.PhotoshootRepository;
-import at.htl.photoloco.entity.Photoshoot;
-import at.htl.photoloco.entity.User;
+import at.htl.photoloco.entity.PhotoShooting;
 
 import javax.inject.Inject;
 import javax.transaction.Transactional;
@@ -27,7 +26,7 @@ public class PhotoshootEndpoint {
 
     @GET
     @Path("all")
-    public List<Photoshoot> getAllPhotoshoot() {
+    public List<PhotoShooting> getAllPhotoshoot() {
         LOG.info("list all photoshoots");
         return photoshootRepository.listAll();
     }
