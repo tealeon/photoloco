@@ -1,5 +1,6 @@
 package at.htl.photoloco.entity;
 
+import at.htl.photoloco.dto.PostCommentDto;
 import io.quarkus.hibernate.orm.panache.PanacheEntity;
 
 import javax.persistence.Entity;
@@ -29,5 +30,11 @@ public class PostComment extends PanacheEntity {
     public List<PostCommentRating> ratings = new LinkedList<>();
 
     public PostComment() {
+    }
+
+    public PostComment(PostCommentDto postCommentDto, Post post, String username) {
+        this.content = postCommentDto.getContent();
+        this.author = User.find("username", username).firstResult();
+        this.post = post;
     }
 }

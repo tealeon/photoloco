@@ -2,6 +2,8 @@ package at.htl.photoloco.dto;
 
 import at.htl.photoloco.entity.PostComment;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -9,6 +11,8 @@ public class PostCommentDto {
 
     private Long id;
 
+    @NotNull
+    @Size(min = 1, max = 255)
     private String content;
 
     private AuthorDto author;
@@ -44,23 +48,12 @@ public class PostCommentDto {
         return author;
     }
 
-    public void setAuthor(AuthorDto author) {
-        this.author = author;
-    }
-
     public List<PostCommentDto> getReplies() {
         return replies;
-    }
-
-    public void setReplies(List<PostCommentDto> replies) {
-        this.replies = replies;
     }
 
     public List<PostCommentRatingDto> getRatings() {
         return ratings;
     }
 
-    public void setRatings(List<PostCommentRatingDto> ratings) {
-        this.ratings = ratings;
-    }
 }

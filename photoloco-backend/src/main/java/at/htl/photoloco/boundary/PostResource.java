@@ -1,7 +1,9 @@
 package at.htl.photoloco.boundary;
 
+import at.htl.photoloco.dto.PostCommentDto;
 import at.htl.photoloco.dto.PostDto;
 import at.htl.photoloco.entity.Post;
+import at.htl.photoloco.entity.PostComment;
 import io.quarkus.security.Authenticated;
 
 import javax.transaction.Transactional;
@@ -62,8 +64,8 @@ public class PostResource {
     @Path("/{post-id}")
     @Authenticated
     @Transactional
-    public Response deletePost(@PathParam("post-id") Long id) {
-        Post post = Post.findById(id);
+    public Response deletePost(@PathParam("post-id") Long postId) {
+        Post post = Post.findById(postId);
         if (post == null) {
             return Response.status(Status.NOT_FOUND).build();
         }
@@ -72,4 +74,22 @@ public class PostResource {
 
         return Response.noContent().build();
     }
+
+    @POST
+    @Path("/{post-id}/comment")
+    @Authenticated
+    @Transactional
+    public Response createComment(@PathParam("post-id") Long postId, @Valid PostCommentDto postCommentDto) {
+        Post post = Post.findById(postId);
+        if (post == null) {
+            return Response.status(Status.NOT_FOUND).build();
+        }
+
+        PostComment postComment = new PostComment(postCommentDto, post, this.securityContext.getUserPrincipal().getName());
+        postComment.persist();
+        post.comments.add(postComment);
+
+        return Response.noContent().build();
+    }
+
 }

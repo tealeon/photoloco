@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import java.time.LocalDateTime;
+import java.util.LinkedList;
 import java.util.List;
 
 @Entity
@@ -23,7 +24,7 @@ public class Post extends PanacheEntity {
     public User author;
 
     @OneToMany(mappedBy = "post", cascade = CascadeType.REMOVE)
-    public List<PostComment> comments;
+    public List<PostComment> comments = new LinkedList<>();
 
     public Post() {
     }
