@@ -1,34 +1,49 @@
 package at.htl.photoloco.dto;
 
 import at.htl.photoloco.entity.User;
-import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.Size;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class UserDto {
 
+    private Long id;
+
     private String username;
 
+    @Size(max = 255)
     private String firstName;
 
+    @Size(max = 255)
     private String lastName;
 
+    @Email
+    @Size(max = 255)
     private String email;
 
+    @Size(max = 255)
     private String imageUrl;
 
+    @Size(max = 255)
     private String city;
 
+    @Size(max = 255)
     private String country;
 
     private boolean isModel;
 
     private boolean isPhotographer;
 
+    @Size(max = 255)
+    private String biography;
+
+    @Size(max = 255)
     private String instagramName;
 
+    @Size(max = 255)
     private String websiteUrl;
 
     private List<PhotoShootingDto> photoShootingsInvolvedIn = new LinkedList<>();
@@ -37,6 +52,7 @@ public class UserDto {
     }
 
     public UserDto(User user) {
+        this.id = user.id;
         this.username = user.username;
         this.firstName = user.firstName;
         this.lastName = user.lastName;
@@ -46,9 +62,14 @@ public class UserDto {
         this.country = user.country;
         this.isModel = user.isModel;
         this.isPhotographer = user.isPhotographer;
+        this.biography = user.biography;
         this.instagramName = user.instagramName;
         this.websiteUrl = user.websiteUrl;
         this.photoShootingsInvolvedIn = user.photoShootingsInvolvedIn.stream().map(PhotoShootingDto::new).collect(Collectors.toList());
+    }
+
+    public Long getId() {
+        return id;
     }
 
     public String getUsername() {
@@ -121,6 +142,14 @@ public class UserDto {
 
     public void setPhotographer(boolean photographer) {
         isPhotographer = photographer;
+    }
+
+    public String getBiography() {
+        return biography;
+    }
+
+    public void setBiography(String biography) {
+        this.biography = biography;
     }
 
     public String getInstagramName() {
