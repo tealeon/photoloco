@@ -14,7 +14,7 @@ import { PageNotFoundComponent } from './core/page-not-found/page-not-found.comp
 import { PhotographerListComponent } from './modules/user/components/photographer-list/photographer-list.component';
 import {MatCardModule} from '@angular/material/card';
 import { PhotographerDetailComponent } from './modules/user/components/photographer-detail/photographer-detail.component';
-import { TimesComponent } from './modules/home/components/times/times.component';
+import { TimesComponent } from './modules/times/times/times.component';
 import { ModelListComponent } from './modules/user/components/model-list/model-list.component';
 import { ModelDetailComponent } from './modules/user/components/model-detail/model-detail.component';
 
@@ -25,6 +25,7 @@ const appRoutes: Routes = [
   {path: 'photographer-detail', component: PhotographerDetailComponent},
   {path: 'model-list', component: ModelListComponent},
   {path: 'model-detail', component: ModelDetailComponent},
+  {path: 'times', component: TimesComponent},
   {path: '**', component: PageNotFoundComponent}
 ];
 
