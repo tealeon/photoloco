@@ -11,6 +11,8 @@ export class TimesComponent implements OnInit {
   times: { [key: string]: any };
   private lat: number;
   private lng: number;
+  private sunrise;
+  private sunset;
 
   constructor(private _http: HttpService) {
   }
@@ -26,7 +28,8 @@ export class TimesComponent implements OnInit {
         this.lng = position.coords.longitude;
         this._http.getTimes(this.lat, this.lng).subscribe(data => {
           this.times = data;
-          console.log(this.times?.results.sunrise);
+          this.sunrise = this.times?.results.sunrise;
+          this.sunset = this.times?.results.sunset;
         });
       });
     } else {
