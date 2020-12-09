@@ -1,1 +1,13 @@
-<p>times works!</p>
+<h1>Times</h1>
+
+<button (click)="getTimes()" class="gT">Get Times</button>
+
+<div class="generalD" id="out">
+  <div class="timez">
+    {{ this.times?.results.sunrise }}
+  </div>
+  <br>
+  <div class="timez">
+    {{ this.times?.results.sunset }}
+  </div>
+</div>
