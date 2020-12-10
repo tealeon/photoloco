@@ -9,7 +9,7 @@ export class HttpService {
   constructor(private http: HttpClient) { }
 
   getTimes(lat, lng) {
-    const p = 'https://api.sunrise-sunset.org/json?lat=' + lat + '&lng=' + lng;
+    const p = 'https://api.sunrise-sunset.org/json?lat=' + lat + '&lng=' + lng + '&formatted=0';
     return this.http.get(p);
   }
 }

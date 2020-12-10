@@ -11,8 +11,9 @@ export class TimesComponent implements OnInit {
   times: { [key: string]: any };
   private lat: number;
   private lng: number;
-  private sunrise;
-  private sunset;
+  sunrise: string;
+  sunset: string;
+  blueHour;
 
   constructor(private _http: HttpService) {
   }
