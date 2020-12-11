@@ -1,19 +1,22 @@
-<h1>Times</h1>
-
 <button (click)="getTimes()" class="gT">Get Times</button>
 
 <div class="generalD" id="out">
-  <!--
-  <div class="timez">
-    {{ this.bluehour }}
+  <div class="timez tBh">
+    Blue Hour
   </div>
-  -->
-  <br>
-  <div class="timez">
+  <div class="timez" id="tSr">
     {{ this.sunrise | date: 'shortTime' }}
   </div>
-  <br>
-  <div class="timez">
+  <div class="timez" id="tZ">
+    Zenit
+  </div>
+  <div class="timez" id="tGh">
+    Golden Hour
+  </div>
+  <div class="timez" id="tSs">
     {{ this.sunset | date: 'shortTime' }}
+  </div>
+  <div class="timez tBh">
+    Blue Hour
   </div>
 </div>

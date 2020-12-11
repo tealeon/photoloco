@@ -9,4 +9,48 @@
   font-size: 16px;
   margin: 4px 2px;
   cursor: pointer;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#out {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  width: 60vw;
+  height: 55vh;
+  background-color: white;
+  border-radius: 20px;
+  text-align: center;
+  padding-top: 0.3%;
+}
+
+.timez {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  width: 60%;
+  height: 12%;
+  border-radius: 10px;
+  margin: 2% auto;
+}
+
+.tBh {
+  background-color: #A2E1DB;
+}
+
+#tSr {
+  background-color: #FED7C3;
+}
+
+#tGh {
+  background-color: #FFC8A2;
+}
+
+#tSs {
+  background-color: #FED7C3;
+}
+
+#tZ {
+  background-color: #D4F0F0;
 }
