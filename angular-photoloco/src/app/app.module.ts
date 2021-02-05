@@ -18,6 +18,8 @@ import { TimesComponent } from './modules/times/times/times.component';
 import { ModelListComponent } from './modules/user/components/model-list/model-list.component';
 import { ModelDetailComponent } from './modules/user/components/model-detail/model-detail.component';
 import { LocationListComponent } from './modules/user/components/location-list/location-list.component';
+import { MapComponent } from './modules/user/components/map/map.component';
+import {MatListModule} from '@angular/material/list';
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
@@ -28,6 +30,7 @@ const appRoutes: Routes = [
   {path: 'model-detail', component: ModelDetailComponent},
   {path: 'times', component: TimesComponent},
   {path: 'location-list', component: LocationListComponent},
+  {path: 'map', component: MapComponent},
   {path: '**', component: PageNotFoundComponent}
 ];
 
@@ -44,6 +47,7 @@ const appRoutes: Routes = [
     ModelListComponent,
     ModelDetailComponent,
     LocationListComponent,
+    MapComponent,
   ],
   imports: [
     BrowserModule,
@@ -52,7 +56,8 @@ const appRoutes: Routes = [
     HttpClientModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    MatCardModule
+    MatCardModule,
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent]
