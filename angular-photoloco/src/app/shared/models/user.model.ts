@@ -7,27 +7,30 @@ export class UserModel {
   firstName: string;
   lastName: string;
   imageUrl: string;
-  eMail: string;
+  email: string;
   city: string;
   country: string;
   isModel: boolean;
   isPhotographer: boolean;
   biography: string;
+  instagramName: string;
+  websiteUrl: string;
   posts: object;
 
-
-  constructor(id: number, username: string, firstName: string, lastName: string, imageUrl: string, eMail: string, city: string, country: string, isModel: boolean, isPhotographer: boolean, biography: string, posts: string) {
+  constructor(id: number, username: string, firstName: string, lastName: string, imageUrl: string, email: string, city: string, country: string, isModel: boolean, isPhotographer: boolean, biography: string, instagramName: string, websiteUrl: string, posts: object) {
     this.id = id;
     this.username = username;
     this.firstName = firstName;
     this.lastName = lastName;
     this.imageUrl = imageUrl;
-    this.eMail = eMail;
+    this.email = email;
     this.city = city;
     this.country = country;
     this.isModel = isModel;
     this.isPhotographer = isPhotographer;
     this.biography = biography;
-    this.posts = JSON.parse(posts);
+    this.instagramName = instagramName;
+    this.websiteUrl = websiteUrl;
+    this.posts = posts;
   }
 }

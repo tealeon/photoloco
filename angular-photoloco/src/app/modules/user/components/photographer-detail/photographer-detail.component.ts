@@ -31,6 +31,8 @@ export class PhotographerDetailComponent implements OnInit {
           params.isModel,
           params.isPhotographer,
           params.biography,
+          params.instagramName,
+          params.websiteUrl,
           params.posts
         );
       }
