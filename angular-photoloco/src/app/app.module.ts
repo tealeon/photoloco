@@ -17,6 +17,7 @@ import { PhotographerDetailComponent } from './modules/user/components/photograp
 import { TimesComponent } from './modules/times/times/times.component';
 import { ModelListComponent } from './modules/user/components/model-list/model-list.component';
 import { ModelDetailComponent } from './modules/user/components/model-detail/model-detail.component';
+import { LocationListComponent } from './modules/user/components/location-list/location-list.component';
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
@@ -26,6 +27,7 @@ const appRoutes: Routes = [
   {path: 'model-list', component: ModelListComponent},
   {path: 'model-detail', component: ModelDetailComponent},
   {path: 'times', component: TimesComponent},
+  {path: 'location-list', component: LocationListComponent},
   {path: '**', component: PageNotFoundComponent}
 ];
 
@@ -41,6 +43,7 @@ const appRoutes: Routes = [
     TimesComponent,
     ModelListComponent,
     ModelDetailComponent,
+    LocationListComponent,
   ],
   imports: [
     BrowserModule,
