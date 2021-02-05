@@ -1,0 +1,13 @@
+<div class="row content">
+
+  <mat-card *ngFor="let location of getAllLocations()" class="col-4 z-de">
+
+    <h2 style="">{{location.name}}</h2>
+
+    <mat-card-content>
+      <p>longitude: {{location.longitude}}</p>
+      <p>latitude: {{location.latitude}}</p>
+    </mat-card-content>
+
+  </mat-card>
+</div>
