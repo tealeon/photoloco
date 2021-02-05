@@ -1,13 +1,17 @@
-<div class="row content">
+<div class="content">
 
-  <mat-card *ngFor="let location of getAllLocations()" class="col-4 z-de">
+  <button class="btn-toolbar" routerLink="/map">add location</button>
 
-    <h2 style="">{{location.name}}</h2>
+  <div class="row content">
+    <mat-card *ngFor="let location of getAllLocations()" style="width: 100%">
 
-    <mat-card-content>
-      <p>longitude: {{location.longitude}}</p>
-      <p>latitude: {{location.latitude}}</p>
-    </mat-card-content>
+      <h2 style="">{{location.name}}</h2>
 
-  </mat-card>
+      <mat-card-content>
+        <p>longitude: {{location.longitude}}</p>
+        <p>latitude: {{location.latitude}}</p>
+      </mat-card-content>
+
+    </mat-card>
+  </div>
 </div>
