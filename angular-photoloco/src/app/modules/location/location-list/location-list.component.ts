@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {LocationModel} from '../../../../shared/models/location.model';
-import {LocationService} from '../../../../core/services/location.service';
+import {LocationModel} from '../../../shared/models/location.model';
+import {LocationService} from '../../../core/services/location.service';
 import {Router} from '@angular/router';
 
 @Component({
