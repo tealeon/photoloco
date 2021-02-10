@@ -3,3 +3,25 @@
   width: 80vw;
   margin-top: 2vh;
 }
+
+.list-content{
+  width: 48%;
+  float: left;
+  margin-top: 7vh;
+  margin-right: 2%;
+  height: 70vh;
+  overflow: scroll;
+  overflow-x: hidden;
+}
+
+.wrapper{
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+app-map{
+  margin-left: 50%;
+}
+
+
