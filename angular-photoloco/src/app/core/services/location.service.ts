@@ -1,13 +1,15 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {map} from 'rxjs/operators';
+import * as L from 'leaflet';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LocationService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+  }
 
   getLocations() {
     const url = 'http://localhost:8080/location';
@@ -21,6 +23,29 @@ export class LocationService {
         }
         return result;
       }));
+  }
+
+  createMarkers(locationMap: L.map) {
+    const url = 'http://localhost:8080/location';
+
+    this.http.get(url).subscribe((res: any) => {
+      for (const c of res) {
+        const lat = c.latitude;
+        const lon = c.longitude;
+
+        console.log('lat:' + lat + ', lon:' + lon);
+
+        const marker = L.marker([lon, lat]).addTo(locationMap);
+        marker.bindPopup(this.createMarkerPopUp(c));
+      }
+    });
+  }
+
+  createMarkerPopUp(data: any): string {
+      return '' +
+        '<div>Name: ' + data.name + '</div>' +
+        '<div>Latitude: ' + data.latitude + '</div>' +
+      '<div>Longitude: ' + data.longitude + '</div>';
   }
 
 }

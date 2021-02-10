@@ -17,8 +17,8 @@ import { PhotographerDetailComponent } from './modules/user/components/photograp
 import { TimesComponent } from './modules/times/times/times.component';
 import { ModelListComponent } from './modules/user/components/model-list/model-list.component';
 import { ModelDetailComponent } from './modules/user/components/model-detail/model-detail.component';
-import { LocationListComponent } from './modules/user/components/location-list/location-list.component';
-import { MapComponent } from './modules/user/components/map/map.component';
+import { LocationListComponent } from './modules/location/location-list/location-list.component';
+import { MapComponent } from './modules/location/map/map.component';
 import {MatListModule} from '@angular/material/list';
 
 const appRoutes: Routes = [

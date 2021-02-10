@@ -1,5 +1,6 @@
 import {AfterViewInit, Component, OnInit} from '@angular/core';
 import * as L from 'leaflet';
+import {LocationService} from '../../../core/services/location.service';
 
 @Component({
   selector: 'app-map',
@@ -10,11 +11,13 @@ export class MapComponent implements AfterViewInit {
 
   private map;
 
-  constructor() {
-  }
+  constructor(
+    private locationService: LocationService
+  ) {}
 
   ngAfterViewInit() {
     this.initMap();
+    this.locationService.createMarkers(this.map);
 
     const tiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       maxZoom: 19,
