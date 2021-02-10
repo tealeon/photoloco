@@ -10,7 +10,7 @@
   margin-top: 7vh;
   margin-right: 2%;
   height: 70vh;
-  overflow-x: auto;
+  overflow-y: auto;
   overflow-x: hidden;
 }
 
