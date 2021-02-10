@@ -29,5 +29,4 @@ export class LocationListComponent implements OnInit {
   getAllLocations(): Array<LocationModel> {
     return this.locations;
   }
-
 }
