@@ -11,7 +11,8 @@ export class UserService {
   }
 
   getPhotographerList() {
-    const url = 'http://localhost:8080/user/all/photographer';
+
+    const url = 'http://localhost:8080/user/photographers';
     return this.http.get(url)
       .pipe(map(data => {
         const result = [];
@@ -25,7 +26,7 @@ export class UserService {
   }
 
   getModelList() {
-    const url = 'http://localhost:8080/user/all/model';
+    const url = 'http://localhost:8080/user/models';
     return this.http.get(url)
       .pipe(map(data => {
         const result = [];
