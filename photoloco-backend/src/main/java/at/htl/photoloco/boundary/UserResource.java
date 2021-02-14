@@ -45,10 +45,32 @@ public class UserResource {
     @Path("/{user-id}")
     public Response getUserById(@PathParam("user-id") Long userId) {
         User user = User.findById(userId);
+
         if (user == null) {
             return Response.status(Status.NOT_FOUND).build();
         }
-
         return Response.ok(new UserDto(user)).build();
     }
+
+    @GET
+    @Path("/photographers")
+    public List<User> getAllPhotographers(){
+
+        return User.streamAll()
+                .map(user -> (User) user)
+                .filter(user -> user.isPhotographer)
+                .collect(Collectors.toList());
+    }
+
+    @GET
+    @Path("/models")
+    public List<User> getAllModels(){
+
+        return User.streamAll()
+                .map(user -> (User) user)
+                .filter(user -> user.isModel)
+                .collect(Collectors.toList());
+    }
+
+
 }
