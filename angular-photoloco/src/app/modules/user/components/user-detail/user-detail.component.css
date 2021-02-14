@@ -1,0 +1,190 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+.content{
+  width: 90%;
+  margin: auto;
+}
+
+*{
+  font-family: Arial;
+}
+
+html, body, .grid-container { height: 100%; margin: 0; }
+
+.grid-container {
+  padding: 1%;
+  border-radius: 2%;
+  box-shadow: 0px 0px 25px;
+  background-color: #EDD3D9;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10vh;
+  width: 30vw;
+  height: 30vw;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    "pic userBool userBool"
+    "bio bio bio"
+    "btnsPs btnsPs btnsPs";
+}
+
+.pic {
+  grid-area: pic;
+  /*background-image: url("https://www.borgleon.at/wp-content/uploads/2015/10/default-user-image.png");*/
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.userBool {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    "user user user"
+    "bool bool bool";
+  grid-area: userBool;
+}
+
+.user { grid-area: user; }
+
+.bool { grid-area: bool;}
+
+.bio { grid-area: bio; }
+
+.btnsPs {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    "btns btns btns"
+    "ps ps ps";
+  grid-area: btnsPs;
+}
+
+.btns { grid-area: btns; }
+
+.ps { grid-area: ps; }
+
+
+/*presentation only*/
+/*
+.grid-container * {
+  border: 1px solid red;
+  position: relative;
+}
+
+.grid-container *:after {
+  content:attr(class);
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+ */
+/*-*/
+
+.element{
+  width: 40%;
+  height: 30px;
+  display: inline-block;
+  background-color: lightgrey;
+  color: white;
+  text-align: center;
+}
+
+.elementTxt{
+  text-align: center;
+  position: relative;
+  top: 15%;
+}
+
+#innerbool{
+  width: 100%;
+  text-align: center;
+  position: relative;
+  top:50%;
+  transform: translateY(-50%);
+}
+
+#pg{
+  margin-right: 0;
+  border-radius: 10px 0px 0px 10px;
+  border-right: 1px solid;
+}
+
+#md{
+  margin-left: 0;
+  border-radius: 0px 10px 10px 0px;
+  border-left: 1px solid;
+}
+
+#username{
+  text-align: center;
+  font-size: 120%;
+  margin-top: 6%;
+}
+
+#biotxt{
+  padding: 3%;
+  margin: 3%;
+  height: 60%;
+  border-radius: 10px;
+}
+
+.btnsI{
+  width: 18%;
+  height: 100%;
+}
+
+#phsh{
+  text-align: center;
+  margin-bottom: 0;
+}
+
+#psCount{
+  margin-top: 0;
+  text-align: center;
+}
+
+
+.btnsI{
+  width: 6%;
+  position: relative;
+  padding-top: 3%;
+  display: inline-block;
+  color: white;
+  text-align: center;
+}
+
+#innerbtn{
+  width: 100%;
+  height: 40%;
+  text-align: center;
+  position: relative;
+  top:50%;
+  transform: translateY(-50%);
+}
+
+#insta{
+  margin-right: 2px;
+  background-image: url("http://assets.stickpng.com/images/5ecec78673e4440004f09e77.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+#www{
+  margin-left: 2px;
+  background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Globe_icon.svg/1024px-Globe_icon.svg.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.isPhotographer, .isModel{
+  background-color: #CAE7C1;
+}

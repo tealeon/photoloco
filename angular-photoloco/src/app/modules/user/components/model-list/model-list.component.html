@@ -1,0 +1,18 @@
+<div class="row content">
+
+  <mat-card *ngFor="let model of getModelList()" (click)="showModelDetails(model)" class="col-4 z-de"
+            style="cursor: pointer">
+
+    <mat-card-content style="overflow: hidden;">
+      <img src={{model.imageUrl}} width="20%" style="border-radius: 50%">
+    </mat-card-content>
+
+    <h2 style="">{{model.username}}</h2>
+
+    <mat-card-content>
+      <p>{{model.biography}}</p>
+    </mat-card-content>
+
+  </mat-card>
+
+</div>
