@@ -43,9 +43,8 @@ export class LocationService {
 
   createMarkerPopUp(data: any): string {
       return '' +
-        '<div>Name: ' + data.name + '</div>' +
-        '<div>Latitude: ' + data.latitude + '</div>' +
-      '<div>Longitude: ' + data.longitude + '</div>';
+        '<div style="font-weight: bold">' + data.name + '</div>' +
+        '<div>' + data.description + '</div>';
   }
 
 }
