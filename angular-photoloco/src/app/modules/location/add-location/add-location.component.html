@@ -1,11 +1,11 @@
 <div class="content">
   <div class="wrapper">
-
     <form [formGroup]="addressForm" novalidate (ngSubmit)="onSubmit(addressForm.value)" style="width: 50%">
       <mat-card class="shipping-card">
         <mat-card-header>
           <mat-card-title>Add Location</mat-card-title>
         </mat-card-header>
+        <br>
         <mat-card-content>
           <div class="row">
             <div class="col">
@@ -70,7 +70,9 @@
           </div>
         </mat-card-content>
         <mat-card-actions>
-          <button mat-raised-button color="primary" type="submit">Submit</button>
+          <button mat-raised-button color="primary" type="submit"
+                  [disabled]="this.addressForm.invalid || !addressForm.dirty">Submit
+          </button>
         </mat-card-actions>
       </mat-card>
     </form>
