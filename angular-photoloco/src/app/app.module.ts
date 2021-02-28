@@ -19,6 +19,12 @@ import { LocationListComponent } from './modules/location/location-list/location
 import { MapComponent } from './modules/location/map/map.component';
 import {MatListModule} from '@angular/material/list';
 import { UserDetailComponent } from './modules/user/components/user-detail/user-detail.component';
+import { CreateLocationComponent } from './modules/location/create-location/create-location.component';
+import { AddLocationComponent } from './modules/location/add-location/add-location.component';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSelectModule } from '@angular/material/select';
+import { MatRadioModule } from '@angular/material/radio';
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
@@ -29,6 +35,7 @@ const appRoutes: Routes = [
   {path: 'times', component: TimesComponent},
   {path: 'location-list', component: LocationListComponent},
   {path: 'map', component: MapComponent},
+  {path: 'add-location', component: AddLocationComponent},
   {path: '**', component: PageNotFoundComponent}
 ];
 
@@ -45,6 +52,8 @@ const appRoutes: Routes = [
     LocationListComponent,
     MapComponent,
     UserDetailComponent,
+    CreateLocationComponent,
+    AddLocationComponent,
   ],
   imports: [
     BrowserModule,
@@ -54,7 +63,11 @@ const appRoutes: Routes = [
     ReactiveFormsModule,
     BrowserAnimationsModule,
     MatCardModule,
-    MatListModule
+    MatListModule,
+    MatInputModule,
+    MatButtonModule,
+    MatSelectModule,
+    MatRadioModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -25,6 +25,13 @@ export class MapComponent implements AfterViewInit {
     });
 
     tiles.addTo(this.map);
+
+    this.map.addEventListener('click', this.getCoords.bind(this));
+  }
+
+  private getCoords(ev) {
+    const latlng = this.map.mouseEventToLatLng(ev.originalEvent);
+    console.log(latlng.lat + ', ' + latlng.lng);
   }
 
   private initMap(): void {
@@ -33,5 +40,6 @@ export class MapComponent implements AfterViewInit {
       zoom: 7
     });
   }
+
 
 }
