@@ -1,7 +1,4 @@
 <div class="content">
-
-  <button class="btn-toolbar" routerLink="/add-location">add location</button>
-
   <div class="wrapper">
     <div class="list-content">
       <mat-card *ngFor="let location of getAllLocations()" style="width: 100%">
@@ -18,5 +15,7 @@
 
     </div>
     <app-map></app-map>
+    <button class="btn-toolbar" style="visibility: hidden">add location</button>
   </div>
+  <button class="btn-toolbar" routerLink="/add-location">add location</button>
 </div>

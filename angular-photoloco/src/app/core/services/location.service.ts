@@ -29,12 +29,12 @@ export class LocationService {
     const url = 'http://localhost:8080/location';
 
     this.http.get(url).subscribe((res: any) => {
+      console.log(res);
       for (const c of res) {
         const lat = c.latitude;
         const lon = c.longitude;
 
         console.log('lat:' + lat + ', lon:' + lon);
-
         const marker = L.marker([lon, lat]).addTo(locationMap);
         marker.bindPopup(this.createMarkerPopUp(c));
       }
@@ -42,9 +42,9 @@ export class LocationService {
   }
 
   createMarkerPopUp(data: any): string {
-      return '' +
-        '<div style="font-weight: bold">' + data.name + '</div>' +
-        '<div>' + data.description + '</div>';
+    return '' +
+      '<div style="font-weight: bold">' + data.name + '</div>' +
+      '<div>' + data.description + '</div>';
   }
 
 }

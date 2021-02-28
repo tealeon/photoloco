@@ -40,7 +40,6 @@ export class AddLocationComponent implements OnInit, AfterViewInit {
 
   onSubmit(data) {
     this.createNewLocation(data);
-    alert('Thanks!');
   }
 
   ngOnInit(): void {
