@@ -1,4 +1,4 @@
-<form [formGroup]="addressForm" novalidate (ngSubmit)="onSubmit()">
+<form [formGroup]="addressForm" novalidate (ngSubmit)="onSubmit(addressForm.value)" style="width: 50%">
   <mat-card class="shipping-card">
     <mat-card-header>
       <mat-card-title>Add Location</mat-card-title>
@@ -49,6 +49,6 @@
   </mat-card>
 </form>
 
-<div class="map-container">
-  <div id="map"></div>
+<div class="map-container1">
+  <div id="map1"></div>
 </div>
