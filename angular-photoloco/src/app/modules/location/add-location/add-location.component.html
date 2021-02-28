@@ -42,6 +42,18 @@
           </mat-form-field>
         </div>
       </div>
+      <div class="col">
+        <mat-form-field class="full-width">
+          <mat-select placeholder="State" formControlName="state">
+            <mat-option *ngFor="let tag of tags" [value]="tag.tag">
+              {{ tag.tag }}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="addressForm.controls['tag'].hasError('required')">
+            At least one tag is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+      </div>
     </mat-card-content>
     <mat-card-actions>
       <button mat-raised-button color="primary" type="submit">Submit</button>

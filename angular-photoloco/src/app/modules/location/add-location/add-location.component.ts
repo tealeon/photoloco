@@ -15,12 +15,18 @@ export class AddLocationComponent implements OnInit, AfterViewInit {
     name: [null, Validators.required],
     latitude: [null, Validators.required],
     longitude: [null, Validators.required],
-    description: [null, Validators.required]
+    description: [null, Validators.required],
+    tag: [null, Validators.required],
   });
 
   private map1;
   private url = 'http://localhost:8080/location';
   private marker;
+
+  tags = [
+    {tag: 'urban'},
+    {tag: 'romantic'}
+  ];
 
   constructor(
     private fb: FormBuilder,
