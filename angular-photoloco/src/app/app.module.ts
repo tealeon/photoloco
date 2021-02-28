@@ -19,7 +19,6 @@ import { LocationListComponent } from './modules/location/location-list/location
 import { MapComponent } from './modules/location/map/map.component';
 import {MatListModule} from '@angular/material/list';
 import { UserDetailComponent } from './modules/user/components/user-detail/user-detail.component';
-import { CreateLocationComponent } from './modules/location/create-location/create-location.component';
 import { AddLocationComponent } from './modules/location/add-location/add-location.component';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
@@ -52,7 +51,6 @@ const appRoutes: Routes = [
     LocationListComponent,
     MapComponent,
     UserDetailComponent,
-    CreateLocationComponent,
     AddLocationComponent,
   ],
   imports: [
