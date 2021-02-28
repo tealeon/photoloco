@@ -1,9 +1,10 @@
-import {AfterViewInit, Component, OnInit} from '@angular/core';
+import {AfterViewInit, Component, Inject, OnInit} from '@angular/core';
 import {FormBuilder, Validators} from '@angular/forms';
 import {LocationService} from '../../../core/services/location.service';
 import * as L from 'leaflet';
 import {Router} from '@angular/router';
 import {HttpClient} from '@angular/common/http';
+import {DOCUMENT} from '@angular/common';
 
 @Component({
   selector: 'app-add-location',
@@ -34,12 +35,14 @@ export class AddLocationComponent implements OnInit, AfterViewInit {
   constructor(
     private fb: FormBuilder,
     private locationService: LocationService,
-    private http: HttpClient
+    private http: HttpClient,
+    private router: Router,
   ) {
   }
 
   onSubmit(data) {
     this.createNewLocation(data);
+    this.router.navigate(['/location-list']);
   }
 
   ngOnInit(): void {
