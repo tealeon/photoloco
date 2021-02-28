@@ -20,6 +20,7 @@ export class AddLocationComponent implements OnInit, AfterViewInit {
 
   private map1;
   private url = 'http://localhost:8080/location';
+  private marker;
 
   constructor(
     private fb: FormBuilder,
@@ -53,6 +54,12 @@ export class AddLocationComponent implements OnInit, AfterViewInit {
     const latlng = this.map1.mouseEventToLatLng(ev.originalEvent);
     this.addressForm.controls.latitude.setValue(latlng.lat);
     this.addressForm.controls.longitude.setValue(latlng.lng);
+
+    if (this.marker !== undefined) {
+      this.map1.removeLayer(this.marker);
+    }
+
+    this.marker = L.marker([latlng.lat, latlng.lng]).addTo(this.map1);
     console.log(latlng.lat + ', ' + latlng.lng);
   }
 
