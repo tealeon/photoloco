@@ -24,7 +24,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio';
-import { PhotoshootingComponent } from './modules/photoshooting/photoshooting.component';
+import { AddPhotoshootingComponent } from './modules/photoshooting/add-photoshooting/add-photoshooting.component';
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
@@ -36,6 +36,7 @@ const appRoutes: Routes = [
   {path: 'location-list', component: LocationListComponent},
   {path: 'map', component: MapComponent},
   {path: 'add-location', component: AddLocationComponent},
+  {path: 'add-photoshooting', component: AddPhotoshootingComponent},
   {path: '**', component: PageNotFoundComponent}
 ];
 
@@ -53,7 +54,7 @@ const appRoutes: Routes = [
     MapComponent,
     UserDetailComponent,
     AddLocationComponent,
-    PhotoshootingComponent,
+    AddPhotoshootingComponent,
   ],
   imports: [
     BrowserModule,
