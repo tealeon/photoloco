@@ -24,8 +24,11 @@ export class AddLocationComponent implements OnInit, AfterViewInit {
   private marker;
 
   tags = [
-    {tag: 'urban'},
-    {tag: 'romantic'}
+    {tag: 'urban 🏙️'},
+    {tag: 'romantic 🌹'},
+    {tag: 'nature 🍃'},
+    {tag: 'tropical 🏝'},
+    {tag: 'lost place 🏚️'},
   ];
 
   constructor(
@@ -41,6 +44,7 @@ export class AddLocationComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit(): void {
+    this.tags = this.tags.sort();
   }
 
   ngAfterViewInit(): void {
