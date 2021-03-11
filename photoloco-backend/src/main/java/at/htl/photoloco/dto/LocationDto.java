@@ -25,6 +25,14 @@ public class LocationDto {
     @Max(180)
     private Float longitude;
 
+    @NotNull
+    @Size(min = 1, max = 255)
+    private String description;
+
+    @NotNull
+    @Size(min = 1, max = 255)
+    private String tag;
+
     public LocationDto() {
     }
 
@@ -33,6 +41,8 @@ public class LocationDto {
         this.name = location.name;
         this.longitude = location.longitude;
         this.latitude = location.latitude;
+        this.description = location.description;
+        this.tag = location.tag;
     }
 
     public Long getId() {
@@ -61,5 +71,21 @@ public class LocationDto {
 
     public void setLongitude(Float longitude) {
         this.longitude = longitude;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getTag() {
+        return tag;
+    }
+
+    public void setTag(String tag) {
+        this.tag = tag;
     }
 }

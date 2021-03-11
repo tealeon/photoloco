@@ -1,9 +1,10 @@
-import {AfterViewInit, Component, OnInit} from '@angular/core';
+import {AfterViewInit, Component, Inject, OnInit} from '@angular/core';
 import {FormBuilder, Validators} from '@angular/forms';
 import {LocationService} from '../../../core/services/location.service';
 import * as L from 'leaflet';
 import {Router} from '@angular/router';
 import {HttpClient} from '@angular/common/http';
+import {DOCUMENT} from '@angular/common';
 
 @Component({
   selector: 'app-add-location',
@@ -24,23 +25,28 @@ export class AddLocationComponent implements OnInit, AfterViewInit {
   private marker;
 
   tags = [
-    {tag: 'urban'},
-    {tag: 'romantic'}
+    {tag: 'urban 🏙️'},
+    {tag: 'romantic 🌹'},
+    {tag: 'nature 🍃'},
+    {tag: 'tropical 🏝'},
+    {tag: 'lost place 🏚️'},
   ];
 
   constructor(
     private fb: FormBuilder,
     private locationService: LocationService,
-    private http: HttpClient
+    private http: HttpClient,
+    private router: Router,
   ) {
   }
 
   onSubmit(data) {
     this.createNewLocation(data);
-    alert('Thanks!');
+    this.router.navigate(['/location-list']);
   }
 
   ngOnInit(): void {
+    this.tags = this.tags.sort();
   }
 
   ngAfterViewInit(): void {

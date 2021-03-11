@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, OnInit} from '@angular/core';
+import {AfterViewInit, Component, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import * as L from 'leaflet';
 import {LocationService} from '../../../core/services/location.service';
 
@@ -9,11 +9,13 @@ import {LocationService} from '../../../core/services/location.service';
 })
 export class MapComponent implements AfterViewInit {
 
+
   private map;
 
   constructor(
     private locationService: LocationService
-  ) {}
+  ) {
+  }
 
   ngAfterViewInit() {
     this.initMap();
@@ -41,5 +43,7 @@ export class MapComponent implements AfterViewInit {
     });
   }
 
-
+  updateMarkers(): void {
+    this.locationService.createMarkers(this.map);
+  }
 }

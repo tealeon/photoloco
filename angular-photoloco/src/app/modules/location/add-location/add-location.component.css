@@ -15,6 +15,7 @@
 .row {
   display: flex;
   flex-direction: row;
+  margin-bottom: 3%;
 }
 
 .col {
@@ -28,11 +29,32 @@
 
 .map-container1 {
   margin: auto;
-  width: 100%;
-  margin-top: 5vh;
+  width: 85%;
 }
 
 #map1 {
+  height: 50vh;
+  width: 100%;
+}
+
+.content{
+  margin: auto;
+  width: 80vw;
+  margin-top: 2vh;
+}
+
+.wrapper{
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+form{
+  width: 80%;
   height: 70vh;
-  width: 50%;
+  margin: auto;
+}
+
+#app-map{
+  width: 100%;
 }

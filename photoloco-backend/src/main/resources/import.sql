@@ -1,20 +1,20 @@
 /*locations*/
-insert into location(id, longitude, latitude, name)
-values (1001, 48.30639, 14.28611, 'Linz');
-insert into location(id, longitude, latitude, name)
-values (1002, 48.210033, 16.363449, 'Wien');
-insert into location(id, longitude, latitude, name)
-values (1003, 47.076668, 15.421371, 'Graz');
-insert into location(id, longitude, latitude, name)
-values (1004, 48.27965, 14.2533, 'Leonding');
-insert into location(id, longitude, latitude, name)
-values (1005, 48.20969, 14.29004, 'Ansfelden');
-insert into location(id, longitude, latitude, name)
-values (1006, 47.79941, 13.04399, 'Salzburg');
-insert into location(id, longitude, latitude, name)
-values (1007, 47.26266, 11.39454, 'Innsbruck');
-insert into location(id, longitude, latitude, name)
-values (1008, 48.25628, 13.04343, 'Braunau am Inn');
+insert into location(id, longitude, latitude, name, description, tag)
+values (1001, 48.30639, 14.28611, 'Linz', 'city in Austria','urban 🏙️');
+insert into location(id, longitude, latitude, name, description, tag)
+values (1002, 48.210033, 16.363449, 'Wien', 'city in Austria','urban 🏙️');
+insert into location(id, longitude, latitude, name, description, tag)
+values (1003, 47.076668, 15.421371, 'Graz', 'city in Austria','urban 🏙️');
+insert into location(id, longitude, latitude, name, description, tag)
+values (1004, 48.27965, 14.2533, 'Leonding', 'city in Austria','urban 🏙️');
+insert into location(id, longitude, latitude, name, description, tag)
+values (1005, 48.20969, 14.29004, 'Ansfelden', 'city in Austria','urban 🏙️');
+insert into location(id, longitude, latitude, name, description, tag)
+values (1006, 47.79941, 13.04399, 'Salzburg', 'city in Austria','urban 🏙️');
+insert into location(id, longitude, latitude, name, description, tag)
+values (1007, 47.26266, 11.39454, 'Innsbruck', 'city in Austria','romantic 🌹');
+insert into location(id, longitude, latitude, name, description, tag)
+values (1008, 48.25628, 13.04343, 'Braunau am Inn', 'city in Austria','nature 🍃');
 
 /*users*/
 insert into _user (id, biography, city, country, email, firstname, imageurl, instagramname, ismodel, isphotographer, lastname, username, websiteurl)

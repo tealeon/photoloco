@@ -22,6 +22,7 @@ export class LocationListComponent implements OnInit {
     this.locationService.getLocations().subscribe(
       data => {
         this.locations = data;
+        console.log(data);
       }
     );
   }
