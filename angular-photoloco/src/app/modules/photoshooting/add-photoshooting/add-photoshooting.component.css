@@ -1,0 +1,19 @@
+:root {
+  width: 100%;
+}
+
+mat-card {
+  margin: 20vh auto auto;
+  width: 75%;
+  padding: 2.5%;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+mat-form-field {
+  width: 45%;
+}

@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import {FormBuilder, FormControl, Validators} from '@angular/forms';
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
+import {UserService} from '../../../core/services/user.service';
+import {PhotoshootingService} from '../../../core/services/photoshooting.service';
+import {formatDate} from '@angular/common';
 
 @Component({
   selector: 'app-add-photoshooting',
@@ -10,18 +13,20 @@ import { map, startWith } from 'rxjs/operators';
 })
 export class AddPhotoshootingComponent implements OnInit {
 
-  options: string[] = ['Angular', 'React', 'Vue'];
+  shootingForm = this.fb.group({
+    title: [null, Validators.required],
+    date: [null, Validators.required]
+  });
 
-  objectOptions = [
-    { name: 'Leonn'},
-    { name: 'Franciss'},
-    { name: 'Franciss'},
-    { name: 'Loo'},
-    { name: 'MΛЯIΛ'},
-    { name: 'Hopee'}
-  ];
+  selectedUsers: string[];
+  selectedLocation: string;
 
-  constructor() { }
+  constructor(
+    private userService: UserService,
+    private fb: FormBuilder,
+    private photoshootingService: PhotoshootingService
+  ) { }
+
 
   ngOnInit(): void {
   }
@@ -30,4 +35,30 @@ export class AddPhotoshootingComponent implements OnInit {
     return subject ? subject.name : undefined;
   }
 
+  updateUserList(users: string[]) {
+    this.selectedUsers = users;
+  }
+
+  updateLocationList(locations: string) {
+    this.selectedLocation = locations;
+  }
+
+  private listsValid(): boolean {
+    return this.selectedLocation && this.selectedUsers.length > 0;
+  }
+
+  onSubmit(): void {
+    console.log(this.shootingForm.valid, this.listsValid());
+    if (this.shootingForm.valid && this.listsValid()) {
+      this.photoshootingService.submitPhotoshooting(
+        this.shootingForm.value.title,
+        formatDate(this.shootingForm.value.date, 'yyyy-MM-dd', 'en-US'),
+        this.selectedUsers,
+        this.selectedLocation).subscribe(
+        response => {
+          console.log(response);
+        }
+      );
+    }
+  }
 }
