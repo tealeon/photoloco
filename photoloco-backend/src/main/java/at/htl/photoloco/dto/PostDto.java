@@ -2,6 +2,7 @@ package at.htl.photoloco.dto;
 
 import at.htl.photoloco.entity.Post;
 
+import javax.json.bind.annotation.JsonbTransient;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.time.LocalDateTime;

@@ -31,3 +31,11 @@ values (4, '🕊 𝘑𝘰𝘩𝘯 𝟣𝟥:𝟩', 'Linz', 'Austria', 'marxa@mail
 
 insert into _user (id, biography, city, country, email, firstname, imageurl, instagramname, ismodel, isphotographer, lastname, username, websiteurl)
 values (5, '', 'Linz', 'Austria', 'hope@mail.com', 'Hope', 'https://www.borgleon.at/wp-content/uploads/2015/10/default-user-image.png', 'hope_snr', true, false, 'Senegal', 'Hopee', 'www.google.com');
+
+/*posts*/
+insert into post (id, dateofcreation, markdowncontent, title, author_id)
+values (1000, '2017-03-26', 'Hello World!', 'My First Post', 1);
+
+/*postComments*/
+insert into postComment (id, content, author_id, post_id, postrepliedto_id)
+values (1000, 'Great Post!', 2, 1000, null);

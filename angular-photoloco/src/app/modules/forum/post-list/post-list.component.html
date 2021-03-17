@@ -1,0 +1,14 @@
+<div class="row content">
+
+  <mat-card *ngFor="let post of getAllPosts()" (click)="showPostDetails(post)" class="col-12 z-de"
+            style="cursor: pointer">
+
+    <h2>{{post.title}}</h2>
+
+    <mat-card-content>
+      <p>by {{post.author.username}}</p>
+    </mat-card-content>
+
+  </mat-card>
+
+</div>

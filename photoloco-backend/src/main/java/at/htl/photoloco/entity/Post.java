@@ -3,10 +3,8 @@ package at.htl.photoloco.entity;
 import at.htl.photoloco.dto.PostDto;
 import io.quarkus.hibernate.orm.panache.PanacheEntity;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+import javax.json.bind.annotation.JsonbTransient;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.LinkedList;
 import java.util.List;
@@ -21,6 +19,7 @@ public class Post extends PanacheEntity {
     public LocalDateTime dateOfCreation;
 
     @ManyToOne
+    @JsonbTransient
     public User author;
 
     @OneToMany(mappedBy = "post", cascade = CascadeType.REMOVE)
