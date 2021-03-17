@@ -39,4 +39,18 @@ export class UserService {
       }));
   }
 
+  getAllUsers() {
+    const url = 'http://localhost:8080/user';
+    return this.http.get(url)
+      .pipe(map(data => {
+        const result = [];
+        for (const key in data) {
+          if (data.hasOwnProperty(key)) {
+            result.push({...data[key]});
+          }
+        }
+        return result;
+      }));
+  }
+
 }
