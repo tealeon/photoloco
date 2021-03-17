@@ -120,7 +120,7 @@ Content-Type: application/json
 
 ###
 
-GET http://localhost:8080/location
+GET http://localhost:8080/postcomment
 Accept: application/json
 
 ###

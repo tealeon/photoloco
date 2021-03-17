@@ -1,19 +1,22 @@
 <div class="content">
 
-  <h1>{{post.title}}</h1>
-  <h4>written by {{post.author.username}} on the {{post.dateOfCreation}}</h4>
+  <div class="post">
+    <h1>{{post.title}}</h1>
+    <h3>written by {{post.author.username}} on the {{post.dateOfCreation}}</h3>
 
-  <p>{{post.markdownContent}}</p>
+    <p>{{post.markdownContent}}</p>
 
-  <mat-card *ngFor="let comment of post.postComment" class="col-12 z-de"
-            style="cursor: pointer">
+  </div>
 
-    <h2>{{comment.author}}</h2>
+  <div class="comments">
+    <h3>Comments ({{getPostComments().length}})</h3>
 
-    <mat-card-content>
-      <p>by {{comment.content}}</p>
-    </mat-card-content>
+    <div *ngFor="let comment of getPostComments()" class="col-12 z-de"
+         style="cursor: pointer">
 
-  </mat-card>
+      <p>{{comment.content}}</p>
+      <p>commented by {{comment.author.username}}</p>
+    </div>
+  </div>
 
 </div>

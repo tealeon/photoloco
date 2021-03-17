@@ -2,3 +2,12 @@
   width: 80%;
   margin: auto;
 }
+
+.post{
+  min-height: 70vh;
+}
+
+.comments{
+  border-top: #343a40 1px solid;
+  padding-top: 1%;
+}
