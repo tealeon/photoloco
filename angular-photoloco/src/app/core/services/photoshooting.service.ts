@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
+import {Observable} from "rxjs";
+import {PhotoshootingModel} from "../../shared/models/photoshooting.model";
 
 @Injectable({
   providedIn: 'root'
@@ -19,5 +21,13 @@ export class PhotoshootingService {
       userInvolved: users,
       location: {name: location}
     });
+  }
+
+  getAllPhotoshootings(): Observable<PhotoshootingModel[]> {
+    return this.http.get<PhotoshootingModel[]>(this.url);
+  }
+
+  getAllPhotoshootingsOfUser(username: string): Observable<PhotoshootingModel[]> {
+    return this.http.get<PhotoshootingModel[]>(this.url + '/' + username);
   }
 }
