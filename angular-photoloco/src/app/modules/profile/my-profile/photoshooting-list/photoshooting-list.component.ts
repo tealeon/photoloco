@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {PhotoshootingService} from "../../../../core/services/photoshooting.service";
 import {PhotoshootingModel} from "../../../../shared/models/photoshooting.model";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-photoshooting-list',
@@ -12,7 +13,8 @@ export class PhotoshootingListComponent implements OnInit {
   photoshootings: PhotoshootingModel[] = [];
 
   constructor(
-    private photoshootingService: PhotoshootingService
+    private photoshootingService: PhotoshootingService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -20,5 +22,9 @@ export class PhotoshootingListComponent implements OnInit {
       this.photoshootings = value;
       console.log(value);
     });
+  }
+
+  navigateToUserDetail(instagramName: string): void {
+    this.router.navigate(['user-detail', instagramName]);
   }
 }

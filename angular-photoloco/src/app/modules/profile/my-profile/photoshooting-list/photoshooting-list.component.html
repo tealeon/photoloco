@@ -7,7 +7,8 @@
     <div class="section-wrapper">
       <mat-label class="label">Users involved:</mat-label>
       <mat-chip-list aria-label="Users">
-        <mat-chip *ngFor="let user of photoshooting.userInvolved">{{user}}</mat-chip>
+        <mat-chip *ngFor="let user of photoshooting.userInvolved" (click)="navigateToUserDetail(user)">
+          {{user}}</mat-chip>
       </mat-chip-list>
     </div>
 
