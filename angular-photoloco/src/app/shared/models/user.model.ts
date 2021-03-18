@@ -11,8 +11,8 @@ export class UserModel {
   email: string;
   city: string;
   country: string;
-  isModel: boolean;
-  isPhotographer: boolean;
+  model: boolean;
+  photographer: boolean;
   biography: string;
   instagramName: string;
   websiteUrl: string;
@@ -28,8 +28,8 @@ export class UserModel {
     this.email = email;
     this.city = city;
     this.country = country;
-    this.isModel = (isModel === 'true');
-    this.isPhotographer = (isPhotographer === 'true');
+    this.model = (isModel === 'true');
+    this.photographer = (isPhotographer === 'true');
     this.biography = biography;
     this.instagramName = instagramName;
     this.websiteUrl = websiteUrl;
