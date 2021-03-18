@@ -32,7 +32,7 @@ export class ModelListComponent implements OnInit {
 
   showModelDetails(user) {
     user.posts = JSON.stringify(user.posts);
-    this.router.navigate(['user-detail', user]);
+    this.router.navigate(['user-detail', user.instagramName]);
   }
 
 }

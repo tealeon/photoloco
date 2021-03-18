@@ -41,7 +41,7 @@ const appRoutes: Routes = [
   {path: 'home', component: HomeComponent},
   {path: 'photographer-list', component: PhotographerListComponent},
   {path: 'model-list', component: ModelListComponent},
-  {path: 'user-detail', component: UserDetailComponent},
+  {path: 'user-detail/:instagramName', component: UserDetailComponent},
   {path: 'times', component: TimesComponent},
   {path: 'location-list', component: LocationListComponent},
   {path: 'map', component: MapComponent},
