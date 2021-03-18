@@ -1,6 +1,8 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {map} from 'rxjs/operators';
+import {Observable} from "rxjs";
+import {UserModel} from "../../shared/models/user.model";
 
 @Injectable({
   providedIn: 'root'
@@ -8,6 +10,11 @@ import {map} from 'rxjs/operators';
 export class UserService {
 
   constructor(private http: HttpClient) {
+  }
+
+  getUserByInstagramName(instagramName: string): Observable<UserModel> {
+    const url = 'http://localhost:8080/user/insta/' + instagramName;
+    return this.http.get<UserModel>(url);
   }
 
   getPhotographerList() {
