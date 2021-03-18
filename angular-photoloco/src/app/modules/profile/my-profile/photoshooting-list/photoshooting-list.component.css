@@ -1,0 +1,27 @@
+:host {
+  display: flex;
+  flex-direction: row;
+}
+
+mat-card-subtitle {
+  top: -5%;
+  position: relative;
+}
+
+mat-card {
+  cursor: pointer;
+  width: 30%;
+  margin-right: 2%;
+}
+
+.section-wrapper {
+  margin-bottom: 3%;
+}
+
+.section-wrapper:first-of-type {
+  margin-top: -6%;
+}
+
+mat-chip {
+  margin-top: 3% !important;
+}

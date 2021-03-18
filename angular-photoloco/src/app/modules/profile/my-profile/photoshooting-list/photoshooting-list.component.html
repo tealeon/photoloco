@@ -1,0 +1,23 @@
+<mat-card *ngFor="let photoshooting of photoshootings">
+  <h3>{{photoshooting.title}}</h3>
+  <mat-card-subtitle>{{photoshooting.dateOfPhotoShooting | date:'yyyy-MM-dd'}}</mat-card-subtitle>
+
+  <mat-card-content>
+
+    <div class="section-wrapper">
+      <mat-label class="label">Users involved:</mat-label>
+      <mat-chip-list aria-label="Users">
+        <mat-chip *ngFor="let user of photoshooting.userInvolved">{{user}}</mat-chip>
+      </mat-chip-list>
+    </div>
+
+    <div class="section-wrapper">
+      <mat-label class="label">Location:</mat-label>
+      <mat-chip-list aria-label="Location">
+        <mat-chip>{{photoshooting.location.name}}</mat-chip>
+      </mat-chip-list>
+    </div>
+
+
+  </mat-card-content>
+</mat-card>
