@@ -1,5 +1,5 @@
 import {PostModel} from './post.model';
-import {PhotoshootingModel} from "./photoshooting.model";
+import {PhotoshootingModel} from './photoshooting.model';
 
 export class UserModel {
 

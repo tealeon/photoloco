@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {CreateUserService} from "../../../../core/services/create-user.service";
+import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {CreateUserService} from '../../../../core/services/create-user.service';
 
 @Component({
   selector: 'app-create-user',

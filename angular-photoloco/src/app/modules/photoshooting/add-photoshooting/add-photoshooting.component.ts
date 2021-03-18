@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormControl, Validators} from '@angular/forms';
-import { Observable } from 'rxjs';
-import { map, startWith } from 'rxjs/operators';
 import {UserService} from '../../../core/services/user.service';
 import {PhotoshootingService} from '../../../core/services/photoshooting.service';
 import {formatDate} from '@angular/common';

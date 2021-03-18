@@ -1,4 +1,4 @@
-import {LocationModel} from "./location.model";
+import {LocationModel} from './location.model';
 
 export interface PhotoshootingModel {
   id: number;

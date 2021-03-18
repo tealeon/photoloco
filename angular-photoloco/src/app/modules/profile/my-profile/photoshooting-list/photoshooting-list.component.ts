@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {PhotoshootingService} from "../../../../core/services/photoshooting.service";
-import {PhotoshootingModel} from "../../../../shared/models/photoshooting.model";
-import {Router} from "@angular/router";
+import {PhotoshootingService} from '../../../../core/services/photoshooting.service';
+import {PhotoshootingModel} from '../../../../shared/models/photoshooting.model';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-photoshooting-list',
