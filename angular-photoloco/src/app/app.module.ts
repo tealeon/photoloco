@@ -35,6 +35,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { SelectLocationComponent } from './modules/photoshooting/add-photoshooting/select-location/select-location.component';
 import { MyProfileComponent } from './modules/profile/my-profile/my-profile.component';
 import { PhotoshootingListComponent } from './modules/profile/my-profile/photoshooting-list/photoshooting-list.component';
+import { ExploreComponent } from './modules/explore/explore/explore.component';
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
@@ -48,6 +49,7 @@ const appRoutes: Routes = [
   {path: 'add-location', component: AddLocationComponent},
   {path: 'add-photoshooting', component: AddPhotoshootingComponent},
   {path: 'my-profile', component: MyProfileComponent},
+  {path: 'explore', component: ExploreComponent},
   {path: '**', component: PageNotFoundComponent}
 ];
 
@@ -71,6 +73,7 @@ const appRoutes: Routes = [
     SelectLocationComponent,
     MyProfileComponent,
     PhotoshootingListComponent,
+    ExploreComponent,
   ],
   imports: [
     BrowserModule,
