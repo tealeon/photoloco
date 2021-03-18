@@ -1,5 +1,5 @@
 .gT {
-  background-color: #CECCCD;
+  /*background-color: #CECCCD;
   border: none;
   color: white;
   padding: 15px 32px;
@@ -19,10 +19,16 @@
   margin-right: auto;
   width: 60vw;
   height: 55vh;
+  /*
   background-color: white;
   border-radius: 20px;
   text-align: center;
-  padding-top: 0.3%;
+   */
+  padding-top: 2.8%;
+
+}
+
+mat-card {
 }
 
 .timez {
@@ -33,6 +39,12 @@
   height: 12%;
   border-radius: 10px;
   margin: 2% auto;
+
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.timez:last-of-type {
+
 }
 
 .tBh {

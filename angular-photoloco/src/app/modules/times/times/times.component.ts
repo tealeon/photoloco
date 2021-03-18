@@ -37,4 +37,11 @@ export class TimesComponent implements OnInit {
       console.log('User not allow');
     }
   }
+
+  private addTime(date: string, hours: number, minutes: number): string {
+    const resultDate = new Date(date);
+    resultDate.setHours(resultDate.getHours() + hours);
+    resultDate.setMinutes(resultDate.getMinutes() + minutes);
+    return resultDate.toString();
+  }
 }
