@@ -18,7 +18,6 @@ export class UserService {
   }
 
   getPhotographerList() {
-
     const url = 'http://localhost:8080/user/photographers';
     return this.http.get(url)
       .pipe(map(data => {

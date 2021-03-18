@@ -1,0 +1,43 @@
+<div class="content">
+
+  <div class="post">
+    <h1>{{post.title}}</h1>
+    <h3>written by <b>{{post.author.username}}</b> on the {{post.dateOfCreation}}</h3>
+  </div>
+
+  <div class="post-content">
+    <p>{{post.markdownContent}}</p>
+  </div>
+
+  <div class="commentsection">
+
+    <h3>Comments ({{getPostComments().length}})</h3>
+
+    <div style="width: 100%; margin-bottom: 10%">
+      <form [formGroup]="addressForm" novalidate (ngSubmit)="onSubmit(addressForm.value)" style="width: 100%">
+        <mat-form-field style="width: 100%">
+          <textarea matInput placeholder="Write a comment..." formControlName="comment"></textarea>
+          <mat-error *ngIf="addressForm.controls['comment'].hasError('required')">
+            Your comment cannot be empty!
+          </mat-error>
+        </mat-form-field>
+
+        <mat-card-actions >
+          <button mat-raised-button color="primary" type="submit" style="margin: 1% 0; float: right;"
+                  [disabled]="this.addressForm.invalid || !addressForm.dirty">Comment
+          </button>
+        </mat-card-actions>
+      </form>
+    </div>
+
+    <div *ngFor="let comment of getPostComments()" class="col-6 z-de" id="comments">
+
+      <div>
+        <b>{{comment.author.username}}</b>
+        <p>{{comment.content}}</p>
+      </div>
+
+    </div>
+  </div>
+
+</div>

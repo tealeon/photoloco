@@ -31,3 +31,17 @@ values (4, '🕊 𝘑𝘰𝘩𝘯 𝟣𝟥:𝟩', 'Linz', 'Austria', 'marxa@mail
 
 insert into _user (id, biography, city, country, email, firstname, imageurl, instagramname, ismodel, isphotographer, lastname, username, websiteurl)
 values (5, '', 'Linz', 'Austria', 'hope@mail.com', 'Hope', 'https://www.borgleon.at/wp-content/uploads/2015/10/default-user-image.png', 'hope_snr', true, false, 'Senegal', 'Hopee', 'www.google.com');
+
+/*posts*/
+insert into post (id, dateofcreation, markdowncontent, title, author_id)
+values (1000, '2020-03-22', 'Hi! I am currently using my ISRE animal camera and but ive had it for 6 years now and its time to upgrade', 'In need of a new camera. I would very much appreciate recommendations.', 3);
+insert into post (id, dateofcreation, markdowncontent, title, author_id)
+values (1002, '2017-03-26', 'Hello World!', 'My First Post', 1);
+insert into post (id, dateofcreation, markdowncontent, title, author_id)
+values (1001, '2019-05-28', 'What gear should I get as a beginner?', 'Asking for advice', 3);
+
+/*postComments*/
+insert into postComment (id, content, author_id, post_id, postrepliedto_id)
+values (1000, 'just get the Sony A7S III!', 2, 1000, null);
+insert into postComment (id, content, author_id, post_id, postrepliedto_id)
+values (1001, 'Canon R5.', 1, 1000, null);

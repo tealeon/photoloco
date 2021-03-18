@@ -32,7 +32,7 @@ public class LocationResource {
         Location location = new Location(locationDto);
         location.persist();
 
-        return Response.noContent().build();
+        return Response.ok(location).build();
     }
 
     @PUT

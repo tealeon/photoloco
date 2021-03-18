@@ -1,0 +1,26 @@
+<div class="content">
+
+    <div style="width: 100%; margin-bottom: 10%">
+      <form [formGroup]="addressForm" novalidate (ngSubmit)="onSubmit(addressForm.value)" style="width: 100%">
+        <mat-form-field style="width: 100%">
+          <input matInput placeholder="Title" formControlName="title">
+          <mat-error *ngIf="addressForm.controls['title'].hasError('required')">
+            Title is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field style="width: 100%">
+          <textarea matInput placeholder="Write a post..." formControlName="content"></textarea>
+          <mat-error *ngIf="addressForm.controls['content'].hasError('required')">
+            Your content cannot be empty!
+          </mat-error>
+        </mat-form-field>
+
+        <mat-card-actions >
+          <button mat-raised-button color="primary" type="submit" style="margin: 1% 0; float: right;"
+                  [disabled]="this.addressForm.invalid || !addressForm.dirty">Post
+          </button>
+        </mat-card-actions>
+      </form>
+    </div>
+
+</div>

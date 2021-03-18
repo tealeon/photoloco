@@ -1,0 +1,15 @@
+*{
+  margin: 0;
+}
+
+.content{
+  width: 75%;
+  margin: auto;
+}
+
+.wrap{
+  width: 70%;
+  margin: auto;
+  background-color: white;
+  min-height: 100vh;
+}

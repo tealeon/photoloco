@@ -3,6 +3,7 @@ package at.htl.photoloco.entity;
 import at.htl.photoloco.dto.PostCommentDto;
 import io.quarkus.hibernate.orm.panache.PanacheEntity;
 
+import javax.json.bind.annotation.JsonbTransient;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
@@ -16,12 +17,15 @@ public class PostComment extends PanacheEntity {
     public String content;
 
     @ManyToOne
+    @JsonbTransient
     public User author;
 
     @ManyToOne
+    @JsonbTransient
     public PostComment postRepliedTo;
 
     @ManyToOne
+    @JsonbTransient
     public Post post;
 
     @OneToMany(mappedBy = "postRepliedTo", cascade = CascadeType.ALL)
