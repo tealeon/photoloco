@@ -3,6 +3,7 @@ package at.htl.photoloco.boundary;
 import at.htl.photoloco.dto.UserDto;
 import at.htl.photoloco.entity.User;
 import io.quarkus.security.Authenticated;
+import org.hibernate.Hibernate;
 
 import javax.transaction.Transactional;
 import javax.validation.Valid;
@@ -53,24 +54,46 @@ public class UserResource {
     }
 
     @GET
+    @Path("/insta/{instagram-name}")
+    public Response getUserByInstagramName(@PathParam("instagram-name") String instagramName) {
+        User user = User.find("instagramName", instagramName).firstResult();
+
+        if (user == null) return Response.status(Status.BAD_REQUEST).build();
+
+        return Response.ok(new UserDto(user)).build();
+    }
+
+    @GET
     @Path("/photographers")
-    public List<User> getAllPhotographers(){
+    public List<UserDto> getAllPhotographers(){
 
         return User.streamAll()
                 .map(user -> (User) user)
+                .peek(user -> Hibernate.initialize(user.photoShootingsInvolvedIn))
                 .filter(user -> user.isPhotographer)
+                .map(UserDto::new)
                 .collect(Collectors.toList());
     }
 
     @GET
     @Path("/models")
-    public List<User> getAllModels(){
+    public List<UserDto> getAllModels(){
 
         return User.streamAll()
                 .map(user -> (User) user)
                 .filter(user -> user.isModel)
+                .map(UserDto::new)
                 .collect(Collectors.toList());
     }
 
-
+    /*
+    @POST
+    //@Authenticated
+    @Transactional
+    public Response createUser(@Valid UserDto userDto) {
+        User user = new User(userDto);
+        user.persist();
+        return Response.noContent().build();
+    }
+    */
 }
