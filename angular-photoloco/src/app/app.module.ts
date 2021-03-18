@@ -34,6 +34,7 @@ import { SelectUsersComponent } from './modules/photoshooting/add-photoshooting/
 import { MatIconModule } from '@angular/material/icon';
 import { SelectLocationComponent } from './modules/photoshooting/add-photoshooting/select-location/select-location.component';
 import { MyProfileComponent } from './modules/profile/my-profile/my-profile.component';
+import { PhotoshootingListComponent } from './modules/profile/my-profile/photoshooting-list/photoshooting-list.component';
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
@@ -69,6 +70,7 @@ const appRoutes: Routes = [
     SelectUsersComponent,
     SelectLocationComponent,
     MyProfileComponent,
+    PhotoshootingListComponent,
   ],
   imports: [
     BrowserModule,
