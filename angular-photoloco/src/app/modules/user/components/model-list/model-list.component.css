@@ -10,5 +10,11 @@ table, th, td {
 .content{
   width: 90%;
   margin: auto;
+  display: flex;
+  flex-direction: row;
 }
 
+mat-card{
+  width: 32.5%;
+  margin: 1%;
+}
