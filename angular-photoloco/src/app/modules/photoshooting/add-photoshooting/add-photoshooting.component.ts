@@ -18,7 +18,7 @@ export class AddPhotoshootingComponent implements OnInit {
     date: [null, Validators.required]
   });
 
-  selectedUsers: string[];
+  selectedUsers: string[] = [];
   selectedLocation: string;
 
   constructor(
@@ -43,8 +43,8 @@ export class AddPhotoshootingComponent implements OnInit {
     this.selectedLocation = locations;
   }
 
-  private listsValid(): boolean {
-    return this.selectedLocation && this.selectedUsers.length > 0;
+  public listsValid(): boolean {
+    return this.selectedLocation !== undefined && this.selectedUsers.length > 0;
   }
 
   onSubmit(): void {
