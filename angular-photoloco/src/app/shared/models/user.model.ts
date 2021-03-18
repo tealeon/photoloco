@@ -1,4 +1,5 @@
 import {PostModel} from './post.model';
+import {PhotoshootingModel} from "./photoshooting.model";
 
 export class UserModel {
 
@@ -16,8 +17,9 @@ export class UserModel {
   instagramName: string;
   websiteUrl: string;
   posts: object;
+  photoShootingsInvolvedIn: PhotoshootingModel[];
 
-  constructor(id: number, username: string, firstName: string, lastName: string, imageUrl: string, email: string, city: string, country: string, isModel: string, isPhotographer: string, biography: string, instagramName: string, websiteUrl: string, posts: object) {
+  constructor(id: number, username: string, firstName: string, lastName: string, imageUrl: string, email: string, city: string, country: string, isModel: string, isPhotographer: string, biography: string, instagramName: string, websiteUrl: string, posts: object, photoShootingsInvolvedIn: PhotoshootingModel[]) {
     this.id = id;
     this.username = username;
     this.firstName = firstName;
@@ -32,5 +34,6 @@ export class UserModel {
     this.instagramName = instagramName;
     this.websiteUrl = websiteUrl;
     this.posts = posts;
+    this.photoShootingsInvolvedIn = photoShootingsInvolvedIn;
   }
 }
