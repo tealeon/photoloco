@@ -2,6 +2,7 @@ package at.htl.photoloco.boundary;
 
 import at.htl.photoloco.dto.PhotoShootingDto;
 import at.htl.photoloco.entity.PhotoShooting;
+import at.htl.photoloco.entity.User;
 
 import javax.transaction.Transactional;
 import javax.validation.Valid;
@@ -22,6 +23,22 @@ public class PhotoShootingResource {
                 .map(photoshooting -> (PhotoShooting) photoshooting)
                 .map(PhotoShootingDto::new)
                 .collect(Collectors.toList());
+        return Response.ok(photoShootings).build();
+    }
+
+    @GET
+    @Path("/{username}")
+    public Response getAllPhotoshootingsOfUser(@PathParam("username") String username) {
+        User user = User.find("username", username).firstResult();
+
+        if (user == null) return Response.status(Response.Status.BAD_REQUEST).build();
+
+        List<PhotoShootingDto> photoShootings = PhotoShooting.streamAll()
+                .map(photoshooting -> (PhotoShooting) photoshooting)
+                .filter(photoShooting -> photoShooting.userInvolved.contains(user))
+                .map(PhotoShootingDto::new)
+                .collect(Collectors.toList());
+
         return Response.ok(photoShootings).build();
     }
 
