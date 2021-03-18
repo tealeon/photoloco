@@ -1,22 +1,29 @@
-<button (click)="getTimes()" class="gT">Get Times</button>
 
 <mat-card class="generalD" id="out">
   <div class="timez tBh">
-    Blue Hour
+    <b>Blue Hour</b> <br>
+    {{this.blueHour | date:'shortTime' }}
   </div>
   <div class="timez" id="tSr">
+    <b>Sunrise</b> <br>
     {{ this.sunrise | date: 'shortTime' }}
   </div>
   <div class="timez" id="tZ">
-    Zenit
+    <b>Zenit</b> <br>
+    {{this.zenit | date: 'shortTime' }}
   </div>
   <div class="timez" id="tGh">
-    Golden Hour
+    <b>Golden Hour</b> <br>
+    {{this.goldenHour | date: 'shortTime' }}
   </div>
   <div class="timez" id="tSs">
+    <b>Sunset</b> <br>
     {{ this.sunset | date: 'shortTime' }}
   </div>
   <div class="timez tBh">
-    Blue Hour
+    <b>Blue Hour</b> <br>
+    {{this.blueHour2 | date:'shortTime' }}
   </div>
 </mat-card>
+
+<button (click)="getTimes()" mat-raised-button class="gT">Get Times</button>

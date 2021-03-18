@@ -13,7 +13,10 @@ export class TimesComponent implements OnInit {
   private lng: number;
   sunrise: string;
   sunset: string;
-  blueHour;
+  blueHour: string;
+  zenit: string;
+  goldenHour: string;
+  blueHour2: string;
 
   constructor(private _http: HttpService) {
   }
@@ -31,6 +34,10 @@ export class TimesComponent implements OnInit {
           this.times = data;
           this.sunrise = this.times?.results.sunrise;
           this.sunset = this.times?.results.sunset;
+          this.blueHour = this.addTime(this.sunrise, -1, 0);
+          this.goldenHour = this.addTime(this.sunset, -1, 0);
+          this.blueHour2 = this.addTime(this.sunset, 1, 30);
+          this.zenit = this.addTime(this.sunrise, 6, 0);
         });
       });
     } else {
