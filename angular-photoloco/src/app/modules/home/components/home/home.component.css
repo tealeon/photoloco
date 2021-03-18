@@ -38,14 +38,14 @@ p{
   font-weight: bold;
   font-size: 2.5vh;
   padding: 8px;
-  border: 0.5vh solid #343a40;
+  border: 3px solid #343a40;
   border-radius: 3vh;
   text-align: center;
   outline: none;
   text-decoration: none;
   transition: background-color 0.2s ease-out,
   color 0.2s ease-out;
-  background-color: #f9e5e7;
+  background-color: rgba(0,0,0,0);
 }
 .ghost-button:hover{
   background-color: #343a40;
