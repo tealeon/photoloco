@@ -1,13 +1,20 @@
 .content{
-  width: 80%;
+  width: 75%;
   margin: auto;
 }
 
 .post{
-  min-height: 70vh;
+  margin-bottom: 1%;
+  border-bottom: #343a40 1px solid;
 }
 
-.comments{
+.commentsection{
   border-top: #343a40 1px solid;
   padding-top: 1%;
+  margin-bottom: 5%;
+}
+
+.post-content{
+  min-height: 40vh;
+  margin-top: 1%;
 }

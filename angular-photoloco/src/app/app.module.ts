@@ -26,6 +26,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio';
 import { PostListComponent } from './modules/forum/post-list/post-list.component';
 import { PostDetailComponent } from './modules/forum/post-detail/post-detail.component';
+import { CreatePostComponent } from './modules/forum/create-post/create-post.component';
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
@@ -39,6 +40,7 @@ const appRoutes: Routes = [
   {path: 'add-location', component: AddLocationComponent},
   {path: 'post-list', component: PostListComponent},
   {path: 'post-detail', component: PostDetailComponent},
+  {path: 'create-post', component: CreatePostComponent},
   {path: '**', component: PageNotFoundComponent}
 ];
 
@@ -58,6 +60,7 @@ const appRoutes: Routes = [
     AddLocationComponent,
     PostListComponent,
     PostDetailComponent,
+    CreatePostComponent,
   ],
   imports: [
     BrowserModule,

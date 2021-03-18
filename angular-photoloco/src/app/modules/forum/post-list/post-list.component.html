@@ -1,4 +1,8 @@
-<div class="row content">
+<div class="content">
+
+  <h1>Forum</h1>
+
+  <button style="margin-bottom: 1%" routerLink="/create-post">Create a post</button>
 
   <mat-card *ngFor="let post of getAllPosts()" (click)="showPostDetails(post)" class="col-12 z-de"
             style="cursor: pointer">
@@ -6,7 +10,7 @@
     <h2>{{post.title}}</h2>
 
     <mat-card-content>
-      <p>by {{post.author.username}}</p>
+      <p>by <b>{{post.author.username}}</b></p>
     </mat-card-content>
 
   </mat-card>

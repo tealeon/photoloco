@@ -1,12 +1,14 @@
 package at.htl.photoloco.boundary;
 
 import at.htl.photoloco.dto.PostCommentDto;
+import at.htl.photoloco.dto.PostDto;
+import at.htl.photoloco.entity.Post;
 import at.htl.photoloco.entity.PostComment;
+import io.quarkus.security.Authenticated;
 
-import javax.ws.rs.Consumes;
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
+import javax.transaction.Transactional;
+import javax.validation.Valid;
+import javax.ws.rs.*;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -32,5 +34,4 @@ public class PostCommentResource {
 
         return Response.ok(comments).build();
     }
-
 }
