@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {UserService} from "../../../core/services/user.service";
 import {UserModel} from "../../../shared/models/user.model";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-explore',
@@ -13,7 +14,8 @@ export class ExploreComponent implements OnInit {
   models: UserModel[] = [];
 
   constructor(
-    private userSerive: UserService
+    private userSerive: UserService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -33,5 +35,9 @@ export class ExploreComponent implements OnInit {
         .slice(0, 3);
       console.log(this.photographers, this.models);
     });
+  }
+
+  navigateTouserDetail(instagramName: string): void {
+    this.router.navigate(['user-detail', instagramName]);
   }
 }

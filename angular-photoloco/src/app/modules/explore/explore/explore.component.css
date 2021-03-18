@@ -14,3 +14,16 @@ mat-card-content {
 .section-wrapper {
   width: 45%;
 }
+
+.user-card {
+  cursor: pointer;
+  margin-bottom: 5%;
+}
+
+mat-icon {
+  position: absolute;
+  right: 5%;
+  color: #ffe459;
+}
+
+

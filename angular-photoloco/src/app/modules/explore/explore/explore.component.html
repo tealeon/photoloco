@@ -4,15 +4,15 @@
 
     <div class="section-wrapper">
       <h2>Photographers</h2>
-      <mat-card *ngFor="let user of photographers">
-        {{user.instagramName}}
+      <mat-card class="user-card" *ngFor="let user of photographers; let i = index" (click)="navigateTouserDetail(user.instagramName)">
+        <strong>{{'#'+(i+1)}}</strong> {{user.instagramName}} <mat-icon *ngIf="i==0">stars</mat-icon>
       </mat-card>
     </div>
 
     <div class="section-wrapper">
       <h2>Models</h2>
-      <mat-card *ngFor="let user of models">
-        {{user.instagramName}}
+      <mat-card class="user-card" *ngFor="let user of models; let i = index" (click)="navigateTouserDetail(user.instagramName)">
+        <strong>{{'#'+(i+1)}}</strong> {{user.instagramName}} <mat-icon *ngIf="i==0">stars</mat-icon>
       </mat-card>
     </div>
 
