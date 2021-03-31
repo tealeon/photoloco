@@ -39,6 +39,8 @@ import { ExploreComponent } from './modules/explore/explore/explore.component';
 import { PostListComponent } from './modules/forum/post-list/post-list.component';
 import { PostDetailComponent } from './modules/forum/post-detail/post-detail.component';
 import { CreatePostComponent } from './modules/forum/create-post/create-post.component';
+import { RegisterComponent } from './modules/registration/register/register.component';
+import { LoginComponent } from './modules/registration/login/login.component';
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
@@ -83,6 +85,8 @@ const appRoutes: Routes = [
     PostListComponent,
     PostDetailComponent,
     CreatePostComponent,
+    RegisterComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
