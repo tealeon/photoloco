@@ -188,4 +188,6 @@ mat-card{
 
 .isPhotographer, .isModel{
   background-color: #B6F2E7;
+  color: black;
+  border-color: white !important;
 }

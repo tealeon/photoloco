@@ -27,7 +27,7 @@ nav{
 #expbtn:hover{
   border-color: #B6F2E7 !important;
   background-color: #B6F2E7;
-  color: white;
+  color: #343a40;
 }
 #expbtn:focus{
   box-shadow:0 0 0 .2rem rgba(182,242,231,.5) !important;

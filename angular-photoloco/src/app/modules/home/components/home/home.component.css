@@ -49,7 +49,7 @@ p{
 }
 .ghost-button:hover{
   background-color: #343a40;
-  color: #f9e5e7;
+  color: white;
   transition: background-color 0.3s ease-in,
   color 0.3s ease-in;
 }
