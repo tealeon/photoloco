@@ -45,3 +45,7 @@ insert into postComment (id, content, author_id, post_id, postrepliedto_id)
 values (1000, 'just get the Sony A7S III!', 2, 1000, null);
 insert into postComment (id, content, author_id, post_id, postrepliedto_id)
 values (1001, 'Canon R5.', 1, 1000, null);
+insert into postComment (id, content, author_id, post_id, postrepliedto_id)
+values (1002, 'i can only agree', 1, 1000, 1000);
+
+

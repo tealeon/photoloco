@@ -46,11 +46,12 @@ export class PostDetailComponent implements OnInit {
   }
 
   getPostComments(): Array<PostCommentModel> {
-    /*for (let i = 0; i < this.allPostComments.length; i++) {
-      if (this.allPostComments[i].post === this.post.id) {
+    for (let i = 0; i < this.allPostComments.length; i++) {
+      /*if (this.allPostComments[i].post === this.post.id) {
         this.comments.push(this.allPostComments[i]);
-      }
-    }*/
+      }*/
+      this.allPostComments[i].replies = JSON.stringify(this.allPostComments[i].replies);
+    }
     return this.allPostComments;
   }
 
