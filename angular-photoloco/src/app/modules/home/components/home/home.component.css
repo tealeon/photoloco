@@ -7,9 +7,9 @@ body{
   height: 100%;
   width: 100%;
   margin: 0;
-  background-image: url("images/homepage_bg.jpg");
+  /*background-image: url("images/homepage_bg.jpg");
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: cover;*/
   overflow: hidden;
 }
 
@@ -52,4 +52,18 @@ p{
   color: #f9e5e7;
   transition: background-color 0.3s ease-in,
   color 0.3s ease-in;
+}
+
+#illust{
+  width: 80vw;
+  height: 80%;
+  position: absolute;
+  top: 13%;
+  right: -20%;
+  background-image: url("images/homepageIllustration.png");
+  background-repeat: no-repeat;
+  /*background-size: cover;
+  overflow: hidden;*/
+  background-size: contain;
+
 }

@@ -18,3 +18,17 @@ a {
 nav{
   margin-bottom: 2%;
 }
+
+#expbtn{
+  border-color: #B6F2E7 !important;
+  color: #B6F2E7;
+}
+
+#expbtn:hover{
+  border-color: #B6F2E7 !important;
+  background-color: #B6F2E7;
+  color: white;
+}
+#expbtn:focus{
+  box-shadow:0 0 0 .2rem rgba(182,242,231,.5) !important;
+}

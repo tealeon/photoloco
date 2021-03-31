@@ -19,6 +19,7 @@ mat-card{
   height: 30vw;
   margin-left: auto;
   margin-right: auto;
+  padding-top: 1% !important;
   padding: 1%;
 }
 
@@ -186,5 +187,5 @@ mat-card{
 }
 
 .isPhotographer, .isModel{
-  background-color: #CAE7C1;
+  background-color: #B6F2E7;
 }
