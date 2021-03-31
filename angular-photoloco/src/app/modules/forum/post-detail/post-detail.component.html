@@ -2,7 +2,7 @@
 
   <div class="post">
     <h1>{{post.title}}</h1>
-    <h3>written by <b>{{post.author.username}}</b> on the {{post.dateOfCreation}}</h3>
+    <h3>created by <b>{{post.author.username}}</b> on the {{post.dateOfCreation | date:'yyyy-MM-dd'}}</h3>
   </div>
 
   <div class="post-content">
