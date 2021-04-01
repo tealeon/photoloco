@@ -11,14 +11,14 @@
 
   <div class="commentsection">
 
-    <h3>Comments ({{getPostComments().length}})</h3>
+    <h3>Comments ({{getPostCommentsById().length}})</h3>
 
     <div style="width: 100%; margin-bottom: 10%">
       <form [formGroup]="addressForm" novalidate (ngSubmit)="onSubmit(addressForm.value)" style="width: 100%">
         <mat-form-field style="width: 100%">
-          <textarea matInput placeholder="Write a comment..." formControlName="comment"></textarea>
-          <mat-error *ngIf="addressForm.controls['comment'].hasError('required')">
-            Your comment cannot be empty!
+          <textarea matInput placeholder="Write a comment..." formControlName="content"></textarea>
+          <mat-error *ngIf="addressForm.controls['content'].hasError('required')">
+            The content cannot be empty!
           </mat-error>
         </mat-form-field>
 
@@ -30,7 +30,7 @@
       </form>
     </div>
 
-    <div *ngFor="let comment of getPostComments()" class="col-6 z-de" id="comments">
+    <div *ngFor="let comment of getPostCommentsById()" class="col-6 z-de" id="comments">
 
       <div>
         <b>{{comment.author.username}}</b>
@@ -43,7 +43,6 @@
         </ul>
         -->
       </div>
-
     </div>
   </div>
 

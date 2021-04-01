@@ -1,7 +1,7 @@
 <div class="content">
   <div class="wrapper">
     <div class="list-content">
-      <mat-card *ngFor="let location of getAllLocations()" style="width: 100%">
+      <mat-card *ngFor="let location of getAllLocations()" (click)="showLocationDetail(location)" style="width: 100%">
 
         <mat-card-content>
           <h2 style="">{{location.name}}</h2>

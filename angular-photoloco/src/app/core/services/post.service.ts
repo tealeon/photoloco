@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {map} from 'rxjs/operators';
 
@@ -7,7 +7,8 @@ import {map} from 'rxjs/operators';
 })
 export class PostService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+  }
 
   getAllPosts() {
     const url = 'http://localhost:8080/post';
@@ -25,6 +26,20 @@ export class PostService {
 
   getPostComments() {
     const url = 'http://localhost:8080/postcomment';
+    return this.http.get(url)
+      .pipe(map(data => {
+        const result = [];
+        for (const key in data) {
+          if (data.hasOwnProperty(key)) {
+            result.push({...data[key]});
+          }
+        }
+        return result;
+      }));
+  }
+
+  getPostCommentsById(id) {
+    const url = 'http://localhost:8080/postcomment/' + id;
     return this.http.get(url)
       .pipe(map(data => {
         const result = [];

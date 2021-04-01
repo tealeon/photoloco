@@ -1,0 +1,46 @@
+<div class="content">
+
+  <h1>{{location.name}}</h1>
+  <h4>{{location.description}}</h4>
+
+  <mat-tab-group>
+    <mat-tab label="Times">
+      <br>
+        <div class="timez tBh">
+          <b>Blue Hour</b> <br>
+          {{this.blueHour | date:'shortTime' }}
+        </div>
+        <div class="timez" id="tSr">
+          <b>Sunrise</b> <br>
+          {{ this.sunrise | date: 'shortTime' }}
+        </div>
+        <div class="timez" id="tZ">
+          <b>Zenit</b> <br>
+          {{this.zenit | date: 'shortTime' }}
+        </div>
+        <div class="timez" id="tGh">
+          <b>Golden Hour</b> <br>
+          {{this.goldenHour | date: 'shortTime' }}
+        </div>
+        <div class="timez" id="tSs">
+          <b>Sunset</b> <br>
+          {{ this.sunset | date: 'shortTime' }}
+        </div>
+        <div class="timez tBh">
+          <b>Blue Hour</b> <br>
+          {{this.blueHour2 | date:'shortTime' }}
+        </div>
+    </mat-tab>
+    <mat-tab label="Pictures">
+      <br>
+      <!--
+      <li *ngFor="let ingredient of dish.ingredients">
+        {{ingredient.name}}: {{ingredient.amount}} {{ingredient.unit}}
+      </li>
+      -->
+    </mat-tab>
+  </mat-tab-group>
+
+</div>
+
+

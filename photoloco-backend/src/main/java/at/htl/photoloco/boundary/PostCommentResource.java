@@ -39,10 +39,16 @@ public class PostCommentResource {
 
     @GET
     @Path("/{post-id}")
-    public List<PostComment> getCommentsByPostId(@PathParam("post-id") Long id) {
+    public Response getCommentsByPostId(@PathParam("post-id") Long id) {
         Post post = Post.find("id", id).firstResult();
 
-        return post.comments;
+        List<PostCommentDto> comments = PostComment.streamAll()
+                .map(comment -> (PostComment) comment)
+                .filter(n -> id.equals(n.post.id))
+                .map(PostCommentDto::new)
+                .collect(Collectors.toList());
+
+        return Response.ok(comments).build();
     }
 
 

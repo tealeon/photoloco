@@ -39,6 +39,8 @@ import { ExploreComponent } from './modules/explore/explore/explore.component';
 import { PostListComponent } from './modules/forum/post-list/post-list.component';
 import { PostDetailComponent } from './modules/forum/post-detail/post-detail.component';
 import { CreatePostComponent } from './modules/forum/create-post/create-post.component';
+import { LocationDetailComponent } from './modules/location/location-detail/location-detail.component';
+import {MatTabsModule} from '@angular/material/tabs';
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
@@ -48,6 +50,7 @@ const appRoutes: Routes = [
   {path: 'user-detail/:instagramName', component: UserDetailComponent},
   {path: 'times', component: TimesComponent},
   {path: 'location-list', component: LocationListComponent},
+  {path: 'location-detail', component: LocationDetailComponent},
   {path: 'map', component: MapComponent},
   {path: 'add-location', component: AddLocationComponent},
   {path: 'post-list', component: PostListComponent},
@@ -83,6 +86,7 @@ const appRoutes: Routes = [
     PostListComponent,
     PostDetailComponent,
     CreatePostComponent,
+    LocationDetailComponent,
   ],
   imports: [
     BrowserModule,
@@ -102,7 +106,8 @@ const appRoutes: Routes = [
     MatNativeDateModule,
     MatChipsModule,
     MatAutocompleteModule,
-    MatIconModule
+    MatIconModule,
+    MatTabsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

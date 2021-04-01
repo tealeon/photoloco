@@ -14,12 +14,12 @@ import {HttpClient} from '@angular/common/http';
 export class PostDetailComponent implements OnInit {
 
   addressForm = this.fb.group({
-    comment: [null, Validators.required],
+    content: [null, Validators.required],
   });
 
   post;
   allPostComments: Array<PostCommentModel>;
-  comments;
+  comments: Array<PostCommentModel>;
   url;
 
   constructor(
@@ -31,16 +31,20 @@ export class PostDetailComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.postService.getPostComments().subscribe(
-      data => {
-        this.allPostComments = data;
-      }
-    );
-
     this.route.params.subscribe(
       (params: Params) => {
         this.post = new PostModel(params.id, params.title, params.markdownContent, params.dateOfCreation, params.author, params.postComment);
         this.url = 'http://localhost:8080/post/' + this.post.id + '/comment';
+      }
+    );
+    this.postService.getPostCommentsById(this.post.id).subscribe(
+      data => {
+        this.comments = data;
+      }
+    );
+    this.postService.getPostComments().subscribe(
+      data => {
+        this.allPostComments = data;
       }
     );
   }
@@ -49,10 +53,12 @@ export class PostDetailComponent implements OnInit {
     return this.allPostComments;
   }
 
+  getPostCommentsById(): Array<PostCommentModel> {
+    return this.comments;
+  }
+
   onSubmit(data) {
-    data.content = data.comment;
-    data.comment = null;
-    data.author_id = 1;
+    data.author_id = 9999;
     data.postRepliedTo_id = null;
     console.log(data);
 

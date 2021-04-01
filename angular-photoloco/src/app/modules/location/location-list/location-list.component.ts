@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {LocationModel} from '../../../shared/models/location.model';
 import {LocationService} from '../../../core/services/location.service';
 import {Router} from '@angular/router';
+import {HttpService} from '../../../core/services/http.service';
 
 @Component({
   selector: 'app-location-list',
@@ -14,7 +15,7 @@ export class LocationListComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private locationService: LocationService
+    private locationService: LocationService,
   ) {
   }
 
@@ -29,5 +30,10 @@ export class LocationListComponent implements OnInit {
 
   getAllLocations(): Array<LocationModel> {
     return this.locations;
+  }
+
+  showLocationDetail(location) {
+    location.posts = JSON.stringify(location.posts);
+    this.router.navigate(['location-detail', location]);
   }
 }
