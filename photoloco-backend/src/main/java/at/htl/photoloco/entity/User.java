@@ -38,6 +38,8 @@ public class User extends PanacheEntity {
 
     public String password;
 
+    public String password;
+
     @ManyToMany
     public List<PhotoShooting> photoShootingsInvolvedIn = new LinkedList<>();
 

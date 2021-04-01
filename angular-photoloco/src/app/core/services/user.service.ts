@@ -59,4 +59,10 @@ export class UserService {
       }));
   }
 
+  addUser(user: UserModel): Observable<UserModel> {
+    const url = 'http://localhost:8080/user';
+    console.log(user);
+    return this.http.post<UserModel>(url, user);
+  }
+
 }

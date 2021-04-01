@@ -86,14 +86,12 @@ public class UserResource {
                 .collect(Collectors.toList());
     }
 
-    /*
     @POST
     //@Authenticated
     @Transactional
     public Response createUser(@Valid UserDto userDto) {
         User user = new User(userDto);
         user.persist();
-        return Response.noContent().build();
+        return Response.ok(user).build();
     }
-    */
 }
