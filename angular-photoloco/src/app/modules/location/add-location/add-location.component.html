@@ -68,6 +68,16 @@
               </mat-form-field>
             </div>
           </div>
+          <div class="row">
+            <div class="col">
+              <mat-form-field class="full-width">
+                <input matInput placeholder="Image-URL" formControlName="imgUrl">
+                <mat-error *ngIf="addressForm.controls['imgUrl'].hasError('required')">
+                  Image-URL is <strong>required</strong>
+                </mat-error>
+              </mat-form-field>
+            </div>
+          </div>
         </mat-card-content>
         <mat-card-actions>
           <button mat-raised-button color="primary" type="submit"

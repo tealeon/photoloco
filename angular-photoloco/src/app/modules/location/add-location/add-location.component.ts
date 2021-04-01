@@ -18,6 +18,7 @@ export class AddLocationComponent implements OnInit, AfterViewInit {
     longitude: [null, Validators.required],
     description: [null, Validators.required],
     tag: [null, Validators.required],
+    imgUrl: [null, Validators.required],
   });
 
   private map1;

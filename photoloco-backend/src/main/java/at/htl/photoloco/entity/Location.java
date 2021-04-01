@@ -21,6 +21,8 @@ public class Location extends PanacheEntity {
 
     public String tag;
 
+    public String imgUrl;
+
     @OneToMany(mappedBy = "location")
     public List<PhotoShooting> photoShootings;
 
@@ -33,6 +35,7 @@ public class Location extends PanacheEntity {
         this.latitude = locationDto.getLatitude();
         this.description = locationDto.getDescription();
         this.tag = locationDto.getTag();
+        this.imgUrl = locationDto.getImgUrl();
     }
 
     public void update(LocationDto updatedLocation) {
@@ -41,5 +44,6 @@ public class Location extends PanacheEntity {
         this.latitude = updatedLocation.getLatitude();
         this.description = updatedLocation.getDescription();
         this.tag = updatedLocation.getTag();
+        this.imgUrl = updatedLocation.getImgUrl();
     }
 }

@@ -33,6 +33,9 @@ public class LocationDto {
     @Size(min = 1, max = 255)
     private String tag;
 
+    @NotNull
+    private String imgUrl;
+
     public LocationDto() {
     }
 
@@ -43,6 +46,7 @@ public class LocationDto {
         this.latitude = location.latitude;
         this.description = location.description;
         this.tag = location.tag;
+        this.imgUrl = location.imgUrl;
     }
 
     public Long getId() {
@@ -87,5 +91,13 @@ public class LocationDto {
 
     public void setTag(String tag) {
         this.tag = tag;
+    }
+
+    public String getImgUrl() {
+        return imgUrl;
+    }
+
+    public void setImgUrl(String imgUrl) {
+        this.imgUrl = imgUrl;
     }
 }

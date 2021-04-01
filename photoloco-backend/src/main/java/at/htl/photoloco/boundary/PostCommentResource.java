@@ -2,8 +2,10 @@ package at.htl.photoloco.boundary;
 
 import at.htl.photoloco.dto.PostCommentDto;
 import at.htl.photoloco.dto.PostDto;
+import at.htl.photoloco.dto.UserDto;
 import at.htl.photoloco.entity.Post;
 import at.htl.photoloco.entity.PostComment;
+import at.htl.photoloco.entity.User;
 import io.quarkus.security.Authenticated;
 
 import javax.transaction.Transactional;
@@ -34,4 +36,21 @@ public class PostCommentResource {
 
         return Response.ok(comments).build();
     }
+
+    @GET
+    @Path("/{post-id}")
+    public Response getCommentsByPostId(@PathParam("post-id") Long id) {
+        Post post = Post.find("id", id).firstResult();
+
+        List<PostCommentDto> comments = PostComment.streamAll()
+                .map(comment -> (PostComment) comment)
+                .filter(n -> id.equals(n.post.id))
+                .map(PostCommentDto::new)
+                .collect(Collectors.toList());
+
+        return Response.ok(comments).build();
+    }
+
+
+
 }
