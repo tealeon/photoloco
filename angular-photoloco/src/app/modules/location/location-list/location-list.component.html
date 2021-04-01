@@ -3,7 +3,7 @@
     <div class="list-content">
       <mat-card *ngFor="let location of getAllLocations()" (click)="showLocationDetail(location)" style="width: 100%">
 
-        <mat-card-content>
+        <mat-card-content style="cursor: pointer">
           <h2 style="">{{location.name}}</h2>
           <p>{{location.description}}</p>
           <p style="background-color: #B6F2E7; border-radius: 10%; display: inline-block; padding: 0.3%">

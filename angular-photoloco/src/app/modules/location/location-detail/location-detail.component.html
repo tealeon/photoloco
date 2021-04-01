@@ -2,8 +2,11 @@
 
   <h1>{{location.name}}</h1>
   <h4>{{location.description}}</h4>
+  <p style="background-color: #B6F2E7; border-radius: 8%; display: inline-block; padding: 0.3%">
+    {{location.tag}}
+  </p>
 
-  <mat-tab-group>
+  <mat-tab-group animationDuration="1200ms">
     <mat-tab label="Times">
       <br>
         <div class="timez tBh">
@@ -31,13 +34,21 @@
           {{this.blueHour2 | date:'shortTime' }}
         </div>
     </mat-tab>
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <span (click)="viewInit()">Location</span>
+      </ng-template>
+      <br>
+      <div id="app-map">
+        <div class="map-container2">
+          <div id="map2"></div>
+        </div>
+      </div>
+    </mat-tab>
     <mat-tab label="Pictures">
       <br>
-      <!--
-      <li *ngFor="let ingredient of dish.ingredients">
-        {{ingredient.name}}: {{ingredient.amount}} {{ingredient.unit}}
-      </li>
-      -->
+      <div style="text-align: center;"><img src={{location.imgUrl}} style="max-height: 65vh; max-width: 60%"></div>
+
     </mat-tab>
   </mat-tab-group>
 

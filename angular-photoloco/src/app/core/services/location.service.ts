@@ -51,7 +51,7 @@ export class LocationService {
         const lon = c.longitude;
 
         console.log('lat:' + lat + ', lon:' + lon);
-        const marker = L.marker([lon, lat]).addTo(locationMap);
+        const marker = L.marker([lat, lon]).addTo(locationMap);
         marker.bindPopup(this.createMarkerPopUp(c));
       }
     });

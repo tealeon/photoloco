@@ -1,8 +1,9 @@
-import {Component, OnInit} from '@angular/core';
+import {AfterViewInit, Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Params} from '@angular/router';
 import {PostModel} from '../../../shared/models/post.model';
 import {LocationModel} from '../../../shared/models/location.model';
 import {HttpService} from '../../../core/services/http.service';
+import * as L from 'leaflet';
 
 @Component({
   selector: 'app-location-detail',
@@ -10,7 +11,7 @@ import {HttpService} from '../../../core/services/http.service';
   styleUrls: ['./location-detail.component.css']
 })
 export class LocationDetailComponent implements OnInit {
-  private location: LocationModel;
+  location: LocationModel;
   times: { [key: string]: any };
   sunrise: string;
   sunset: string;
@@ -18,6 +19,7 @@ export class LocationDetailComponent implements OnInit {
   zenit: string;
   goldenHour: string;
   blueHour2: string;
+  private map2;
 
   constructor(
     private route: ActivatedRoute,
@@ -27,11 +29,39 @@ export class LocationDetailComponent implements OnInit {
   ngOnInit(): void {
     this.route.params.subscribe(
       (params: Params) => {
-        this.location = new LocationModel(params.id, params.name, params.longitude, params.latitude, params.description, params.tag);
+        this.location = new LocationModel(params.id, params.name, params.longitude, params.latitude, params.description, params.tag, params.imgUrl);
       }
     );
 
+    console.log(this.location);
     this.getTimes(this.location.latitude, this.location.longitude);
+  }
+
+  viewInit(): void {
+
+    console.log('init map');
+
+    setTimeout(() => {
+      this.initMap();
+
+      const tiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+      });
+
+      tiles.addTo(this.map2);
+
+      console.log('done!');
+    }, 500);
+
+    console.log('set marker');
+
+    setTimeout(() => {
+      const marker = L.marker([this.location.latitude, this.location.longitude]).addTo(this.map2);
+      console.log('done!');
+    }, 600);
+
+
   }
 
   getTimes(lat, lng) {
@@ -52,5 +82,17 @@ export class LocationDetailComponent implements OnInit {
     resultDate.setMinutes(resultDate.getMinutes() + minutes);
     return resultDate.toString();
   }
+
+  private initMap(): void {
+    this.map2 = L.map('map2', {
+      center: [this.location.latitude, this.location.longitude],
+      zoom: 16
+    });
+  }
+
+  test() {
+    console.log('test');
+  }
+
 
 }

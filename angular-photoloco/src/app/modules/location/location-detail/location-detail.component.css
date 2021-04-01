@@ -77,3 +77,17 @@ mat-card {
 #tZ {
   background-color: #D4F0F0;
 }
+
+.map-container2 {
+  margin: auto;
+  width: 70%;
+}
+
+#map2 {
+  height: 60vh;
+  width: 100%;
+}
+
+#app-map{
+  width: 100%;
+}
