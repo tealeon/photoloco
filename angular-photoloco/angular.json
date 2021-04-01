@@ -24,14 +24,15 @@
               "src/assets",
               {
                 "glob": "**/*",
-                "input": "node_modules/leaflet/dist/images/", // you may need to change this path, according to your files structure
+                "input": "node_modules/leaflet/dist/images/",
                 "output": "./assets/"
               }
             ],
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "src/styles.css"
+              "src/styles.css",
+              "src/themes.scss"
             ],
             "scripts": []
           },
@@ -132,5 +133,10 @@
   "defaultProject": "angular-photoloco",
   "cli": {
     "analytics": false
+  },
+  "schematics": {
+    "@schematics/angular:component": {
+      "styleext": "scss"
+    }
   }
 }
