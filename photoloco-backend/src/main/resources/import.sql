@@ -1,20 +1,20 @@
 /*locations*/
-insert into location(id, longitude, latitude, name, description, tag)
-values (1001, 48.30639, 14.28611, 'Linz', 'city in Austria','urban 🏙️');
-insert into location(id, longitude, latitude, name, description, tag)
-values (1002, 48.210033, 16.363449, 'Wien', 'city in Austria','urban 🏙️');
-insert into location(id, longitude, latitude, name, description, tag)
-values (1003, 47.076668, 15.421371, 'Graz', 'city in Austria','urban 🏙️');
-insert into location(id, longitude, latitude, name, description, tag)
-values (1004, 48.27965, 14.2533, 'Leonding', 'city in Austria','urban 🏙️');
-insert into location(id, longitude, latitude, name, description, tag)
-values (1005, 48.20969, 14.29004, 'Ansfelden', 'city in Austria','urban 🏙️');
-insert into location(id, longitude, latitude, name, description, tag)
-values (1006, 47.79941, 13.04399, 'Salzburg', 'city in Austria','urban 🏙️');
-insert into location(id, longitude, latitude, name, description, tag)
-values (1007, 47.26266, 11.39454, 'Innsbruck', 'city in Austria','romantic 🌹');
-insert into location(id, longitude, latitude, name, description, tag)
-values (1008, 48.25628, 13.04343, 'Braunau am Inn', 'city in Austria','nature 🍃');
+insert into location(id, latitude, longitude, name, description, tag, imgUrl)
+values (1001, 48.30639, 14.28611, 'Linz', 'city in Austria','urban 🏙️', 'https://vcdn.bergfex.at/images/resized/82/b4883878f6a49c82_33071c141ac21100@2x.jpg');
+insert into location(id, latitude, longitude, name, description, tag, imgUrl)
+values (1002, 48.210033, 16.363449, 'Wien', 'city in Austria','urban 🏙️', 'https://www.falstaff.at/fileadmin/_processed_/5/2/csm_Wien-Header-c-Wien-Tourismus-Christian-Stemper-2640_5edf5a5e3e.jpg');
+insert into location(id, latitude, longitude, name, description, tag, imgUrl)
+values (1003, 47.076668, 15.421371, 'Graz', 'city in Austria','urban 🏙️', 'https://vcdn.bergfex.at/images/resized/e4/23698c0e29ac58e4_cedc980467da7f31@2x.jpg');
+insert into location(id, latitude, longitude, name, description, tag, imgUrl)
+values (1004, 48.27965, 14.2533, 'Leonding', 'city in Austria','urban 🏙️', 'https://vcdn.bergfex.at/images/resized/59/3742e49614a76959_8fb7cb527a930f80@2x.jpg');
+insert into location(id, latitude, longitude, name, description, tag, imgUrl)
+values (1005, 48.20969, 14.29004, 'Ansfelden', 'city in Austria','urban 🏙️', 'https://www.linzwiki.at/w/images/8/83/Ansfelden_Luftbild.jpg');
+insert into location(id, latitude, longitude, name, description, tag, imgUrl)
+values (1006, 47.79941, 13.04399, 'Salzburg', 'city in Austria','urban 🏙️', 'https://images.panoramatours.com/pt/focus/37/31/1920/810/user_upload/Sehenswuerdigkeiten/Salzburg/Salzburg_Panorama_bei_Nacht__c__Tourismus_Salzburg_GmbH.jpg');
+insert into location(id, latitude, longitude, name, description, tag, imgUrl)
+values (1007, 47.26266, 11.39454, 'Innsbruck', 'city in Austria','romantic 🌹', 'https://upload.wikimedia.org/wikipedia/commons/8/85/Innsbruck_-_Maria-Theresia-Stra%C3%9Fe4.jpg');
+insert into location(id, latitude, longitude, name, description, tag, imgUrl)
+values (1008, 48.25628, 13.04343, 'Braunau am Inn', 'city in Austria','nature 🍃', 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/09/71/2c/96/fischbrunnen.jpg?w=1000&h=600&s=1');
 
 /*users*/
 insert into _user (id, biography, city, country, email, firstname, imageurl, instagramname, ismodel, isphotographer, lastname, username, websiteurl)
