@@ -4,20 +4,20 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 // @ts-ignore
 import { CreateUserComponent } from './modules/user/components/create-user/create-user.component';
-import {HttpClientModule} from '@angular/common/http';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './modules/home/components/home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderComponent } from './core/header/header.component';
-import {RouterModule, Routes} from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { PageNotFoundComponent } from './core/page-not-found/page-not-found.component';
 import { PhotographerListComponent } from './modules/user/components/photographer-list/photographer-list.component';
-import {MatCardModule} from '@angular/material/card';
+import { MatCardModule } from '@angular/material/card';
 import { TimesComponent } from './modules/times/times/times.component';
 import { ModelListComponent } from './modules/user/components/model-list/model-list.component';
 import { LocationListComponent } from './modules/location/location-list/location-list.component';
 import { MapComponent } from './modules/location/map/map.component';
-import {MatListModule} from '@angular/material/list';
+import { MatListModule } from '@angular/material/list';
 import { UserDetailComponent } from './modules/user/components/user-detail/user-detail.component';
 import { AddLocationComponent } from './modules/location/add-location/add-location.component';
 import { MatInputModule } from '@angular/material/input';
@@ -41,6 +41,7 @@ import { PostDetailComponent } from './modules/forum/post-detail/post-detail.com
 import { CreatePostComponent } from './modules/forum/create-post/create-post.component';
 import { RegisterComponent } from './modules/registration/register/register.component';
 import { LoginComponent } from './modules/registration/login/login.component';
+import {MatCheckboxModule} from "@angular/material/checkbox";
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
@@ -58,6 +59,7 @@ const appRoutes: Routes = [
   {path: 'add-photoshooting', component: AddPhotoshootingComponent},
   {path: 'my-profile', component: MyProfileComponent},
   {path: 'explore', component: ExploreComponent},
+  {path: 'register', component: RegisterComponent},
   {path: '**', component: PageNotFoundComponent}
 ];
 
@@ -85,8 +87,9 @@ const appRoutes: Routes = [
     PostListComponent,
     PostDetailComponent,
     CreatePostComponent,
-    RegisterComponent,
     LoginComponent,
+    RegisterComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -106,7 +109,8 @@ const appRoutes: Routes = [
     MatNativeDateModule,
     MatChipsModule,
     MatAutocompleteModule,
-    MatIconModule
+    MatIconModule,
+    MatCheckboxModule
   ],
   providers: [],
   bootstrap: [AppComponent]
