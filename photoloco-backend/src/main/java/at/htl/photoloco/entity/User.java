@@ -38,9 +38,7 @@ public class User extends PanacheEntity {
 
     public String password;
 
-    public String password;
-
-    @ManyToMany
+    @ManyToMany(mappedBy = "userInvolved")
     public List<PhotoShooting> photoShootingsInvolvedIn = new LinkedList<>();
 
     @OneToMany(mappedBy = "author")
@@ -59,17 +57,50 @@ public class User extends PanacheEntity {
         this.username = username;
     }
 
+    public User(UserDto userDto){
+        this.username = userDto.getUsername();
+        this.firstName = userDto.getFirstName();
+        this.lastName = userDto.getLastName();
+        this.email = userDto.getEmail();
+        this.imageUrl = userDto.getImageUrl();
+        this.city = userDto.getCity();
+        this.country = userDto.getCountry();
+        this.isModel = userDto.isModel();
+        this.isPhotographer = userDto.isPhotographer();
+        this.biography = userDto.getBiography();
+        this.instagramName = userDto.getInstagramName();
+        this.websiteUrl = userDto.getWebsiteUrl();
+        this.photoShootingsInvolvedIn = userDto.getPhotoShootingsInvolvedIn()
+                .stream()
+                .map(PhotoShooting::new)
+                .collect(Collectors.toList());
+        //this.posts = userDto.getPosts
+        //this.writtenComments = writtenComments;
+        //this.receivedComments = receivedComments;
+    }
+
+
+    /*
+    public PhotoShooting(PhotoShootingDto photoShootingDto) {
+        update(photoShootingDto);
+    }
+
+    public void update(PhotoShootingDto photoShootingDto) {
+        this.userInvolved = photoShootingDto.getUserInvolved()
+                .stream()
+                .map(instagramName -> User.find("instagramName", instagramName).firstResult())
+                .map(user -> {
+                    User temp = (User) user;
+                    temp.photoShootingsInvolvedIn.add(this);
+                    return temp;
+                })
+                .collect(Collectors.toList());
+        this.location = Location.find("name", photoShootingDto.getLocation().getName()).firstResult();
+    }
+     */
+
+    //Konstruktor wird diese Fun aufrufen
     public void update(UserDto updatedUser) {
-        this.firstName = updatedUser.getFirstName();
-        this.lastName = updatedUser.getLastName();
-        this.email = updatedUser.getEmail();
-        this.imageUrl = updatedUser.getImageUrl();
-        this.city = updatedUser.getCity();
-        this.country = updatedUser.getCountry();
-        this.isModel = updatedUser.isModel();
-        this.isPhotographer = updatedUser.isPhotographer();
-        this.biography = updatedUser.getBiography();
-        this.instagramName = updatedUser.getInstagramName();
-        this.websiteUrl = updatedUser.getWebsiteUrl();
+
     }
 }

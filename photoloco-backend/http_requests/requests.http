@@ -165,3 +165,24 @@ GET http://localhost:8080/post/all
 Accept: application/json
 
 ###
+
+GET http://localhost:8080/user/1
+Accept: application/json
+
+###
+
+GET https://graph.facebook.com/v9.0/CH5k03ODic9
+
+###
+
+GET https://graph.facebook.com/v9.0/17895695668004550?fields=id,media_type,media_url,owner,timestamp&access_token=IGQVJ
+
+###
+
+GET http://localhost:8080/user
+
+###
+
+GET http://localhost:8080/user/models
+
+###
