@@ -3,12 +3,10 @@ package at.htl.photoloco.entity;
 import at.htl.photoloco.dto.UserDto;
 import io.quarkus.hibernate.orm.panache.PanacheEntity;
 
-import javax.persistence.Entity;
-import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Entity
 @Table(name = "_user")
@@ -37,6 +35,8 @@ public class User extends PanacheEntity {
     public String instagramName;
 
     public String websiteUrl;
+
+    public String password;
 
     @ManyToMany
     public List<PhotoShooting> photoShootingsInvolvedIn = new LinkedList<>();
