@@ -41,7 +41,7 @@ import { PostDetailComponent } from './modules/forum/post-detail/post-detail.com
 import { CreatePostComponent } from './modules/forum/create-post/create-post.component';
 import { RegisterComponent } from './modules/registration/register/register.component';
 import { LoginComponent } from './modules/registration/login/login.component';
-import {MatCheckboxModule} from "@angular/material/checkbox";
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
@@ -66,7 +66,6 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    CreateUserComponent,
     HomeComponent,
     HeaderComponent,
     PageNotFoundComponent,
