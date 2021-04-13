@@ -1,9 +1,51 @@
 
 <mat-card id="wrapper">
-  <mat-card-title>My Profile</mat-card-title>
+  <mat-card-title>Hello {{user.firstName}}!</mat-card-title>
   <mat-card-content>
     <h2>My Photoshootings</h2>
-    <app-photoshooting-list></app-photoshooting-list>
+    <app-photoshooting-list [user]="user"></app-photoshooting-list>
   </mat-card-content>
 </mat-card>
 
+
+<mat-card>
+  <div class="grid-container">
+    <div class="pic">
+      <img src="{{user.imageUrl}}" width="100%" style="border-radius: 50%;">
+    </div>
+    <div class="userBool">
+      <div class="user">
+        <p id="username">{{user.username}}</p>
+        <p style="text-align: center"> 📍 {{user.city}}, {{user.country}}</p>
+      </div>
+      <div class="bool">
+        <div id="innerbool">
+          <div class="element" id="pg" [ngClass]="{isPhotographer:user.photographer}">
+            <p class="elementTxt">Photographer</p>
+          </div>
+          <div class="element" id="md" [ngClass]="{isModel:user.model}">
+            <p class="elementTxt">Model</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="bio">
+      <div id="biotxt">
+        <b>Biography:</b> <br>
+        {{user.biography}}
+      </div>
+    </div>
+    <div class="btnsPs">
+      <div class="btns">
+        <div id="innerbtn">
+          <a href="https://www.instagram.com/{{user.instagramName}}" target="_blank"><div class="btnsI" id="insta"></div></a>
+          <a href="https://{{user.websiteUrl}}" target="_blank"><div class="btnsI" id="www"></div></a>
+        </div>
+      </div>
+      <div class="ps">
+        <p id="phsh">Photoshoots</p>
+        <p id="psCount">{{user.photoShootingsInvolvedIn.length}}</p>
+      </div>
+    </div>
+  </div>
+</mat-card>
