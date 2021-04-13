@@ -31,6 +31,20 @@ public class UserResource {
         return Response.ok(users).build();
     }
 
+    @POST
+    @Path("login")
+    public Response login(UserDto userDto) {
+        User user = User.find("instagramName", userDto.getInstagramName()).firstResult();
+
+        System.out.println(userDto);
+
+        if ( user == null) return Response.status(Status.BAD_REQUEST).build();
+
+        if ( !user.password.equals(userDto.getPassword())) return Response.status(Status.BAD_REQUEST).build();
+
+        return Response.ok(new UserDto(user)).build();
+    }
+
     @PUT
     @Authenticated
     @Transactional
@@ -90,6 +104,7 @@ public class UserResource {
     //@Authenticated
     @Transactional
     public Response createUser(@Valid UserDto userDto) {
+        System.out.println(userDto);
         User user = new User(userDto);
         user.persist();
         return Response.ok(user).build();
