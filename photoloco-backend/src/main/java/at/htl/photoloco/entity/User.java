@@ -74,6 +74,7 @@ public class User extends PanacheEntity {
                 .stream()
                 .map(PhotoShooting::new)
                 .collect(Collectors.toList());
+        this.password = userDto.getPassword();
         //this.posts = userDto.getPosts
         //this.writtenComments = writtenComments;
         //this.receivedComments = receivedComments;

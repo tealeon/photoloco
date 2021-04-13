@@ -18,8 +18,9 @@ export class UserModel {
   websiteUrl: string;
   posts: object;
   photoShootingsInvolvedIn: PhotoshootingModel[];
+  password: string;
 
-  constructor(id: number, username: string, firstName: string, lastName: string, imageUrl: string, email: string, city: string, country: string, isModel: string, isPhotographer: string, biography: string, instagramName: string, websiteUrl: string, posts: object, photoShootingsInvolvedIn: PhotoshootingModel[]) {
+  constructor(id: number, username: string, firstName: string, lastName: string, imageUrl: string, email: string, city: string, country: string, isModel: string, isPhotographer: string, biography: string, instagramName: string, websiteUrl: string, posts: object, photoShootingsInvolvedIn: PhotoshootingModel[], password: string) {
     this.id = id;
     this.username = username;
     this.firstName = firstName;
@@ -35,5 +36,6 @@ export class UserModel {
     this.websiteUrl = websiteUrl;
     this.posts = posts;
     this.photoShootingsInvolvedIn = photoShootingsInvolvedIn;
+    this.password = password;
   }
 }

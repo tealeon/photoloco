@@ -186,4 +186,13 @@ public class UserDto {
     public void setPhotoShootingsInvolvedIn(List<PhotoShootingDto> photoShootingsInvolvedIn) {
         this.photoShootingsInvolvedIn = photoShootingsInvolvedIn;
     }
+
+    @Override
+    public String toString() {
+        return "UserDto{" +
+                "id=" + id +
+                ", instagramName='" + instagramName + '\'' +
+                ", password='" + password + '\'' +
+                '}';
+    }
 }
