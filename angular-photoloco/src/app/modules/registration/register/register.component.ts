@@ -35,8 +35,6 @@ export class RegisterComponent {
     this.registerForm = this.addressForm;
     const user = this.registerForm.value as UserModel;
     this.router.navigate(['']);
-    this.userService.addUser(user).subscribe(value => {
-      console.log(value);
-    });
+    this.userService.register(user);
   }
 }
