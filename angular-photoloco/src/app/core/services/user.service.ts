@@ -1,15 +1,44 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {map} from 'rxjs/operators';
-import {Observable} from "rxjs";
-import {UserModel} from "../../shared/models/user.model";
+import {BehaviorSubject, Observable} from 'rxjs';
+import {UserModel} from '../../shared/models/user.model';
+import {Router} from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  constructor(private http: HttpClient) {
+  private loggedIn = new BehaviorSubject<boolean>(false);
+  private userValue = new BehaviorSubject<UserModel>(null);
+
+  constructor(private http: HttpClient, private router: Router) {
+  }
+
+  isLoggedIn(): Observable<boolean> {
+    return this.loggedIn.asObservable();
+  }
+
+
+  getUserValue(): Observable<UserModel> {
+    return this.userValue.asObservable();
+  }
+
+  login(user: UserModel): void {
+    this.http.post<UserModel>('http://localhost:8080/user/login', user).subscribe(value => {
+      this.loggedIn.next(true);
+      this.userValue.next(value);
+      console.log(value);
+      this.router.navigate(['']);
+    });
+  }
+
+  register(user: UserModel): void {
+    this.http.post<UserModel>('http://localhost:8080/user', user).subscribe(value => {
+      console.log(value);
+      this.login(user);
+    });
   }
 
   getUserByInstagramName(instagramName: string): Observable<UserModel> {
