@@ -14,8 +14,8 @@ export class PhotoshootingService {
     private http: HttpClient
   ) { }
 
-  submitPhotoshooting(title: string, date: string, users: string[], location: string) {
-    return this.http.post(this.url, {
+  submitPhotoshooting(title: string, date: string, users: string[], location: string): Observable<PhotoshootingModel> {
+    return this.http.post<PhotoshootingModel>(this.url, {
       title,
       dateOfPhotoShooting: date,
       userInvolved: users,

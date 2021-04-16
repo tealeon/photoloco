@@ -3,6 +3,8 @@ import {FormBuilder, FormControl, Validators} from '@angular/forms';
 import {UserService} from '../../../core/services/user.service';
 import {PhotoshootingService} from '../../../core/services/photoshooting.service';
 import {formatDate} from '@angular/common';
+import {PhotoShootingInviteService} from '../../../core/services/photo-shooting-invite.service';
+import {PhotoShootingInviteModel} from '../../../shared/models/photoShootingInvite.model';
 
 @Component({
   selector: 'app-add-photoshooting',
@@ -22,9 +24,9 @@ export class AddPhotoshootingComponent implements OnInit {
   constructor(
     private userService: UserService,
     private fb: FormBuilder,
-    private photoshootingService: PhotoshootingService
+    private photoshootingService: PhotoshootingService,
+    private photoShootingInviteService: PhotoShootingInviteService
   ) { }
-
 
   ngOnInit(): void {
   }
@@ -48,15 +50,23 @@ export class AddPhotoshootingComponent implements OnInit {
   onSubmit(): void {
     console.log(this.shootingForm.valid, this.listsValid());
     if (this.shootingForm.valid && this.listsValid()) {
-      this.photoshootingService.submitPhotoshooting(
-        this.shootingForm.value.title,
-        formatDate(this.shootingForm.value.date, 'yyyy-MM-dd', 'en-US'),
-        this.selectedUsers,
-        this.selectedLocation).subscribe(
-        response => {
-          console.log(response);
-        }
-      );
+      this.userService.getUserValue().subscribe(userValue => {
+        this.photoshootingService.submitPhotoshooting(
+          this.shootingForm.value.title,
+          formatDate(this.shootingForm.value.date, 'yyyy-MM-dd', 'en-US'),
+          [userValue.instagramName],
+          this.selectedLocation).subscribe(
+          photoShooting => {
+            this.selectedUsers.forEach(receiverInstagramName => {
+              this.photoShootingInviteService.sendInvite(new PhotoShootingInviteModel(
+                userValue.instagramName,
+                receiverInstagramName,
+                photoShooting
+              )).subscribe();
+            });
+          }
+        );
+      });
     }
   }
 }

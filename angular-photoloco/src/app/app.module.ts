@@ -39,33 +39,33 @@ import { ExploreComponent } from './modules/explore/explore/explore.component';
 import { PostListComponent } from './modules/forum/post-list/post-list.component';
 import { PostDetailComponent } from './modules/forum/post-detail/post-detail.component';
 import { CreatePostComponent } from './modules/forum/create-post/create-post.component';
-<<<<<<< HEAD
 import { RegisterComponent } from './modules/registration/register/register.component';
 import { LoginComponent } from './modules/registration/login/login.component';
 import { MatCheckboxModule } from '@angular/material/checkbox';
-=======
 import { LocationDetailComponent } from './modules/location/location-detail/location-detail.component';
 import {MatTabsModule} from '@angular/material/tabs';
->>>>>>> 452d4e0af8b38645002ca79f5ca570cfdb31d54d
+import {AuthGuard} from './core/auth.guard';
+import { DeleteMeComponent } from './modules/profile/my-profile/delete-me/delete-me.component';
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'home', component: HomeComponent},
-  {path: 'photographer-list', component: PhotographerListComponent},
-  {path: 'model-list', component: ModelListComponent},
-  {path: 'user-detail/:instagramName', component: UserDetailComponent},
-  {path: 'times', component: TimesComponent},
-  {path: 'location-list', component: LocationListComponent},
-  {path: 'location-detail', component: LocationDetailComponent},
-  {path: 'map', component: MapComponent},
-  {path: 'add-location', component: AddLocationComponent},
-  {path: 'post-list', component: PostListComponent},
-  {path: 'post-detail', component: PostDetailComponent},
-  {path: 'create-post', component: CreatePostComponent},
-  {path: 'add-photoshooting', component: AddPhotoshootingComponent},
-  {path: 'my-profile', component: MyProfileComponent},
-  {path: 'explore', component: ExploreComponent},
+  {path: 'photographer-list', component: PhotographerListComponent, canActivate: [AuthGuard]},
+  {path: 'model-list', component: ModelListComponent, canActivate: [AuthGuard]},
+  {path: 'user-detail/:instagramName', component: UserDetailComponent, canActivate: [AuthGuard]},
+  {path: 'times', component: TimesComponent, canActivate: [AuthGuard]},
+  {path: 'location-list', component: LocationListComponent, canActivate: [AuthGuard]},
+  {path: 'location-detail', component: LocationDetailComponent, canActivate: [AuthGuard]},
+  {path: 'map', component: MapComponent, canActivate: [AuthGuard]},
+  {path: 'add-location', component: AddLocationComponent, canActivate: [AuthGuard]},
+  {path: 'post-list', component: PostListComponent, canActivate: [AuthGuard]},
+  {path: 'post-detail', component: PostDetailComponent, canActivate: [AuthGuard]},
+  {path: 'create-post', component: CreatePostComponent, canActivate: [AuthGuard]},
+  {path: 'add-photoshooting', component: AddPhotoshootingComponent, canActivate: [AuthGuard]},
+  {path: 'my-profile', component: MyProfileComponent, canActivate: [AuthGuard]},
+  {path: 'explore', component: ExploreComponent, canActivate: [AuthGuard]},
   {path: 'register', component: RegisterComponent},
+  {path: 'login', component: LoginComponent},
   {path: '**', component: PageNotFoundComponent}
 ];
 
@@ -92,13 +92,11 @@ const appRoutes: Routes = [
     PostListComponent,
     PostDetailComponent,
     CreatePostComponent,
-<<<<<<< HEAD
     LoginComponent,
     RegisterComponent,
-    LoginComponent
-=======
+    LoginComponent,
     LocationDetailComponent,
->>>>>>> 452d4e0af8b38645002ca79f5ca570cfdb31d54d
+    DeleteMeComponent
   ],
   imports: [
     BrowserModule,
@@ -119,11 +117,8 @@ const appRoutes: Routes = [
     MatChipsModule,
     MatAutocompleteModule,
     MatIconModule,
-<<<<<<< HEAD
-    MatCheckboxModule
-=======
+    MatCheckboxModule,
     MatTabsModule
->>>>>>> 452d4e0af8b38645002ca79f5ca570cfdb31d54d
   ],
   providers: [],
   bootstrap: [AppComponent]

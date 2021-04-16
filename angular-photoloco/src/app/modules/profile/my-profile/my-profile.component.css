@@ -3,3 +3,127 @@
   margin: 5% auto auto;
   padding: 2%;
 }
+
+*{
+  margin: 0;
+  padding: 0;
+}
+
+.content{
+  width: 90%;
+  margin: auto;
+}
+
+*{
+  font-family: Arial;
+}
+
+html, body { height: 100%; margin: 0; }
+
+mat-card{
+  width: 30vw;
+  height: auto;
+  margin-top: 0% !important;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 1% !important;
+  padding: 1%;
+  margin-bottom: 5vh;
+}
+
+.grid-container {
+  height: 70%;
+  padding: 1%;
+  /*margin-top: 10vh;*/
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    "pic userBool userBool"
+    "bio bio bio"
+    "btnsPs btnsPs btnsPs";
+}
+
+.pic {
+  grid-area: pic;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.userBool {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    "user user user"
+    "bool bool bool";
+  grid-area: userBool;
+}
+
+.user { grid-area: user; }
+
+.bool { grid-area: bool;}
+
+.bio { grid-area: bio; }
+
+.element{
+  width: 40%;
+  height: 30px;
+  display: inline-block;
+  background-color: lightgrey;
+  color: white;
+  text-align: center;
+}
+
+.elementTxt{
+  text-align: center;
+  position: relative;
+  top: 15%;
+}
+
+#innerbool{
+  width: 100%;
+  text-align: center;
+  position: relative;
+  top:50%;
+  transform: translateY(-50%);
+}
+
+#pg{
+  margin-right: 0;
+  border-radius: 10px 0px 0px 10px;
+  border-right: 1px solid;
+}
+
+#md{
+  margin-left: 0;
+  border-radius: 0px 10px 10px 0px;
+  border-left: 1px solid;
+}
+
+#username{
+  text-align: center;
+  font-size: 120%;
+  margin-top: 6%;
+}
+
+#biotxt{
+  padding: 3%;
+  margin: 3%;
+  height: 60%;
+  border-radius: 10px;
+}
+
+#phsh{
+  text-align: center;
+  margin-bottom: 0;
+}
+
+.isPhotographer, .isModel{
+  background-color: #B6F2E7;
+  color: black;
+  border-color: white !important;
+}
+

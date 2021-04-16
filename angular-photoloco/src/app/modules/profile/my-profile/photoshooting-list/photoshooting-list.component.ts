@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {PhotoshootingService} from '../../../../core/services/photoshooting.service';
 import {PhotoshootingModel} from '../../../../shared/models/photoshooting.model';
 import {Router} from '@angular/router';
@@ -11,6 +11,7 @@ import {Router} from '@angular/router';
 export class PhotoshootingListComponent implements OnInit {
 
   photoshootings: PhotoshootingModel[] = [];
+  @Input() user;
 
   constructor(
     private photoshootingService: PhotoshootingService,
@@ -18,7 +19,7 @@ export class PhotoshootingListComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.photoshootingService.getAllPhotoshootings().subscribe(value => {
+    this.photoshootingService.getAllPhotoshootingsOfUser(this.user.username).subscribe(value => {
       this.photoshootings = value;
       console.log(value);
     });
