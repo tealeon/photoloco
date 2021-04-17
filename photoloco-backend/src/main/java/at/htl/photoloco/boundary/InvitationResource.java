@@ -6,15 +6,15 @@ import at.htl.photoloco.entity.User;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.transaction.Transactional;
-import javax.ws.rs.GET;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
+import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @ApplicationScoped
 @Path("invites")
+@Produces("application/json")
+@Consumes("application/json")
 public class InvitationResource {
 
     @GET
@@ -24,12 +24,16 @@ public class InvitationResource {
 
         if (user == null) return Response.status(Response.Status.BAD_REQUEST).build();
 
-        List<PhotoShootingInvite> invites = PhotoShootingInvite.find("receiver", user).list();
+        List<PhotoShootingInviteDto> invites = PhotoShootingInvite
+                .stream("receiver.instagramName", instagramName)
+                .map(invite -> (PhotoShootingInvite) invite)
+                .map(PhotoShootingInviteDto::new)
+                .collect(Collectors.toList());
 
         return Response.ok(invites).build();
     }
 
-    @GET
+    @POST
     @Transactional
     @Path("/{id}/{response}")
     public Response respondToInvite(@PathParam("id") Long id, @PathParam("response") boolean response) {

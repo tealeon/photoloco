@@ -17,8 +17,8 @@ export class PhotoShootingInviteService {
     return this.http.get<PhotoShootingInviteModel[]>(this.url + '/' + instagramName);
   }
 
-  respondToInvite(id: number, response: boolean): void {
-    this.http.get(this.url + '/' + id + '/' + response);
+  respondToInvite(id: number, response: boolean): Observable<void> {
+    return this.http.post<void>(this.url + '/' + id + '/' + response, null);
   }
 
   sendInvite(photoShootingId: number, invite: PhotoShootingInviteModel): Observable<PhotoShootingInviteModel> {

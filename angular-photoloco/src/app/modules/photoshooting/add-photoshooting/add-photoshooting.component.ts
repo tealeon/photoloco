@@ -53,7 +53,7 @@ export class AddPhotoshootingComponent implements OnInit {
         .submitPhotoshooting(
           this.shootingForm.value.title,
           formatDate(this.shootingForm.value.date, "yyyy-MM-dd", "en-US"),
-          this.selectedUsers,
+          [userValue.instagramName],
           this.selectedLocation
         )
         .subscribe((photoShooting) => {

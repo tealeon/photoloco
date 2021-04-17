@@ -45,6 +45,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { LocationDetailComponent } from './modules/location/location-detail/location-detail.component';
 import {MatTabsModule} from '@angular/material/tabs';
 import {AuthGuard} from './core/auth.guard';
+import { PhotoshootingInvitesComponent } from './modules/profile/my-profile/photoshooting-invites/photoshooting-invites.component';
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
@@ -94,7 +95,8 @@ const appRoutes: Routes = [
     LoginComponent,
     RegisterComponent,
     LoginComponent,
-    LocationDetailComponent
+    LocationDetailComponent,
+    PhotoshootingInvitesComponent
   ],
   imports: [
     BrowserModule,

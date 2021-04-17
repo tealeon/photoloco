@@ -1,4 +1,3 @@
-
 <mat-card id="wrapper">
   <mat-card-title>Hello {{user.firstName}}!</mat-card-title>
   <mat-card-content>
@@ -32,8 +31,14 @@
     <br>
     <hr>
     <br>
-    <h2>My Photoshootings (<!--{{user.photoShootingsInvolvedIn.length}}-->1)</h2>
+    <h2>My Photoshootings ({{user.photoShootingsInvolvedIn.length}})</h2>
 
-    <!--<app-photoshooting-list [user]="user"></app-photoshooting-list>-->
+    <app-photoshooting-list [user]="user"></app-photoshooting-list>
+
+    <br>
+    <hr>
+    <br>
+
+    <app-photoshooting-invites [user]="user"></app-photoshooting-invites>
   </mat-card-content>
 </mat-card>
