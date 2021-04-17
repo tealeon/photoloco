@@ -45,7 +45,6 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { LocationDetailComponent } from './modules/location/location-detail/location-detail.component';
 import {MatTabsModule} from '@angular/material/tabs';
 import {AuthGuard} from './core/auth.guard';
-import { DeleteMeComponent } from './modules/profile/my-profile/delete-me/delete-me.component';
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
@@ -95,8 +94,7 @@ const appRoutes: Routes = [
     LoginComponent,
     RegisterComponent,
     LoginComponent,
-    LocationDetailComponent,
-    DeleteMeComponent
+    LocationDetailComponent
   ],
   imports: [
     BrowserModule,
