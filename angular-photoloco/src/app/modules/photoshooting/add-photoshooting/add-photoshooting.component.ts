@@ -1,21 +1,21 @@
-import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormControl, Validators} from '@angular/forms';
-import {UserService} from '../../../core/services/user.service';
-import {PhotoshootingService} from '../../../core/services/photoshooting.service';
-import {formatDate} from '@angular/common';
-import {PhotoShootingInviteService} from '../../../core/services/photo-shooting-invite.service';
-import {PhotoShootingInviteModel} from '../../../shared/models/photoShootingInvite.model';
+import { Component, OnInit } from "@angular/core";
+import { FormBuilder, FormControl, Validators } from "@angular/forms";
+import { UserService } from "../../../core/services/user.service";
+import { PhotoshootingService } from "../../../core/services/photoshooting.service";
+import { formatDate } from "@angular/common";
+import { PhotoShootingInviteService } from "../../../core/services/photo-shooting-invite.service";
+import { PhotoShootingInviteModel } from "../../../shared/models/photoShootingInvite.model";
+import { Router } from "@angular/router";
 
 @Component({
-  selector: 'app-add-photoshooting',
-  templateUrl: './add-photoshooting.component.html',
-  styleUrls: ['./add-photoshooting.component.css']
+  selector: "app-add-photoshooting",
+  templateUrl: "./add-photoshooting.component.html",
+  styleUrls: ["./add-photoshooting.component.css"],
 })
 export class AddPhotoshootingComponent implements OnInit {
-
   shootingForm = this.fb.group({
     title: [null, Validators.required],
-    date: [null, Validators.required]
+    date: [null, Validators.required],
   });
 
   selectedUsers: string[] = [];
@@ -25,11 +25,11 @@ export class AddPhotoshootingComponent implements OnInit {
     private userService: UserService,
     private fb: FormBuilder,
     private photoshootingService: PhotoshootingService,
-    private photoShootingInviteService: PhotoShootingInviteService
-  ) { }
+    private photoShootingInviteService: PhotoShootingInviteService,
+    private router: Router
+  ) {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   displayFn(subject) {
     return subject ? subject.name : undefined;
@@ -48,25 +48,27 @@ export class AddPhotoshootingComponent implements OnInit {
   }
 
   onSubmit(): void {
-    console.log(this.shootingForm.valid, this.listsValid());
-    if (this.shootingForm.valid && this.listsValid()) {
-      this.userService.getUserValue().subscribe(userValue => {
-        this.photoshootingService.submitPhotoshooting(
+    this.userService.getUserValue().subscribe((userValue) => {
+      this.photoshootingService
+        .submitPhotoshooting(
           this.shootingForm.value.title,
-          formatDate(this.shootingForm.value.date, 'yyyy-MM-dd', 'en-US'),
-          [userValue.instagramName],
-          this.selectedLocation).subscribe(
-          photoShooting => {
-            this.selectedUsers.forEach(receiverInstagramName => {
-              this.photoShootingInviteService.sendInvite(new PhotoShootingInviteModel(
-                userValue.instagramName,
-                receiverInstagramName,
-                photoShooting
-              )).subscribe();
-            });
-          }
-        );
-      });
-    }
+          formatDate(this.shootingForm.value.date, "yyyy-MM-dd", "en-US"),
+          this.selectedUsers,
+          this.selectedLocation
+        )
+        .subscribe((photoShooting) => {
+          this.selectedUsers.forEach((receiverInstagramName) => {
+            this.photoShootingInviteService
+              .sendInvite(
+                photoShooting.id,
+                new PhotoShootingInviteModel(
+                  userValue.instagramName,
+                  receiverInstagramName
+                )
+              )
+              .subscribe(() => this.router.navigate(["my-profile"]));
+          });
+        });
+    });
   }
 }

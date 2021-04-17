@@ -21,8 +21,8 @@ export class PhotoShootingInviteService {
     this.http.get(this.url + '/' + id + '/' + response);
   }
 
-  sendInvite(invite: PhotoShootingInviteModel): Observable<PhotoShootingInviteModel> {
-    return this.http.post<PhotoShootingInviteModel>(this.url, invite);
+  sendInvite(photoShootingId: number, invite: PhotoShootingInviteModel): Observable<PhotoShootingInviteModel> {
+    return this.http.post<PhotoShootingInviteModel>(this.url + '/' + photoShootingId, invite);
   }
 
 }

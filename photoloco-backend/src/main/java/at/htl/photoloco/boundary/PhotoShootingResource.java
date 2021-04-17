@@ -48,7 +48,7 @@ public class PhotoShootingResource {
         PhotoShooting photoShooting = new PhotoShooting(photoShootingDto);
         photoShooting.persist();
 
-        return Response.noContent().build();
+        return Response.ok(new PhotoShootingDto(photoShooting)).build();
     }
 
     @PUT

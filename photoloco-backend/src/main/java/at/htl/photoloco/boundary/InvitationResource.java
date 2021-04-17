@@ -3,11 +3,13 @@ package at.htl.photoloco.boundary;
 import at.htl.photoloco.dto.PhotoShootingInviteDto;
 import at.htl.photoloco.entity.PhotoShootingInvite;
 import at.htl.photoloco.entity.User;
-import org.hibernate.Hibernate;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.transaction.Transactional;
-import javax.ws.rs.*;
+import javax.ws.rs.GET;
+import javax.ws.rs.POST;
+import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.core.Response;
 import java.util.List;
 
@@ -17,7 +19,7 @@ public class InvitationResource {
 
     @GET
     @Path("/{instagramName}")
-    public Response getInvitesOfUser( @PathParam("instagramName") String instagramName) {
+    public Response getInvitesOfUser(@PathParam("instagramName") String instagramName) {
         User user = User.find("instagramName", instagramName).firstResult();
 
         if (user == null) return Response.status(Response.Status.BAD_REQUEST).build();
@@ -46,11 +48,11 @@ public class InvitationResource {
 
     @POST
     @Transactional
-    public Response sendInviteToUser(PhotoShootingInviteDto photoShootingInviteDto) {
-        System.out.println(photoShootingInviteDto.getReceiver());
-        PhotoShootingInvite photoShootingInvite = new PhotoShootingInvite(photoShootingInviteDto);
-        PhotoShootingInvite.persist(photoShootingInvite);
+    @Path("{photoshooting-id}")
+    public Response sendInviteToUser(@PathParam("photoshooting-id") Long photoshootingId, PhotoShootingInviteDto photoShootingInviteDto) {
+        PhotoShootingInvite photoShootingInvite = new PhotoShootingInvite(photoShootingInviteDto, photoshootingId);
+        photoShootingInvite.persist();
 
-        return Response.ok(photoShootingInvite).build();
+        return Response.noContent().build();
     }
 }
