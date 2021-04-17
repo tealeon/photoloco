@@ -14,6 +14,10 @@ export class UserService {
   private userValue = new BehaviorSubject<UserModel>(null);
 
   constructor(private http: HttpClient, private router: Router) {
+    const user: UserModel = JSON.parse(localStorage.getItem("user"));
+    if (user != null) {
+      this.login(user);
+    }
   }
 
   isLoggedIn(): Observable<boolean> {
@@ -27,6 +31,7 @@ export class UserService {
 
   login(user: UserModel): void {
     this.http.post<UserModel>('http://localhost:8080/user/login', user).subscribe(value => {
+      localStorage.setItem("user", JSON.stringify(user));
       this.loggedIn.next(true);
       this.userValue.next(value);
       console.log(value);
