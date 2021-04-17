@@ -1,9 +1,9 @@
-import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-import {map} from 'rxjs/operators';
-import {BehaviorSubject, Observable} from 'rxjs';
-import {UserModel} from '../../shared/models/user.model';
-import {Router} from '@angular/router';
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { map } from 'rxjs/operators';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { UserModel } from '../../shared/models/user.model';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -58,7 +58,7 @@ export class UserService {
         const result = [];
         for (const key in data) {
           if (data.hasOwnProperty(key)) {
-            result.push({...data[key]});
+            result.push({ ...data[key] });
           }
         }
         return result;
@@ -72,7 +72,7 @@ export class UserService {
         const result = [];
         for (const key in data) {
           if (data.hasOwnProperty(key)) {
-            result.push({...data[key]});
+            result.push({ ...data[key] });
           }
         }
         return result;
@@ -86,7 +86,7 @@ export class UserService {
         const result = [];
         for (const key in data) {
           if (data.hasOwnProperty(key)) {
-            result.push({...data[key]});
+            result.push({ ...data[key] });
           }
         }
         return result;
@@ -99,4 +99,8 @@ export class UserService {
     return this.http.post<UserModel>(url, user);
   }
 
+  rateUser(instagramName: string, instagramNameRated: string, rating: number): Observable<void> {
+    const url = 'http://localhost:8080/user/' + instagramName + '/' + instagramNameRated;
+    return this.http.post<void>(url, rating);
+  }
 }

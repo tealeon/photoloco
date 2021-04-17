@@ -1,7 +1,9 @@
 package at.htl.photoloco.boundary;
 
 import at.htl.photoloco.dto.UserDto;
+import at.htl.photoloco.dto.UserRatingDto;
 import at.htl.photoloco.entity.User;
+import at.htl.photoloco.entity.UserRating;
 import io.quarkus.security.Authenticated;
 import org.hibernate.Hibernate;
 
@@ -38,9 +40,9 @@ public class UserResource {
 
         System.out.println(userDto);
 
-        if ( user == null) return Response.status(Status.BAD_REQUEST).build();
+        if (user == null) return Response.status(Status.BAD_REQUEST).build();
 
-        if ( !user.password.equals(userDto.getPassword())) return Response.status(Status.BAD_REQUEST).build();
+        if (!user.password.equals(userDto.getPassword())) return Response.status(Status.BAD_REQUEST).build();
 
         return Response.ok(new UserDto(user)).build();
     }
@@ -79,7 +81,7 @@ public class UserResource {
 
     @GET
     @Path("/photographers")
-    public List<UserDto> getAllPhotographers(){
+    public List<UserDto> getAllPhotographers() {
 
         return User.streamAll()
                 .map(user -> (User) user)
@@ -91,7 +93,7 @@ public class UserResource {
 
     @GET
     @Path("/models")
-    public List<UserDto> getAllModels(){
+    public List<UserDto> getAllModels() {
 
         return User.streamAll()
                 .map(user -> (User) user)
@@ -108,5 +110,36 @@ public class UserResource {
         User user = new User(userDto);
         user.persist();
         return Response.ok(user).build();
+    }
+
+    @POST
+    @Path("rating/{instagramName}")
+    public Response getRatedUser(@PathParam("instagramName") String instagramName) {
+        User user = User.find("instagramName", instagramName).firstResult();
+        List<UserRatingDto> ratings = user.createdRatings
+                .stream()
+                .map(UserRatingDto::new)
+                .collect(Collectors.toList());
+
+        return Response.ok(ratings).build();
+    }
+
+
+    @POST
+    @Transactional
+    @Path("{instagramName}/{instagramName-rating}")
+    public Response rateUser(@PathParam("instagramName") String instagramName, @PathParam("instagramName-rating") String instagramNameRating, Integer rating) {
+        User user = User.find("instagramName", instagramName).firstResult();
+        User ratedUser = User.find("instagramName", instagramNameRating).firstResult();
+
+        UserRating oldRating = UserRating.find("ratingUser", user).firstResult();
+        if (oldRating != null) {
+            oldRating.rating = rating;
+        } else {
+            UserRating userRating = new UserRating(ratedUser, user, rating);
+            userRating.persist();
+        }
+
+        return Response.noContent().build();
     }
 }

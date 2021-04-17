@@ -1,0 +1,21 @@
+<h2 mat-dialog-title>Rate users:</h2>
+<mat-list>
+    <mat-list-item *ngFor="let user of users">
+        <div class="item">
+            <span>{{ user.username }}:</span>
+            <mat-form-field>
+                <mat-label>Rating</mat-label>
+                <mat-select [(ngModel)]="user.rating">
+                    <mat-option *ngFor="let rate of [1, 2, 3, 4, 5]" [value]="rate">
+                        {{ rate }}
+                    </mat-option>
+                    <mat-option [value]="-1">-</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+    </mat-list-item>
+</mat-list>
+<mat-dialog-actions align="end">
+    <button mat-stroked-button mat-dialog-close>Cancel</button>
+    <button mat-stroked-button (click)="rate()">Rate</button>
+</mat-dialog-actions>

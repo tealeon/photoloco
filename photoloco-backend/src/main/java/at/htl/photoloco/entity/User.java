@@ -50,6 +50,12 @@ public class User extends PanacheEntity {
     @OneToMany(mappedBy = "recipient")
     public List<Comment> receivedComments = new LinkedList<>();
 
+    @OneToMany(mappedBy = "ratedUser")
+    public List<UserRating> userRatings = new LinkedList<>();
+
+    @OneToMany(mappedBy = "ratingUser")
+    public List<UserRating> createdRatings = new LinkedList<>();
+
     public User() {
     }
 
@@ -103,5 +109,18 @@ public class User extends PanacheEntity {
     //Konstruktor wird diese Fun aufrufen
     public void update(UserDto updatedUser) {
 
+    }
+
+    public Integer getRating() {
+        if (this.userRatings.isEmpty()) {
+            return null;
+        }
+
+        int sum = 0;
+        for (UserRating userRating : this.userRatings) {
+            sum += userRating.rating;
+        }
+
+        return sum / this.userRatings.size();
     }
 }

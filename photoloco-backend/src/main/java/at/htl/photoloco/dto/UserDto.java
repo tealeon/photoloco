@@ -48,6 +48,8 @@ public class UserDto {
 
     private String password;
 
+    private Integer rating;
+
     private List<PhotoShootingDto> photoShootingsInvolvedIn = new LinkedList<>();
 
     public UserDto() {
@@ -68,6 +70,7 @@ public class UserDto {
         this.instagramName = user.instagramName;
         this.websiteUrl = user.websiteUrl;
         this.password = user.password;
+        this.rating = user.getRating();
         this.photoShootingsInvolvedIn = user.photoShootingsInvolvedIn.stream().map(PhotoShootingDto::new).collect(Collectors.toList());
     }
 
@@ -177,6 +180,10 @@ public class UserDto {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public Integer getRating() {
+        return rating;
     }
 
     public List<PhotoShootingDto> getPhotoShootingsInvolvedIn() {

@@ -46,6 +46,8 @@ import { LocationDetailComponent } from './modules/location/location-detail/loca
 import {MatTabsModule} from '@angular/material/tabs';
 import {AuthGuard} from './core/auth.guard';
 import { PhotoshootingInvitesComponent } from './modules/profile/my-profile/photoshooting-invites/photoshooting-invites.component';
+import { RatingDialogComponent } from './modules/profile/my-profile/rating-dialog/rating-dialog.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
@@ -96,7 +98,8 @@ const appRoutes: Routes = [
     RegisterComponent,
     LoginComponent,
     LocationDetailComponent,
-    PhotoshootingInvitesComponent
+    PhotoshootingInvitesComponent,
+    RatingDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -118,7 +121,8 @@ const appRoutes: Routes = [
     MatAutocompleteModule,
     MatIconModule,
     MatCheckboxModule,
-    MatTabsModule
+    MatTabsModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]
