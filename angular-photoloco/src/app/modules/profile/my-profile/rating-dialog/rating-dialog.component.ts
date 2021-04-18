@@ -39,7 +39,7 @@ export class RatingDialogComponent implements OnInit {
     this.userService.getUserValue().subscribe(userValue => {
       const requests: Observable<void>[] = [];
       for (let user of this.users) {
-          requests.push(this.userService.rateUser(userValue.instagramName, user.username, user.rating));
+        requests.push(this.userService.rateUser(userValue.instagramName, user.username, user.rating));
       }
 
       forkJoin(requests).subscribe(() => {
