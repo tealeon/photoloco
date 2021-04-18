@@ -19,4 +19,7 @@ export class MyProfileComponent implements OnInit {
     });
   }
 
+  logout() {
+    this.userService.logout();
+  }
 }

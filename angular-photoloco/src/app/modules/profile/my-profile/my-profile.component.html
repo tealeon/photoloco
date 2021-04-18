@@ -3,7 +3,7 @@
   <mat-card-content>
     <div class="grid-container">
       <div class="pic">
-        <img src="{{user.imageUrl}}" width="100%" style="border-radius: 50%;">
+        <img src="{{user.imageUrl}}" width="50%" style="border-radius: 50%;">
       </div>
       <div class="userBool">
         <div class="user">
@@ -40,5 +40,12 @@
     <br>
 
     <app-photoshooting-invites [user]="user"></app-photoshooting-invites>
+
+    <br>
+    <hr>
+    <br>
+
+    <button mat-stroked-button color="warn" (click)="logout()">Logout</button>
+
   </mat-card-content>
 </mat-card>
