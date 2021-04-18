@@ -7,10 +7,11 @@
       <img src={{model.imageUrl}} width="20%" style="border-radius: 50%">
     </mat-card-content>
 
-    <h2 style="">{{model.username}}</h2>
+    <h2>{{model.username}}</h2>
 
     <mat-card-content>
       <p>{{model.biography}}</p>
+      <h3 *ngIf="model.rating">⭐ {{model.rating | number: '1.0-2'}} / 5</h3>
     </mat-card-content>
 
   </mat-card>
