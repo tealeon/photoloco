@@ -4,7 +4,7 @@
 
   <button style="margin-bottom: 2%" mat-raised-button routerLink="/create-post">Create a post</button>
 
-  <mat-card *ngFor="let post of getAllPosts()" (click)="showPostDetails(post)" class="col-12 z-de"
+  <mat-card *ngFor="let post of posts" (click)="showPostDetails(post)" class="col-12 z-de"
             style="cursor: pointer">
 
     <h2>{{post.title}}</h2>

@@ -11,7 +11,7 @@ import {UserModel} from '../../../shared/models/user.model';
 })
 export class PostListComponent implements OnInit {
 
-  posts: Array<PostModel>;
+  posts: PostModel[] = [];
 
   constructor(private router: Router,
               private postService: PostService) { }
@@ -26,10 +26,6 @@ export class PostListComponent implements OnInit {
     for (let i = 0; i < this.posts.length; i++) {
       this.posts[i].author = JSON.stringify(this.posts[i].author);
     }
-  }
-
-  getAllPosts(): Array<PostModel> {
-    return this.posts;
   }
 
   showPostDetails(post) {
