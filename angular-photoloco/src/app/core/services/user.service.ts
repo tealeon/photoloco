@@ -4,6 +4,7 @@ import { map } from 'rxjs/operators';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { UserModel } from '../../shared/models/user.model';
 import { Router } from '@angular/router';
+import { UserRatingModel } from 'src/app/shared/models/userRating.model';
 
 @Injectable({
   providedIn: 'root'
@@ -102,5 +103,10 @@ export class UserService {
   rateUser(instagramName: string, instagramNameRated: string, rating: number): Observable<void> {
     const url = 'http://localhost:8080/user/' + instagramName + '/' + instagramNameRated;
     return this.http.post<void>(url, rating);
+  }
+
+  getRatedUser(instagramName: string): Observable<UserRatingModel[]> {
+    const url = 'http://localhost:8080/user/rating/' + instagramName;
+    return this.http.get<UserRatingModel[]>(url);
   }
 }

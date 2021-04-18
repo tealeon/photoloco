@@ -22,15 +22,24 @@ export class RatingDialogComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.userService.getUserValue().subscribe(userValue => {
+      this.userService.getRatedUser(userValue.instagramName).subscribe((users) => {
+        console.log(users);
+        for (let user of this.users) {
+          const foundUser = users.find(aUser => aUser.user === user.username);
+          if (foundUser != null) {
+            user.rating = foundUser.rating;
+          }
+        }
+      });
+    });
   }
 
   rate(): void {
     this.userService.getUserValue().subscribe(userValue => {
       const requests: Observable<void>[] = [];
       for (let user of this.users) {
-        if (user.rating !== -1) {
           requests.push(this.userService.rateUser(userValue.instagramName, user.username, user.rating));
-        }
       }
 
       forkJoin(requests).subscribe(() => {

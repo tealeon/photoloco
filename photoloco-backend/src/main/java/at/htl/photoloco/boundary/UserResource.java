@@ -112,10 +112,11 @@ public class UserResource {
         return Response.ok(user).build();
     }
 
-    @POST
+    @GET
     @Path("rating/{instagramName}")
     public Response getRatedUser(@PathParam("instagramName") String instagramName) {
         User user = User.find("instagramName", instagramName).firstResult();
+        System.out.println(user.createdRatings);
         List<UserRatingDto> ratings = user.createdRatings
                 .stream()
                 .map(UserRatingDto::new)
@@ -132,9 +133,13 @@ public class UserResource {
         User user = User.find("instagramName", instagramName).firstResult();
         User ratedUser = User.find("instagramName", instagramNameRating).firstResult();
 
-        UserRating oldRating = UserRating.find("ratingUser", user).firstResult();
+        UserRating oldRating = UserRating.find("ratingUser = ?1 and ratedUser = ?2", user, ratedUser).firstResult();
         if (oldRating != null) {
-            oldRating.rating = rating;
+            if (rating == -1) {
+                oldRating.delete();
+            } else {
+                oldRating.rating = rating;
+            }
         } else {
             UserRating userRating = new UserRating(ratedUser, user, rating);
             userRating.persist();
