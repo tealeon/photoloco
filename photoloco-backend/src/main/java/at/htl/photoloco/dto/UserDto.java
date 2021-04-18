@@ -48,7 +48,7 @@ public class UserDto {
 
     private String password;
 
-    private Integer rating;
+    private Float rating;
 
     private List<PhotoShootingDto> photoShootingsInvolvedIn = new LinkedList<>();
 
@@ -182,7 +182,7 @@ public class UserDto {
         this.password = password;
     }
 
-    public Integer getRating() {
+    public Float getRating() {
         return rating;
     }
 

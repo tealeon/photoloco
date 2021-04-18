@@ -133,16 +133,19 @@ public class UserResource {
         User user = User.find("instagramName", instagramName).firstResult();
         User ratedUser = User.find("instagramName", instagramNameRating).firstResult();
 
+
         UserRating oldRating = UserRating.find("ratingUser = ?1 and ratedUser = ?2", user, ratedUser).firstResult();
-        if (oldRating != null) {
-            if (rating == -1) {
+        if (rating == -1) {
+            if (oldRating != null) {
                 oldRating.delete();
-            } else {
-                oldRating.rating = rating;
             }
         } else {
-            UserRating userRating = new UserRating(ratedUser, user, rating);
-            userRating.persist();
+            if (oldRating != null) {
+                oldRating.rating = rating;
+            } else {
+                UserRating userRating = new UserRating(ratedUser, user, rating);
+                userRating.persist();
+            }
         }
 
         return Response.noContent().build();

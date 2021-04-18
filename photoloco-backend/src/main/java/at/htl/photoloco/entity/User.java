@@ -111,12 +111,12 @@ public class User extends PanacheEntity {
 
     }
 
-    public Integer getRating() {
+    public Float getRating() {
         if (this.userRatings.isEmpty()) {
             return null;
         }
 
-        int sum = 0;
+        float sum = 0;
         for (UserRating userRating : this.userRatings) {
             sum += userRating.rating;
         }

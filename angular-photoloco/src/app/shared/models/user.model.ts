@@ -19,6 +19,7 @@ export class UserModel {
   posts: object;
   photoShootingsInvolvedIn: PhotoshootingModel[];
   password: string;
+  rating: number;
 
   constructor(id: number, username: string, firstName: string, lastName: string, imageUrl: string, email: string, city: string, country: string, isModel: string, isPhotographer: string, biography: string, instagramName: string, websiteUrl: string, posts: object, photoShootingsInvolvedIn: PhotoshootingModel[], password: string) {
     this.id = id;

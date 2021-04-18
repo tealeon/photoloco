@@ -1,16 +1,17 @@
 <div class="row content">
 
   <mat-card *ngFor="let photographer of getPhotographerList()" (click)="showPhotographerDetails(photographer)"
-            style="cursor: pointer">
+    style="cursor: pointer">
 
     <mat-card-content style="overflow: hidden;">
       <img src={{photographer.imageUrl}} width="20%" style="border-radius: 50%">
     </mat-card-content>
 
-    <h2 style="">{{photographer.username}}</h2>
+    <h2>{{photographer.username}}</h2>
 
     <mat-card-content>
       <p>{{photographer.biography}}</p>
+      <h3 *ngIf="photographer.rating">⭐ {{photographer.rating | number: '1.0-2'}} / 5</h3>
     </mat-card-content>
 
   </mat-card>
